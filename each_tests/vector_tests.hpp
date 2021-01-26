@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_tests.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heleneherin <heleneherin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/26 22:57:40 by heleneherin      ###   ########.fr       */
+/*   Updated: 2021/01/27 00:10:00 by lucaslefran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	testSizeVec(T& vec)
 	std::cout << vec.size();
 }
 
-template <typename T>
-void	testCapacityVec(T& vec)
-{
-	printTestNumber(0);
-	std::cout << "capacity: \n\t\t\t";
+// template <typename T>
+// void	testCapacityVec(T& vec)
+// {
+// 	printTestNumber(0);
+// 	std::cout << "capacity: \n\t\t\t";
 	
-	std::cout << vec.capacity();
-}
+// 	std::cout << vec.capacity();
+// }
 
 template <typename T>
 void	testEmptyVec(T& vec)
@@ -653,8 +653,8 @@ void	executeVecNonConst(T& vec, int testNb)
 	// Tests for non-const vectors
 	testOperatorBraceletVec(vec);
 	testSizeVec(vec);
-	testCapacityVec(vec);
 	testEmptyVec(vec);
+	// testCapacityVec(vec);
 	testIteratorsVec(vec);
 	testReverseIteratorsVec(vec);
 	testAtVec(vec);
@@ -689,7 +689,7 @@ void	executeVecConst(T& vec, int testNb)
 	// Tests for const vectors
 	testOperatorBraceletVec(vec);
 	testSizeVec(vec);
-	testCapacityVec(vec);
+	// testCapacityVec(vec);
 	testEmptyVec(vec);
 	testIteratorsVec(vec);
 	testReverseIteratorsVec(vec);

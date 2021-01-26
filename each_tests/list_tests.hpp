@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_tests.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heleneherin <heleneherin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/26 22:47:12 by heleneherin      ###   ########.fr       */
+/*   Updated: 2021/01/27 00:09:04 by lucaslefran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -429,7 +429,6 @@ void	testInsert3List(T& lis)
 		std::cout << *it << " | ";
 	std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
 }
-
 
 template <typename T>
 void	executeListNonConst(T& lis, int testNb)
