@@ -8214,4 +8214,93 @@ test 1200:	back:
 
 ---------------------
 test 1201:	operator[]: 
-	
+			0 0 0 0 0 
+---------------------
+test 1202:	size: 
+			5
+---------------------
+test 1203:	capacity: 
+			5
+---------------------
+test 1204:	empty: 
+			0
+---------------------
+test 1205:	iterators: 
+			operator++: 0 | 0 | 0 | 0 | 0 | 
+			++operator: 0 | 0 | 0 | 0 | 0 | 
+			operator--: 0 | 0 | 0 | 0 | 0 | 
+			--operator: 0 | 0 | 0 | 0 | 0 | 
+			operator+=: 0 | 0 | 0 | 0 | 0 | 
+			operator+: 0 | 0 | 0 | 0 | 0 | 
+			operator-=: 0 | 0 | 0 | 0 | 0 | 
+			operator-: 0 | 0 | 0 | 0 | 0 | 
+			operator[]: 0 | 0 | 0 | 0 | 0 | 
+---------------------
+test 1206:	reverse iterators: 
+			++operator: 0 | 0 | 0 | 0 | 0 | 
+			operator++: 0 | 0 | 0 | 0 | 0 | 
+			operator--: 0 | 0 | 0 | 0 | 0 | 
+			--operator: 0 | 0 | 0 | 0 | 0 | 
+			operator+=: 0 | 0 | 0 | 0 | 0 | 
+			operator+: 0 | 0 | 0 | 0 | 0 | 
+			operator-=: 0 | 0 | 0 | 0 | 0 | 
+			operator-: 0 | 0 | 0 | 0 | 0 | 
+			operator[]: 0 | 0 | 0 | 0 | 0 | 
+---------------------
+test 1207:	at: 
+			0 0 0 0 0 vector
+---------------------
+test 1208:	front: 
+			0
+---------------------
+test 1209:	back: 
+			0
+
+--------------------------------
+------	TESTING CONST VECTOR 56 ------
+--------------------------------
+		VECTOR TYPE: int
+
+---------------------
+test 1210:	operator[]: 
+			7 7 7 
+---------------------
+test 1211:	size: 
+			3
+---------------------
+test 1212:	capacity: 
+			3
+---------------------
+test 1213:	empty: 
+			0
+---------------------
+test 1214:	iterators: 
+			operator++: 7 | 7 | 7 | 
+			++operator: 7 | 7 | 7 | 
+			operator--: 7 | 7 | 7 | 
+			--operator: 7 | 7 | 7 | 
+			operator+=: 7 | 7 | 7 | 
+			operator+: 7 | 7 | 7 | 
+			operator-=: 7 | 7 | 7 | 
+			operator-: 7 | 7 | 7 | 
+			operator[]: 7 | 7 | 7 | 
+---------------------
+test 1215:	reverse iterators: 
+			++operator: 7 | 7 | 7 | 
+			operator++: 7 | 7 | 7 | 
+			operator--: 7 | 7 | 7 | 
+			--operator: 7 | 7 | 7 | 
+			operator+=: 7 | 7 | 7 | 
+			operator+: 7 | 7 | 7 | 
+			operator-=: 7 | 7 | 7 | 
+			operator-: 7 | 7 | 7 | 
+			operator[]: 7 | 7 | 7 | 
+---------------------
+test 1216:	at: 
+			7 7 7 vector
+---------------------
+test 1217:	front: 
+			7
+---------------------
+test 1218:	back: 
+			7

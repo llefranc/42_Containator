@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tester.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heleneherin <heleneherin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 17:27:13 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/26 22:22:31 by heleneherin      ###   ########.fr       */
+/*   Updated: 2021/01/26 23:21:38 by lucaslefran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 #include <list>
 
 // Include the containers to test
-#include "../../containers/vector.hpp"
-#include "../../containers/list.hpp"
+#include "../../42_ft_containers/containers/vector.hpp"
+#include "../../42_ft_containers/containers/list.hpp"
 
 // Needed for testing
 #include "stl_like.hpp"

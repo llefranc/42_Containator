@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heleneherin <heleneherin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:37:35 by hherin            #+#    #+#             */
-/*   Updated: 2021/01/26 22:53:20 by heleneherin      ###   ########.fr       */
+/*   Updated: 2021/01/26 23:41:35 by lucaslefran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,21 @@ int main(void)
     std::streambuf *coutbuf = std::cout.rdbuf(); //save old buf
     CreateTestFiles();
     
+	int nb = 0;
+	printTestNumber(&nb);
+	
     std::cout.rdbuf(stdFile.rdbuf()); //redirect std::cout to ft::vector_result.txt
     ContainerConstruct<int, std::vector<int> >(arrInt, executeVecNonConst<std::vector<int> >, executeVecConst<const std::vector<int> >);
+    // ContainerConstruct<int, std::vector<int> >(arrInt, executeVecNonConst<std::vector<int> >, executeVecConst<const std::vector<int> >);
     // ContainerConstruct<std::string, std::vector<std::string> >(arrString, executeVecNonConst<std::string>, executeVecConst<std::string>);
     // ContainerConstruct<char, std::vector<char> >(arrChar, executeVecNonConst<char>, executeVecConst<char>);
 
+	nb = 0;
+	printTestNumber(&nb);
+
 	std::cout.rdbuf(ftFile.rdbuf()); //redirect std::cout to std::vector_result.txt
     ContainerConstruct<int, ft::vector<int> >(arrInt, executeVecNonConst<ft::vector<int> >, executeVecConst<const ft::vector<int> >);
+    // ContainerConstruct<int, ft::vector<int> >(arrInt, executeVecNonConst<ft::vector<int> >, executeVecConst<const ft::vector<int> >);
     // ContainerConstruct<std::string, ft::vector<std::string> >(arrString, executeVecNonConst<std::string>, executeVecConst<std::string>);
     // ContainerConstruct<char, ft::vector<char> >(arrChar, executeVecNonConst<char>, executeVecConst<char>);
 

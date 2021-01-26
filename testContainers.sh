@@ -7,9 +7,10 @@ make re
 ./containers_test
 
 echo "~ Test diff output from std container and your work ~";
-if diff -u result/ft_vector.txt result/std_vector.txt;then
+if diff results/ft_vector.txt results/std_vector.txt > /dev/null;then
     echo "${BLUE}No differences${NC}";
 else 
+	diff results/ft_vector.txt results/std_vector.txt > results/diff_vector.txt
     echo "${BLUE}Try again${NC}";
 fi
 

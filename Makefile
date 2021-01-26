@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: heleneherin <heleneherin@student.42.fr>    +#+  +:+       +#+         #
+#    By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 11:24:58 by llefranc          #+#    #+#              #
-#    Updated: 2021/01/26 22:34:34 by heleneherin      ###   ########.fr        #
+#    Updated: 2021/01/26 23:54:30 by lucaslefran      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,22 +16,11 @@ FLAGS		=	-g -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
 SRCS		=	main.cpp
 
-# HEADER_CON	=	vector.hpp list.hpp
-# PATH_CON	=	../containers/
+HEADER_INC	=	Bob_test.hpp print_type.hpp tester.hpp stl_like.hpp
+PATH_INC	=	includes/
 
-# HEADER_TEM	=	type1_or_type2.hpp stl_like.hpp
-# PATH_TEM	=	../templates/
-
-# HEADER_ITE	=	bidirectional_iterator.hpp random_access_iterator.hpp \
-# 				rev_bidirectional_iterator.hpp rev_random_access_iterator.hpp \
-# 				list_iterator.hpp rev_list_iterator.hpp
-# PATH_ITE	=	../iterators/
-				
-# HEADER_INC	=	Bob_test.hpp print_type.hpp tester.hpp
-# PATH_INC	=	includes/
-
-# HEADER_TEST	=	vector_tests.hpp list_tests.hpp
-# PATH_TEST	=	each_tests/
+HEADER_TEST	=	ContainerCreate.hpp vector_tests.hpp list_tests.hpp
+PATH_TEST	=	each_tests/
 				
 OBJS		=	$(SRCS:.cpp=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ContainerCreate.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: heleneherin <heleneherin@student.42.fr>    +#+  +:+       +#+        */
+/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:42:21 by hherin            #+#    #+#             */
-/*   Updated: 2021/01/26 22:50:16 by heleneherin      ###   ########.fr       */
+/*   Updated: 2021/01/26 23:51:23 by lucaslefran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ void ContainerConstruct(T (&x)[20], Func execNonConst, FuncC execConst)
     C c2; c2 = c0;
     execNonConst(c2, ++nb);
 
-    C c3(++c0.begin(), --c0.end());
+	typename C::iterator beg = c0.begin();
+	typename C::iterator end = c0.end();
+    C c3(++beg, --end);
     execNonConst(c3, ++nb);
 
     C c4(c0.begin(), c0.begin());
