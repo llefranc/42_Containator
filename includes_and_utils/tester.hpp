@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tester.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
+/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 17:27:13 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/26 23:21:38 by lucaslefran      ###   ########.fr       */
+/*   Updated: 2021/01/27 12:45:00 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 
 #include <vector>
 #include <list>
 
 // Include the containers to test
-#include "../../42_ft_containers/containers/vector.hpp"
-#include "../../42_ft_containers/containers/list.hpp"
+#include "../../09_containers/containers/vector.hpp"
+#include "../../09_containers/containers/list.hpp"
 
 // Needed for testing
 #include "stl_like.hpp"
+#include "utils.hpp"
 #include "print_type.hpp"
 #include "Bob_test.hpp"
-
-void	printTestNumber(int *nb);
 
 
 #endif

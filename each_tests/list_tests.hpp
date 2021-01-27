@@ -3,24 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   list_tests.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
+/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/27 00:09:04 by lucaslefran      ###   ########.fr       */
+/*   Updated: 2021/01/27 12:40:28 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIST_TESTS_HPP
 #define LIST_TESTS_HPP
 
-#include "../includes/tester.hpp"
-
-void	printTestNumber(int *nb);
+#include "../includes_and_utils/tester.hpp"
 
 template <typename T>
 void	testSizeList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "size: \n\t\t\t";
 	
 	std::cout << lis.size();
@@ -29,7 +27,7 @@ void	testSizeList(T& lis)
 template <typename T>
 void	testIteratorsList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "iterators: \n";
 	
 	std::cout << "\t\t\toperator++: ";
@@ -57,7 +55,7 @@ void	testIteratorsList(T& lis)
 template <typename T>
 void	testReverseIteratorsList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "reverse iterators: \n";
 	
 	std::cout << "\t\t\t++operator: ";
@@ -85,7 +83,7 @@ void	testReverseIteratorsList(T& lis)
 template <typename T>
 void	testFrontList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "front: \n\t\t\t";
 	
 	if (lis.size()) // To prevent overflow
@@ -95,7 +93,7 @@ void	testFrontList(T& lis)
 template <typename T>
 void	testBackList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "back: \n\t\t\t";
 	
 	if (lis.size()) // To prevent overflow
@@ -105,7 +103,7 @@ void	testBackList(T& lis)
 template <typename T>
 void	testPushBackList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "push_back: \n\t\t\t";
 	
 	// Allows to value initialize (case size is 0, we can't assign lis.front())
@@ -127,7 +125,7 @@ void	testPushBackList(T& lis)
 template <typename T>
 void	testPopBackList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "pop_back: \n\t\t\t";
 	
 	if (lis.size())
@@ -146,7 +144,7 @@ void	testPopBackList(T& lis)
 template <typename T>
 void	testSwapList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "swap member and non member: \n\t\t\t";
 
 	T tmp(lis);
@@ -172,7 +170,7 @@ void	testSwapList(T& lis)
 template <typename T>
 void	testPushFrontList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "push_front: \n\t\t\t";
 	
 	// Allows to value initialize (case size is 0, we can't assign lis.front())
@@ -194,7 +192,7 @@ void	testPushFrontList(T& lis)
 template <typename T>
 void	testPopFrontList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "pop_front: \n\t\t\t";
 	
 	if (lis.size())
@@ -213,7 +211,7 @@ void	testPopFrontList(T& lis)
 template <typename T>
 void	testEmptyList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "empty: \n\t\t\t";
 	
 	std::cout << lis.empty();
@@ -222,7 +220,7 @@ void	testEmptyList(T& lis)
 template <typename T>
 void	testClearList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "clear: \n\t\t\t";
 	
 	T tmp = lis;
@@ -247,7 +245,7 @@ void	testClearList(T& lis)
 template <typename T>
 void	testResizeList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "resize: \n\t\t\t";
 
 	T tmp = lis;
@@ -271,7 +269,7 @@ void	testResizeList(T& lis)
 template <typename T>
 void	testReverseList(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "reverse: \n\t\t\t";
 
 	T tmp = lis;
@@ -295,7 +293,7 @@ void	testReverseList(T& lis)
 template <typename T>
 void	testAssign1List(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "assign1: \n\t\t\t";
 
 	T tmp = lis;
@@ -325,7 +323,7 @@ void	testAssign1List(T& lis)
 template <typename T>
 void	testAssign2List(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "assign2: \n\t\t\t";
 
 	T tmp = lis;
@@ -355,7 +353,7 @@ void	testAssign2List(T& lis)
 template <typename T>
 void	testInsert1List(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "insert1: \n\t\t\t";
 
 	T tmp = lis;
@@ -382,7 +380,7 @@ void	testInsert1List(T& lis)
 template <typename T>
 void	testInsert2List(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "insert2: \n\t\t\t";
 
 	T tmp = lis;
@@ -412,7 +410,7 @@ void	testInsert2List(T& lis)
 template <typename T>
 void	testInsert3List(T& lis)
 {
-	printTestNumber(0);
+	getTestNumber(0);
 	std::cout << "insert3: \n\t\t\t";
 
 	T tmp = lis;

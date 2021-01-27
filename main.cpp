@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
+/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:37:35 by hherin            #+#    #+#             */
-/*   Updated: 2021/01/27 00:21:10 by lucaslefran      ###   ########.fr       */
+/*   Updated: 2021/01/27 12:51:11 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/tester.hpp"
+#include "includes_and_utils/tester.hpp"
 #include "each_tests/ContainerCreate.hpp"
 #include "each_tests/list_tests.hpp"
 #include "each_tests/vector_tests.hpp"
@@ -18,20 +18,15 @@
 std::ofstream stdFile;
 std::ofstream ftFile;
 
-void    CreateTestFiles()
+void    CreateTestFiles(std::string fileName)
 {
-    stdFile.open("results/std_vector.txt");
-    ftFile.open("results/ft_vector.txt");
+    stdFile.open("results/std_" + fileName + ".txt");
+    ftFile.open("results/ft_" + fileName + ".txt");
 }
 
-void	printTestNumber(int *nb)
+void	testVector(char arrChar[20], int arrInt[20], std::string arrString[20])
 {
-	static int i = 0;
-
-	if (nb)
-		i = *nb;
-	else
-		std::cout << "\n---------------------\ntest " <<++i << ":\t";
+	
 }
 
 int main(void)
@@ -42,10 +37,10 @@ int main(void)
     //                                 "raviolis du nord est", "PNY", "street bangkok", "confifi"};
     
     std::streambuf *coutbuf = std::cout.rdbuf(); //save old buf
-    CreateTestFiles();
+    CreateTestFiles("vector");
     
 	int nb = 0;
-	printTestNumber(&nb);
+	getTestNumber(&nb);
 	
     std::cout.rdbuf(stdFile.rdbuf()); //redirect std::cout to ft::vector_result.txt
     ContainerConstruct<int, std::vector<int> >(arrInt, executeVecNonConst<std::vector<int> >, executeVecConst<const std::vector<int> >);
@@ -53,7 +48,7 @@ int main(void)
     ContainerConstruct<char, std::vector<char> >(arrChar, executeVecNonConst<std::vector<char> >, executeVecConst<const std::vector<char> >);
 
 	nb = 0;
-	printTestNumber(&nb);
+	getTestNumber(&nb);
 
 	std::cout.rdbuf(ftFile.rdbuf()); //redirect std::cout to std::vector_result.txt
     ContainerConstruct<int, ft::vector<int> >(arrInt, executeVecNonConst<ft::vector<int> >, executeVecConst<const ft::vector<int> >);

@@ -1,0 +1,24 @@
+243c243
+< test 42: erase 1 elem:                      new elem after erase: 58966
+---
+> test 42: erase 1 elem:                      new elem after erase: 2147483647
+385c385
+< test 64: erase 1 elem:                      new elem after erase: 58966
+---
+> test 64: erase 1 elem:                      new elem after erase: 2147483647
+527c527
+< test 86: erase 1 elem:                      new elem after erase: 58966
+---
+> test 86: erase 1 elem:                      new elem after erase: 2147483647
+7622c7622
+< test 1204: erase 1 elem:                    new elem after erase: ^
+---
+> test 1204: erase 1 elem:                    new elem after erase: `
+7764c7764
+< test 1226: erase 1 elem:                    new elem after erase: ^
+---
+> test 1226: erase 1 elem:                    new elem after erase: `
+7906c7906
+< test 1248: erase 1 elem:                    new elem after erase: ^
+---
+> test 1248: erase 1 elem:                    new elem after erase: `

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ContainerCreate.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
+/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:42:21 by hherin            #+#    #+#             */
-/*   Updated: 2021/01/27 00:16:25 by lucaslefran      ###   ########.fr       */
+/*   Updated: 2021/01/27 12:41:13 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,13 @@
 
 #include <iostream>
 
-template <class C>
-void printContainer(C &ctnr)
-{
-    for (typename C::iterator it = ctnr.begin(); it != ctnr.end(); it++)
-        std::cout << *it << " | ";
-    std::cout << "\n";
-}
-
+// template <class C>
+// void printContainer(C &ctnr)
+// {
+//     for (typename C::iterator it = ctnr.begin(); it != ctnr.end(); it++)
+//         std::cout << *it << " | ";
+//     std::cout << "\n";
+// }
 
 template <class T, class C, class Func, class FuncC>
 void ContainerConstruct(T (&x)[20], Func execNonConst, FuncC execConst)

@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   vector_tests.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
+/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/27 00:10:00 by lucaslefran      ###   ########.fr       */
+/*   Updated: 2021/01/27 12:45:21 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VECTOR_TESTS_HPP
 #define VECTOR_TESTS_HPP
 
-#include "../includes/tester.hpp"
+#include "../includes_and_utils/tester.hpp"
 
 template <typename T>
 void	testOperatorBraceletVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "operator[]: \n\t\t\t";
-	
+	std::string name(getTestName(getTestNumber(0), "operator[]"));
+	std::cout << "\n---------------------";
+
+	printTestName(name);
 	for (size_t i = 0; i < vec.size(); ++i)
 		std::cout << vec[i] << " ";
 }
@@ -28,16 +29,16 @@ void	testOperatorBraceletVec(T& vec)
 template <typename T>
 void	testSizeVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "size: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "size"));
+	std::cout << "\n---------------------";
 	
-	std::cout << vec.size();
+	printTestName(name);	std::cout << vec.size();
 }
 
 // template <typename T>
 // void	testCapacityVec(T& vec)
 // {
-// 	printTestNumber(0);
+// 	getTestNumber(0);
 // 	std::cout << "capacity: \n\t\t\t";
 	
 // 	std::cout << vec.capacity();
@@ -46,56 +47,56 @@ void	testSizeVec(T& vec)
 template <typename T>
 void	testEmptyVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "empty: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "empty"));
+	std::cout << "\n---------------------";
 	
-	std::cout << vec.empty();
+	printTestName(name);	std::cout << vec.empty();
 }
 
 template <typename T>
 void	testIteratorsVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "iterators: \n";
+	std::string name(getTestName(getTestNumber(0), "iterators"));
+	std::cout << "\n---------------------";
 	
-	std::cout << "\t\t\toperator++: ";
+	printTestName(name, "operator++");
 	for (typename T::const_iterator it = vec.begin(); it != vec.end(); it++)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\t++operator: ";
+	printTestName(name, "++operator");
 	for (typename T::const_iterator it = vec.begin(); it != vec.end(); ++it)
 		std::cout << *it << " | ";
 
 	if (vec.size())
 	{
-		std::cout << "\n\t\t\toperator--: ";
+		printTestName(name, "operator--");
 		for (typename T::const_iterator it = vec.end(); it != vec.begin() - 1; it--)
 			if (it != vec.end())
 				std::cout << *it << " | ";
 
-		std::cout << "\n\t\t\t--operator: ";
+		printTestName(name, "--operator");
 		for (typename T::const_iterator it = vec.end(); it != vec.begin() - 1; --it)
 			if (it != vec.end())
 				std::cout << *it << " | ";
 	}
 
-	std::cout << "\n\t\t\toperator+=: ";
+	printTestName(name, "operator+=");
 	for (typename T::const_iterator it = vec.begin(); it != vec.end(); it += 1)
 		std::cout << *it << " | ";
 	
-	std::cout << "\n\t\t\toperator+: ";
+	printTestName(name, "operator+");
 	for (typename T::const_iterator it = vec.begin(); it != vec.end(); it = it + 1)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\toperator-=: ";
+	printTestName(name, "operator-=");
 	for (typename T::const_iterator it = vec.end() - 1; it != vec.begin() - 1; it -= 1)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\toperator-: ";
+	printTestName(name, "operator-");
 	for (typename T::const_iterator it = vec.end() - 1; it != vec.begin() - 1; it = it - 1)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\toperator[]: ";
+	printTestName(name, "operator[]");
 	for (ft::pair<size_t, typename T::const_iterator> i(0, vec.begin()); i.first < vec.size(); ++i.first)
 		std::cout << i.second[i.first] << " | ";
 }
@@ -103,56 +104,58 @@ void	testIteratorsVec(T& vec)
 template <typename T>
 void	testReverseIteratorsVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "reverse iterators: \n";
+	std::string name(getTestName(getTestNumber(0), "reverse iterators"));
+	std::cout << "\n---------------------";
 	
-	std::cout << "\t\t\t++operator: ";
+	printTestName(name, "++operator");
 	for (typename T::const_reverse_iterator it = vec.rbegin(); it != vec.rend(); ++it)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\toperator++: ";
+	printTestName(name, "operator++");
 	for (typename T::const_reverse_iterator it = vec.rbegin(); it != vec.rend(); it++)
 		std::cout << *it << " | ";	
 
 	if (vec.size())
 	{
-		std::cout << "\n\t\t\toperator--: ";
+		printTestName(name, "operator--");
 		for (typename T::const_reverse_iterator it = vec.rend(); it != vec.rbegin() - 1; it--)
 			if (it != vec.rend())
 				std::cout << *it << " | ";
 
-		std::cout << "\n\t\t\t--operator: ";
+		printTestName(name, "--operator");
 		for (typename T::const_reverse_iterator it = vec.rend(); it != vec.rbegin() - 1; --it)
 			if (it != vec.rend())
 				std::cout << *it << " | ";
 	}
 
-	std::cout << "\n\t\t\toperator+=: ";
+	printTestName(name, "operator+=");
 	for (typename T::const_reverse_iterator it = vec.rbegin(); it != vec.rend(); it += 1)
 		std::cout << *it << " | ";
 	
-	std::cout << "\n\t\t\toperator+: ";
+	printTestName(name, "operator+");
 	for (typename T::const_reverse_iterator it = vec.rbegin(); it != vec.rend(); it = it + 1)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\toperator-=: ";
+	printTestName(name, "operator-=");
 	for (typename T::const_reverse_iterator it = vec.rend() - 1; it != vec.rbegin() - 1; it -= 1)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\toperator-: ";
+	printTestName(name, "operator-");
 	for (typename T::const_reverse_iterator it = vec.rend() - 1; it != vec.rbegin() - 1; it = it - 1)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\toperator[]: ";
+	printTestName(name, "operator[]");
 	for (ft::pair<size_t, typename T::const_reverse_iterator> i(0, vec.rbegin()); i.first < vec.size(); ++i.first)
 		std::cout << i.second[i.first] << " | ";
 }
+
 template <typename T>
 void	testAtVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "at: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "at"));
+	std::cout << "\n---------------------";
 	
+	printTestName(name);
 	for (size_t i = 0; i < vec.size(); ++i)
 	{
 		try
@@ -166,6 +169,7 @@ void	testAtVec(T& vec)
 	}
 	
 	// Throwing an exception
+	printTestName(name);
 	try
 	{
 		std::cout << vec.at(100000) << " ";
@@ -179,9 +183,10 @@ void	testAtVec(T& vec)
 template <typename T>
 void	testFrontVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "front: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "front"));
+	std::cout << "\n---------------------";
 	
+	printTestName(name);
 	if (vec.size()) // To prevent overflow
 		std::cout << vec.front();
 }
@@ -189,9 +194,10 @@ void	testFrontVec(T& vec)
 template <typename T>
 void	testBackVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "back: \n\t\t\t";
-	
+	std::string name(getTestName(getTestNumber(0), "back"));
+	std::cout << "\n---------------------";
+
+	printTestName(name);
 	if (vec.size()) // To prevent overflow
 		std::cout << vec.back();
 }
@@ -199,8 +205,10 @@ void	testBackVec(T& vec)
 template <typename T>
 void	testPushBackVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "push_back: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "push_back"));
+	std::cout << "\n---------------------";
+	
+	printTestName(name);
 	
 	// Allows to value initialize (case size is 0, we can't assign vec[0])
 	typename T::value_type* x = new typename T::value_type ();
@@ -209,11 +217,8 @@ void	testPushBackVec(T& vec)
 
 	T tmp = vec;
 	tmp.push_back(*x);
-	std::cout << "new elem = " << tmp.back();
 
-	std::cout << "\n\t\t\tnew tmp: ";
-	for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); ++it)
-		std::cout << *it << " | ";
+	printContainer(name, tmp);
 
 	delete x;
 }
@@ -221,32 +226,30 @@ void	testPushBackVec(T& vec)
 template <typename T>
 void	testPopBackVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "pop_back: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "pop_back"));
+	std::cout << "\n---------------------";
+	
+	printTestName(name);
 	
 	if (vec.size())
 	{
 		T tmp = vec;
 		tmp.pop_back();
-		if (tmp.size()) // To prevent overflow
-			std::cout << "new elem = " << tmp.back();
-
-		std::cout << "\n\t\t\tnew tmp: ";
-		for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); ++it)
-			std::cout << *it << " | ";
+		printContainer(name, tmp);
 	}
 }
 
 template <typename T>
 void	testClearVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "clear: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "clear"));
+	std::cout << "\n---------------------";
 	
 	T tmp = vec;
-	std::cout << "size before clear: " << tmp.size() << " | ";
+	printTestName(name);	std::cout << "size before clear: " << tmp.size();
 	tmp.clear();
-	std::cout << "\n\t\t\tsize after clear: " << tmp.size();
+	
+	printTestName(name);	std::cout << "size after clear: " << tmp.size();
 
 	// Allows to value initialize (case size is 0, we can't assign vec[0])
 	typename T::value_type* x = new typename T::value_type ();
@@ -254,9 +257,7 @@ void	testClearVec(T& vec)
 		*x = vec[0];
 
 	tmp.push_back(*x);
-	std::cout << "\n\t\t\tnew vector: ";
-	for (typename T::const_iterator it = vec.begin(); it != vec.end(); ++it)
-		std::cout << *it << " | ";
+	printContainer(name, tmp);
 
 	delete x;
 }
@@ -264,9 +265,9 @@ void	testClearVec(T& vec)
 template <typename T>
 void	testSwapVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "swap member and non member: \n\t\t\t";
-
+	std::string name(getTestName(getTestNumber(0), "swap"));
+	std::cout << "\n---------------------";
+	
 	T tmp(vec);
 	T tmp2(vec);
 
@@ -277,12 +278,15 @@ void	testSwapVec(T& vec)
 
 	tmp.push_back(*x);
 	
-	std::cout << "size of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size() << "\n";
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size();
 	tmp2.swap(tmp);
-	std::cout << "\t\t\tsize of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size() << "\n";
+	printContainer(name, tmp2);
+
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size();
 
 	swap(tmp2, tmp);
-	std::cout << "\t\t\tsize of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size();
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size();
+	printContainer(name, tmp2);
 
 	delete x;
 }
@@ -290,11 +294,12 @@ void	testSwapVec(T& vec)
 template <typename T>
 void	testResizeVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "resize: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "resize"));
+	std::cout << "\n---------------------";
 
 	T tmp = vec;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 	// Allows to value initialize (case size is 0, we can't assign vec[0])
 	typename T::value_type* x = new typename T::value_type ();
@@ -302,8 +307,9 @@ void	testResizeVec(T& vec)
 		*x = vec[0];
 
 	tmp.resize(3, *x);
-	std::cout << "\t\t\tnew elem = " << tmp.back();
-	std::cout << "\n\t\t\tsize of tmp after resize = " << tmp.size();
+	printContainer(name, tmp);
+
+	printTestName(name);	std::cout << "size of tmp after resize = " << tmp.size();
 	
 	delete x;
 }
@@ -312,40 +318,39 @@ void	testResizeVec(T& vec)
 *	Test assign with iterators' range.
 */
 template <typename T>
-void	testAssign1Vec(T& vec)
+void	testAssignRangeVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "assign1: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "assign iterator range"));
+	std::cout << "\n---------------------";
 
 	T tmp = vec;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 
 	// Allows to value initialize (case size is 0, we can't assign vec[0])
 	typename T::value_type* x = new typename T::value_type ();
 	if (vec.size())
 		*x = vec[0];
 
-	tmp.resize(3, *x);
-	std::cout << "\t\t\tnew elem = " << tmp.back();
-
 	T tmp2 = vec;
+	tmp.resize(3, *x);
 	tmp2.assign(tmp.begin(), tmp.end());
-	std::cout << "\n\t\t\tsize after assign = " << tmp2.size() << " and content is:\n\t\t\t";
 
-	for (typename T::iterator it = tmp2.begin(); it != tmp2.end(); ++it)
-		std::cout << *it << " | ";
+	printTestName(name);	std::cout << "size after assign = " << tmp2.size();
+	printContainer(name, tmp2);
 
 	delete x;
 }
 
 template <typename T>
-void	testAssign2Vec(T& vec)
+void	testAssignNElemVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "assign2: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "assign n elems"));
+	std::cout << "\n---------------------";
 
 	T tmp = vec;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 
 	// Allows to value initialize (case size is 0, we can't assign vec[0])
 	typename T::value_type* x = new typename T::value_type ();
@@ -353,14 +358,12 @@ void	testAssign2Vec(T& vec)
 		*x = vec[0];
 		
 	tmp.resize(3, *x);
-	std::cout << "\t\t\tnew elem = " << tmp.back();
 
 	T tmp2 = vec;
 	tmp2.assign(tmp.size(), tmp.front());
-	std::cout << "\n\t\t\tsize after assign = " << tmp2.size() << " and content is:\n\t\t\t";
 
-	for (typename T::iterator it = tmp2.begin(); it != tmp2.end(); ++it)
-		std::cout << *it << " | ";
+	printTestName(name);	std::cout << "size after assign = " << tmp2.size();
+	printContainer(name, tmp2);
 		
 	delete x;
 }
@@ -369,28 +372,26 @@ void	testAssign2Vec(T& vec)
 *	Inserts one element.
 */
 template <typename T>
-void	testInsert1Vec(T& vec)
+void	testInsert1ElemVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "insert1: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "insert 1 elem"));
+	std::cout << "\n---------------------";
 
 	T tmp = vec;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 	// Allows to value initialize (case size is 0, we can't assign vec[0])
 	typename T::value_type* x = new typename T::value_type ();
 	if (vec.size())
 	{
 		*x = vec.front();
-		std::cout << "\t\t\treturn value: " << *tmp.insert(tmp.begin() + 1, *x) << "\n";
+		printTestName(name);	std::cout << "return value: " << *tmp.insert(tmp.begin() + 1, *x);
 	}
-	std::cout << "\t\t\treturn value: " << *tmp.insert(tmp.begin(), *x) << "\n";
-	std::cout << "\t\t\treturn value: " << *tmp.insert(tmp.end(), *x) << "\n";
+	printTestName(name);	std::cout << "return value: " << *tmp.insert(tmp.begin(), *x);
+	printTestName(name);	std::cout << "return value: " << *tmp.insert(tmp.end(), *x);
 	
-	std::cout << "\t\t\tnew vector: ";
-	for (typename T::iterator it = tmp.begin(); it != tmp.end(); ++it)
-		std::cout << *it << " | ";
-	std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 
 	delete x;
 }
@@ -399,13 +400,13 @@ void	testInsert1Vec(T& vec)
 *	Inserts n elements.
 */
 template <typename T>
-void	testInsert2Vec(T& vec)
+void	testInsertNElemVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "insert2: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "insert n elem"));
+	std::cout << "\n---------------------";
 
 	T tmp = vec;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 	// Allows to value initialize (case size is 0, we can't assign vec[0])
 	typename T::value_type* x = new typename T::value_type ();
@@ -417,10 +418,8 @@ void	testInsert2Vec(T& vec)
 	tmp.insert(tmp.begin(), 5, *x);
 	tmp.insert(tmp.end(), 5, *x);
 	
-	std::cout << "\t\t\tnew vector: ";
-	for (typename T::iterator it = tmp.begin(); it != tmp.end(); ++it)
-		std::cout << *it << " | ";
-	std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 
 	delete x;
 }
@@ -429,13 +428,13 @@ void	testInsert2Vec(T& vec)
 *	Inserts an iterators' range of elements.
 */
 template <typename T>
-void	testInsert3Vec(T& vec)
+void	testInsertRangeVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "insert3: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "insert iterator range"));
+	std::cout << "\n---------------------";
 
 	T tmp = vec;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 	tmp.insert(tmp.begin(), vec.begin(), vec.end());
 	if (tmp.size())
@@ -443,150 +442,163 @@ void	testInsert3Vec(T& vec)
 	tmp.insert(tmp.end(), vec.begin(), vec.end());
 	tmp.insert(tmp.end(), vec.begin(), vec.begin());
 	
-	std::cout << "\t\t\tnew vector: ";
-	for (typename T::iterator it = tmp.begin(); it != tmp.end(); ++it)
-		std::cout << *it << " | ";
-	std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 }
 
 template <typename T>
-void	testErase1Vec(T& vec)
+void	testEraseRangeVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "erase1: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "erase iterator range"));
+	std::cout << "\n---------------------";
 
 	// Erase everything
 	{
 		T tmp = vec;
-		std::cout << "size of tmp = " << tmp.size() << "\n\t\t\t";
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin(), tmp.end());
 		if (tmp.size())
-			std::cout << "new elem after erase: " << *iter << "\n\t\t\t";
+			{ printTestName(name);	std::cout << "new elem after erase: " << *iter; }
 
-		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
-			std::cout << *it << " | ";
-		std::cout << "size of tmp = " << tmp.size() << "\n\t\t\t";
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
 	}
 
 	// Erase nothing
 	{
 		T tmp = vec;
-		std::cout << "size of tmp = " << tmp.size() << "\n\t\t\t";
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.end(), tmp.end());
 		
+		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
-		std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		iter = tmp.erase(tmp.begin(), tmp.begin());
 		if (tmp.size())
-			std::cout << "\n\t\t\tnew elem after erase: " << *iter << "\n\t\t\t";
+			{ printTestName(name);	std::cout << "new elem after erase: " << *iter; }
+
+		printContainer(name, tmp);
 	}
 	
 	// Erase last elem
 	if (vec.size())
 	{
 		T tmp = vec;
-		std::cout << "size of tmp = " << tmp.size() << "\n\t\t\t";
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.end() - 1, tmp.end());
 
+		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
-		std::cout << "\n\t\t\tsize of tmp = " << tmp.size() << "\n\t\t\t";
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
 	}
 
 	// Erase everything except first elem
 	if (vec.size())
 	{
 		T tmp = vec;
-		std::cout << "size of tmp = " << tmp.size() << "\n\t\t\t";
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin() + 1, tmp.end());
 
+		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
-		std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
 	}
 }
 
 template <typename T>
-void	testErase2Vec(T& vec)
+void	testErase1ElemVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "erase2: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "erase 1 elem"));
+	std::cout << "\n---------------------";
 
 	// Erase first elem
 	if (vec.size())
 	{
 		T tmp = vec;
-		std::cout << "size of tmp = " << tmp.size() << "\n\t\t\t";
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin());
 		if (tmp.size())
-			std::cout << "new elem after erase: " << *iter << "\n\t\t\t";
+			{ printTestName(name);	std::cout << "new elem after erase: " << *iter; }
 
+		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
-		std::cout << "size of tmp = " << tmp.size() << "\n\t\t\t";
+			
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 	}
 
 	// Erase last elem
 	if (vec.size())
 	{
 		T tmp = vec;
-		std::cout << "size of tmp = " << tmp.size() << "\n\t\t\t";
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.end() - 1);
 
+		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
-		std::cout << "\n\t\t\tsize of tmp = " << tmp.size() << "\n\t\t\t";
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 	}
 
 	// Erase one elem
 	if (vec.size() > 1)
 	{
 		T tmp = vec;
-		std::cout << "size of tmp = " << tmp.size() << "\n\t\t\t";
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin() + 1);
 
+		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
-		std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 	}
 }
 
 template <typename T>
 void	testOperatorEqualNotEqualVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "operator==/!=: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "operator==/!="));
+	std::cout << "\n---------------------";
 
 	T tmp = vec;
 
-	std::cout << "tmp == vec (should be true): " << (tmp == vec) << "\n\t\t\t";
-	std::cout << "tmp != vec (should be false): " << (tmp != vec) << "\n\t\t\t";
+	printTestName(name, "tmp == vec");	std::cout << (tmp == vec);
+	printTestName(name, "tmp != vec");	std::cout << (tmp != vec);
 	
 	typename T::value_type* x = new typename T::value_type ();
 	if (vec.size())
 		*x = vec[0];
 	
 	tmp.push_back(*x);
-	std::cout << "tmp == vec (should be false): " << (tmp == vec) << "\n\t\t\t";
-	std::cout << "tmp != vec (should be true): " << (tmp != vec) << "\n\t\t\t";
+	printTestName(name, "tmp == vec");	std::cout << (tmp == vec);
+	printTestName(name, "tmp != vec");	std::cout << (tmp != vec);
 
 	T tmp2 = tmp;
 	tmp.clear();
-	std::cout << "tmp == vec (should be false): " << (tmp2 == tmp) << "\n\t\t\t";
-	std::cout << "tmp2 != tmp (should be true): " << (tmp2 != tmp) << "\n\t\t\t";
+	printTestName(name, "tmp == vec");	std::cout << (tmp2 == tmp);
+	printTestName(name, "tmp != vec");	std::cout << (tmp2 != tmp);
 
 	tmp2.clear();
-	std::cout << "tmp == vec (should be true): " << (tmp2 == tmp) << "\n\t\t\t";
-	std::cout << "tmp2 != tmp (should be false): " << (tmp2 != tmp);
+	printTestName(name, "tmp == vec");	std::cout << (tmp2 == tmp);
+	printTestName(name, "tmp != vec");	std::cout << (tmp2 != tmp);
 
 	delete x;
 }
@@ -594,47 +606,47 @@ void	testOperatorEqualNotEqualVec(T& vec)
 template <typename T>
 void	testOperatorLessAndMoreVec(T& vec)
 {
-	printTestNumber(0);
-	std::cout << "operator</>/<=/>=: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "operator</>/<=/>="));
+	std::cout << "\n---------------------";
 
 	T tmp = vec;
 	typename T::value_type* x = new typename T::value_type ();
 
-	std::cout << "tmp < vec: " << (tmp < vec) << "\n\t\t\t";
-	std::cout << "tmp > vec: " << (tmp > vec) << "\n\t\t\t";
-	std::cout << "tmp <= vec: " << (tmp <= vec) << "\n\t\t\t";
-	std::cout << "tmp >= vec: " << (tmp >= vec) << "\n\t\t\t";
+	printTestName(name, "tmp < vec");	std::cout << (tmp < vec);
+	printTestName(name, "tmp > vec");	std::cout << (tmp > vec);
+	printTestName(name, "tmp <= vec");	std::cout << (tmp <= vec);
+	printTestName(name, "tmp >= vec");	std::cout << (tmp >= vec);
 	
 	if (vec.size())
 		*x = vec.front();
 	tmp.push_back(*x);
 	
-	std::cout << "vec < tmp: " << (vec < tmp) << "\n\t\t\t";
-	std::cout << "vec > tmp: " << (vec > tmp) << "\n\t\t\t";
-	std::cout << "vec <= tmp: " << (vec <= tmp) << "\n\t\t\t";
-	std::cout << "vec >= tmp: " << (vec >= tmp) << "\n\t\t\t";
+	printTestName(name, "tmp < vec");	std::cout << (vec < tmp);
+	printTestName(name, "tmp > vec");	std::cout << (vec > tmp);
+	printTestName(name, "tmp <= vec");	std::cout << (vec <= tmp);
+	printTestName(name, "tmp >= vec");	std::cout << (vec >= tmp);
 
 	T tmp2 = tmp;
 	if (vec.size())
 		*x = vec.back();
 	tmp2.push_back(*x);
 	
-	std::cout << "tmp2 < tmp: " << (tmp2 < tmp) << "\n\t\t\t";
-	std::cout << "tmp2 > tmp: " << (tmp2 > tmp) << "\n\t\t\t";
-	std::cout << "tmp2 <= tmp: " << (tmp2 <= tmp) << "\n\t\t\t";
-	std::cout << "tmp2 >= tmp: " << (tmp2 >= tmp) << "\n\t\t\t";
+	printTestName(name, "tmp < vec");	std::cout << (tmp2 < tmp);
+	printTestName(name, "tmp > vec");	std::cout << (tmp2 > tmp);
+	printTestName(name, "tmp <= vec");	std::cout << (tmp2 <= tmp);
+	printTestName(name, "tmp >= vec");	std::cout << (tmp2 >= tmp);
 
 	tmp.clear();
-	std::cout << "tmp2 < tmp: " << (tmp2 < tmp) << "\n\t\t\t";
-	std::cout << "tmp2 > tmp: " << (tmp2 > tmp) << "\n\t\t\t";
-	std::cout << "tmp2 <= tmp: " << (tmp2 <= tmp) << "\n\t\t\t";
-	std::cout << "tmp2 >= tmp: " << (tmp2 >= tmp) << "\n\t\t\t";
+	printTestName(name, "tmp < vec");	std::cout << (tmp2 < tmp);
+	printTestName(name, "tmp > vec");	std::cout << (tmp2 > tmp);
+	printTestName(name, "tmp <= vec");	std::cout << (tmp2 <= tmp);
+	printTestName(name, "tmp >= vec");	std::cout << (tmp2 >= tmp);
 
 	tmp2.clear();
-	std::cout << "tmp2 < tmp: " << (tmp2 < tmp) << "\n\t\t\t";
-	std::cout << "tmp2 > tmp: " << (tmp2 > tmp) << "\n\t\t\t";
-	std::cout << "tmp2 <= tmp: " << (tmp2 <= tmp) << "\n\t\t\t";
-	std::cout << "tmp2 >= tmp: " << (tmp2 >= tmp);
+	printTestName(name, "tmp < vec");	std::cout << (tmp2 < tmp);
+	printTestName(name, "tmp > vec");	std::cout << (tmp2 > tmp);
+	printTestName(name, "tmp <= vec");	std::cout << (tmp2 <= tmp);
+	printTestName(name, "tmp >= vec");	std::cout << (tmp2 >= tmp);
 
 	delete x;
 }
@@ -662,16 +674,16 @@ void	executeVecNonConst(T& vec, int testNb)
 	testBackVec(vec);
 	testPushBackVec(vec);
 	testPopBackVec(vec);
+	testClearVec(vec);
 	testSwapVec(vec);
 	testResizeVec(vec);
-	testAssign1Vec(vec);
-	testAssign2Vec(vec);
-	testInsert1Vec(vec);
-	testInsert2Vec(vec);
-	testInsert3Vec(vec);
-	testErase1Vec(vec);
-	testErase2Vec(vec);
-	testClearVec(vec);
+	testAssignRangeVec(vec);
+	testAssignNElemVec(vec);
+	testInsert1ElemVec(vec);
+	testInsertNElemVec(vec);
+	testInsertRangeVec(vec);
+	testEraseRangeVec(vec);
+	testErase1ElemVec(vec);
 	testOperatorEqualNotEqualVec(vec);
 	testOperatorLessAndMoreVec(vec);
 }
