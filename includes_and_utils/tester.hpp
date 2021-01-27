@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 17:27:13 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/27 12:45:00 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/27 15:03:33 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@
 #include "utils.hpp"
 #include "print_type.hpp"
 #include "Bob_test.hpp"
-
 
 #endif

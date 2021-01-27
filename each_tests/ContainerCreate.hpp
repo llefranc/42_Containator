@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:42:21 by hherin            #+#    #+#             */
-/*   Updated: 2021/01/27 13:09:11 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:09:00 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ void ContainerConstruct(const T (&x)[20], Func execNonConst, FuncC execConst)
     C c2; c2 = c0;
     execNonConst(c2, ++nb);
 
-	typename C::iterator beg = c0.begin();
-	typename C::iterator end = c0.end();
-    C c3(++beg, --end);
+	typename C::iterator beg = c0.begin(); ++beg;
+	typename C::iterator end = c0.end(); --end;
+    C c3(beg, end);
     execNonConst(c3, ++nb);
 
     C c4(c0.begin(), c0.begin());
@@ -66,7 +66,7 @@ void ContainerConstruct(const T (&x)[20], Func execNonConst, FuncC execConst)
     C c7(12, x[10]);
     execNonConst(c7, ++nb);
 
-    C c8(c0); c8[0] = x[19]; c8[5] = x[15];
+    C c8(c0); c8.front() = x[19]; c8.back() = x[15];
     execNonConst(c8, ++nb);
 
     const C c9(5, x[4]);

@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/27 12:40:28 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/27 16:00:50 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,162 +16,145 @@
 #include "../includes_and_utils/tester.hpp"
 
 template <typename T>
-void	testSizeList(T& lis)
+void	testSizeList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "size: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "size"));
+	std::cout << "\n---------------------";
 	
-	std::cout << lis.size();
+	printTestName(name);	std::cout << cont.size();
 }
 
 template <typename T>
-void	testIteratorsList(T& lis)
+void	testEmptyList(T& lis)
 {
-	getTestNumber(0);
-	std::cout << "iterators: \n";
+	std::string name(getTestName(getTestNumber(0), "empty"));
+	std::cout << "\n---------------------";
 	
-	std::cout << "\t\t\toperator++: ";
-	for (typename T::const_iterator it = lis.begin(); it != lis.end(); it++)
+	printTestName(name);	std::cout << lis.empty();
+}
+
+template <typename T>
+void	testIteratorsList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "iterators"));
+	std::cout << "\n---------------------";
+	
+	printTestName(name, "operator++");
+	for (typename T::const_iterator it = cont.begin(); it != cont.end(); it++)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\t++operator: ";
-	for (typename T::const_iterator it = lis.begin(); it != lis.end(); ++it)
+	printTestName(name, "++operator");
+	for (typename T::const_iterator it = cont.begin(); it != cont.end(); ++it)
 		std::cout << *it << " | ";
 
-	if (lis.size())
+	if (cont.size())
 	{
-		std::cout << "\n\t\t\toperator--: ";
-		for (typename T::const_reverse_iterator it = lis.rend(); it != --lis.rbegin(); it--)
-			if (it != lis.rend())
+		printTestName(name, "operator--");
+		for (typename T::const_iterator it = cont.end(); it != cont.begin(); it--)
+			if (it != cont.end())
 				std::cout << *it << " | ";
 
-		std::cout << "\n\t\t\t--operator: ";
-		for (typename T::const_reverse_iterator it = lis.rend(); it != --lis.rbegin(); --it)
-			if (it != lis.rend())
+		printTestName(name, "--operator");
+		for (typename T::const_iterator it = cont.end(); it != cont.begin(); --it)
+			if (it != cont.end())
 				std::cout << *it << " | ";
 	}
 }
 
 template <typename T>
-void	testReverseIteratorsList(T& lis)
+void	testReverseIteratorsList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "reverse iterators: \n";
+	std::string name(getTestName(getTestNumber(0), "reverse iterators"));
+	std::cout << "\n---------------------";
 	
-	std::cout << "\t\t\t++operator: ";
-	for (typename T::const_reverse_iterator it = lis.rbegin(); it != lis.rend(); ++it)
+	printTestName(name, "++operator");
+	for (typename T::const_reverse_iterator it = cont.rbegin(); it != cont.rend(); ++it)
 		std::cout << *it << " | ";
 
-	std::cout << "\n\t\t\toperator++: ";
-	for (typename T::const_reverse_iterator it = lis.rbegin(); it != lis.rend(); it++)
+	printTestName(name, "operator++");
+	for (typename T::const_reverse_iterator it = cont.rbegin(); it != cont.rend(); it++)
 		std::cout << *it << " | ";	
 
-	if (lis.size())
+	if (cont.size())
 	{
-		std::cout << "\n\t\t\toperator--: ";
-		for (typename T::const_reverse_iterator it = lis.rend(); it != --lis.rbegin(); it--)
-			if (it != lis.rend())
+		printTestName(name, "operator--");
+		for (typename T::const_reverse_iterator it = cont.rend(); it != cont.rbegin(); it--)
+			if (it != cont.rend())
 				std::cout << *it << " | ";
 
-		std::cout << "\n\t\t\t--operator: ";
-		for (typename T::const_reverse_iterator it = lis.rend(); it != --lis.rbegin(); --it)
-			if (it != lis.rend())
+		printTestName(name, "--operator");
+		for (typename T::const_reverse_iterator it = cont.rend(); it != cont.rbegin(); --it)
+			if (it != cont.rend())
 				std::cout << *it << " | ";
 	}
 }
 
 template <typename T>
-void	testFrontList(T& lis)
+void	testFrontList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "front: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "front"));
+	std::cout << "\n---------------------";
 	
-	if (lis.size()) // To prevent overflow
-		std::cout << lis.front();
+	printTestName(name);
+	if (cont.size()) // To prevent overflow
+		std::cout << cont.front();
 }
 
 template <typename T>
-void	testBackList(T& lis)
+void	testBackList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "back: \n\t\t\t";
-	
-	if (lis.size()) // To prevent overflow
-		std::cout << lis.back();
+	std::string name(getTestName(getTestNumber(0), "back"));
+	std::cout << "\n---------------------";
+
+	printTestName(name);
+	if (cont.size()) // To prevent overflow
+		std::cout << cont.back();
 }
 
 template <typename T>
-void	testPushBackList(T& lis)
+void	testPushBackList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "push_back: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "push_back"));
+	std::cout << "\n---------------------";
 	
-	// Allows to value initialize (case size is 0, we can't assign lis.front())
+	printTestName(name);
+	
+	// Allows to value initialize (case size is 0, we can't assign cont.front())
 	typename T::value_type* x = new typename T::value_type ();
-	if (lis.size())
-		*x = lis.front();
+	if (cont.size())
+		*x = cont.front();
 
-	T tmp = lis;
+	T tmp = cont;
 	tmp.push_back(*x);
-	std::cout << "new elem = " << tmp.back();
 
-	std::cout << "\n\t\t\tnew tmp: ";
-	for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); it++)
-		std::cout << *it << " | ";
+	printContainer(name, tmp);
 
 	delete x;
 }
 
 template <typename T>
-void	testPopBackList(T& lis)
+void	testPopBackList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "pop_back: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "pop_back"));
+	std::cout << "\n---------------------";
 	
-	if (lis.size())
+	printTestName(name);
+	
+	if (cont.size())
 	{
-		T tmp = lis;
+		T tmp = cont;
 		tmp.pop_back();
-		if (tmp.size()) // To prevent overflow
-			std::cout << "new elem = " << tmp.back();
-
-		std::cout << "\n\t\t\tnew tmp: ";
-		for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); it++)
-			std::cout << *it << " | ";
+		printContainer(name, tmp);
 	}
-}
-
-template <typename T>
-void	testSwapList(T& lis)
-{
-	getTestNumber(0);
-	std::cout << "swap member and non member: \n\t\t\t";
-
-	T tmp(lis);
-	T tmp2(lis);
-
-	// Allows to value initialize (case size is 0, we can't assign lis.front())
-	typename T::value_type* x = new typename T::value_type ();
-	if (lis.size())
-		*x = lis.front();
-
-	tmp.push_back(*x);
-	
-	std::cout << "size of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size() << "\n";
-	tmp2.swap(tmp);
-	std::cout << "\t\t\tsize of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size() << "\n";
-
-	swap(tmp2, tmp);
-	std::cout << "\t\t\tsize of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size();
-
-	delete x;
 }
 
 template <typename T>
 void	testPushFrontList(T& lis)
 {
-	getTestNumber(0);
-	std::cout << "push_front: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "push_front"));
+	std::cout << "\n---------------------";
+	
+	printTestName(name);
 	
 	// Allows to value initialize (case size is 0, we can't assign lis.front())
 	typename T::value_type* x = new typename T::value_type ();
@@ -180,11 +163,8 @@ void	testPushFrontList(T& lis)
 
 	T tmp = lis;
 	tmp.push_front(*x);
-	std::cout << "new elem = " << tmp.front();
 
-	std::cout << "\n\t\t\tnew tmp: ";
-	for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); it++)
-		std::cout << *it << " | ";
+	printContainer(name, tmp);
 
 	delete x;
 }
@@ -192,127 +172,118 @@ void	testPushFrontList(T& lis)
 template <typename T>
 void	testPopFrontList(T& lis)
 {
-	getTestNumber(0);
-	std::cout << "pop_front: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "pop_front"));
+	std::cout << "\n---------------------";
+	
+	printTestName(name);
 	
 	if (lis.size())
 	{
 		T tmp = lis;
 		tmp.pop_front();
-		if (tmp.size()) // To prevent overflow
-			std::cout << "new elem = " << tmp.front();
-
-		std::cout << "\n\t\t\tnew tmp: ";
-		for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); it++)
-			std::cout << *it << " | ";
+		printContainer(name, tmp);
 	}
 }
 
 template <typename T>
-void	testEmptyList(T& lis)
+void	testClearList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "empty: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "clear"));
+	std::cout << "\n---------------------";
 	
-	std::cout << lis.empty();
+	T tmp = cont;
+	printTestName(name);	std::cout << "size before clear: " << tmp.size();
+	tmp.clear();
+	
+	printTestName(name);	std::cout << "size after clear: " << tmp.size();
+
+	// Allows to value initialize (case size is 0, we can't assign cont.front())
+	typename T::value_type* x = new typename T::value_type ();
+	if (cont.size())
+		*x = cont.front();
+
+	tmp.push_back(*x);
+	printContainer(name, tmp);
+
+	delete x;
 }
 
 template <typename T>
-void	testClearList(T& lis)
+void	testSwapList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "clear: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "swap"));
+	std::cout << "\n---------------------";
 	
-	T tmp = lis;
-	std::cout << "size before clear: " << tmp.size() << " | ";
-	tmp.clear();
-	std::cout << "\n\t\t\tsize after clear: " << tmp.size();
+	T tmp(cont);
+	T tmp2(cont);
 
-	// Allows to value initialize (case size is 0, we can't assign lis.front())
+	// Allows to value initialize (case size is 0, we can't assign cont.front())
 	typename T::value_type* x = new typename T::value_type ();
-	if (lis.size())
-		*x = lis.front();
+	if (cont.size())
+		*x = cont.front();
 
 	tmp.push_back(*x);
 	
-	std::cout << "\n\t\t\tnew tmp: ";
-	for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); it++)
-		std::cout << *it << " | ";
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size();
+	tmp2.swap(tmp);
+	printContainer(name, tmp2);
+
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size();
+
+	swap(tmp2, tmp);
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size() << " and size of tmp2 = " << tmp2.size();
+	printContainer(name, tmp2);
 
 	delete x;
 }
 
 template <typename T>
-void	testResizeList(T& lis)
+void	testResizeList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "resize: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "resize"));
+	std::cout << "\n---------------------";
 
-	T tmp = lis;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	T tmp = cont;
 
-	// Allows to value initialize (case size is 0, we can't assign lis.front())
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+	// Allows to value initialize (case size is 0, we can't assign cont.front())
 	typename T::value_type* x = new typename T::value_type ();
-	if (lis.size())
-		*x = lis.front();
+	if (cont.size())
+		*x = cont.front();
 
 	tmp.resize(3, *x);
-	
-	std::cout << "\n\t\t\tnew tmp: ";
-	for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); it++)
-		std::cout << *it << " | ";
-	std::cout << "\n\t\t\tsize of tmp after resize = " << tmp.size();
+	printContainer(name, tmp);
+
+	printTestName(name);	std::cout << "size of tmp after resize = " << tmp.size();
 	
 	delete x;
-}
-
-template <typename T>
-void	testReverseList(T& lis)
-{
-	getTestNumber(0);
-	std::cout << "reverse: \n\t\t\t";
-
-	T tmp = lis;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
-	
-	std::cout << "\n\t\t\ttmp before: ";
-	for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); it++)
-		std::cout << *it << " | ";
-
-	tmp.reverse();
-	
-	std::cout << "\n\t\t\tnew list: ";
-	for (typename T::const_iterator it = tmp.begin(); it != tmp.end(); it++)
-		std::cout << *it << " | ";
-	std::cout << "\n\t\t\tsize of tmp after resize = " << tmp.size();
 }
 
 /**
 *	Test assign with iterators' range.
 */
 template <typename T>
-void	testAssign1List(T& lis)
+void	testAssignRangeList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "assign1: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "assign iterator range"));
+	std::cout << "\n---------------------";
 
-	T tmp = lis;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	T tmp = cont;
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 
-	// Allows to value initialize (case size is 0, we can't assign lis.front())
+	// Allows to value initialize (case size is 0, we can't assign cont.front())
 	typename T::value_type* x = new typename T::value_type ();
-	if (lis.size())
-		*x = lis.front();
+	if (cont.size())
+		*x = cont.front();
 
+	T tmp2 = cont;
 	tmp.resize(3, *x);
-	std::cout << "\t\t\tnew elem = " << tmp.back();
-
-	T tmp2 = lis;
 	tmp2.assign(tmp.begin(), tmp.end());
-	std::cout << "\n\t\t\tsize after assign = " << tmp2.size() << " and content is:\n\t\t\t";
 
-	for (typename T::iterator it = tmp2.begin(); it != tmp2.end(); ++it)
-		std::cout << *it << " | ";
+	printTestName(name);	std::cout << "size after assign = " << tmp2.size();
+	printContainer(name, tmp2);
 
 	delete x;
 }
@@ -321,28 +292,27 @@ void	testAssign1List(T& lis)
 *	Inserts n elements.
 */
 template <typename T>
-void	testAssign2List(T& lis)
+void	testAssignNElemList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "assign2: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "assign n elems"));
+	std::cout << "\n---------------------";
 
-	T tmp = lis;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	T tmp = cont;
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 
-	// Allows to value initialize (case size is 0, we can't assign lis.front())
+	// Allows to value initialize (case size is 0, we can't assign cont.front())
 	typename T::value_type* x = new typename T::value_type ();
-	if (lis.size())
-		*x = lis.front();
+	if (cont.size())
+		*x = cont.front();
 		
 	tmp.resize(3, *x);
-	std::cout << "\t\t\tnew elem = " << tmp.back();
 
-	T tmp2 = lis;
+	T tmp2 = cont;
 	tmp2.assign(tmp.size(), tmp.front());
-	std::cout << "\n\t\t\tsize after assign = " << tmp2.size() << " and content is:\n\t\t\t";
 
-	for (typename T::iterator it = tmp2.begin(); it != tmp2.end(); ++it)
-		std::cout << *it << " | ";
+	printTestName(name);	std::cout << "size after assign = " << tmp2.size();
+	printContainer(name, tmp2);
 		
 	delete x;
 }
@@ -351,55 +321,58 @@ void	testAssign2List(T& lis)
 *	Inserts one element.
 */
 template <typename T>
-void	testInsert1List(T& lis)
+void	testInsert1ElemList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "insert1: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "insert 1 elem"));
+	std::cout << "\n---------------------";
 
-	T tmp = lis;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	T tmp = cont;
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
-	// Allows to value initialize (case size is 0, we can't assign lis.front())
+	// Allows to value initialize (case size is 0, we can't assign cont[0])
 	typename T::value_type* x = new typename T::value_type ();
-	if (lis.size())
+	if (cont.size())
 	{
-		*x = lis.front();
-		std::cout << "\t\t\treturn value: " << *tmp.insert(++tmp.begin(), *x) << "\n";
+		*x = cont.front();
+		typename T::iterator it = tmp.begin();
+		++it;
+		printTestName(name);	std::cout << "return value: " << *tmp.insert(it, *x);
 	}
-	std::cout << "\t\t\treturn value: " << *tmp.insert(tmp.begin(), *x) << "\n";
-	std::cout << "\t\t\treturn value: " << *tmp.insert(tmp.end(), *x) << "\n";
+	printTestName(name);	std::cout << "return value: " << *tmp.insert(tmp.begin(), *x);
+	printTestName(name);	std::cout << "return value: " << *tmp.insert(tmp.end(), *x);
 	
-	std::cout << "\t\t\tnew list: ";
-	for (typename T::iterator it = tmp.begin(); it != tmp.end(); ++it)
-		std::cout << *it << " | ";
-	std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 
 	delete x;
 }
 
+/**
+*	Inserts n elements.
+*/
 template <typename T>
-void	testInsert2List(T& lis)
+void	testInsertNElemList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "insert2: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "insert n elem"));
+	std::cout << "\n---------------------";
 
-	T tmp = lis;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	T tmp = cont;
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
-	// Allows to value initialize (case size is 0, we can't assign lis.front())
+	// Allows to value initialize (case size is 0, we can't assign cont[0])
 	typename T::value_type* x = new typename T::value_type ();
-	if (lis.size())
+	if (cont.size())
 	{
-		*x = lis.front();
-		tmp.insert(++tmp.begin(), 5, *x);
+		*x = cont.front();
+		typename T::iterator it = tmp.begin();
+		++it;
+		tmp.insert(it, 5, *x);
 	}
 	tmp.insert(tmp.begin(), 5, *x);
 	tmp.insert(tmp.end(), 5, *x);
 	
-	std::cout << "\t\t\tnew list: ";
-	for (typename T::iterator it = tmp.begin(); it != tmp.end(); ++it)
-		std::cout << *it << " | ";
-	std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 
 	delete x;
 }
@@ -408,28 +381,47 @@ void	testInsert2List(T& lis)
 *	Inserts an iterators' range of elements.
 */
 template <typename T>
-void	testInsert3List(T& lis)
+void	testInsertRangeList(T& cont)
 {
-	getTestNumber(0);
-	std::cout << "insert3: \n\t\t\t";
+	std::string name(getTestName(getTestNumber(0), "insert iterator range"));
+	std::cout << "\n---------------------";
 
-	T tmp = lis;
-	std::cout << "size of tmp = " << tmp.size() << "\n";
+	T tmp = cont;
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
-	tmp.insert(tmp.begin(), lis.begin(), lis.end());
+	tmp.insert(tmp.begin(), cont.begin(), cont.end());
 	if (tmp.size())
-		tmp.insert(++tmp.begin(), lis.begin(), lis.end());
-	tmp.insert(tmp.end(), lis.begin(), lis.end());
-	tmp.insert(tmp.end(), lis.begin(), lis.begin());
+	{
+		typename T::iterator it = tmp.begin();
+		++it;
+		tmp.insert(it, cont.begin(), cont.end());
+	}
+	tmp.insert(tmp.end(), cont.begin(), cont.end());
+	tmp.insert(tmp.end(), cont.begin(), cont.begin());
 	
-	std::cout << "\t\t\tnew list: ";
-	for (typename T::iterator it = tmp.begin(); it != tmp.end(); ++it)
-		std::cout << *it << " | ";
-	std::cout << "\n\t\t\tsize of tmp = " << tmp.size();
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
 }
 
 template <typename T>
-void	executeListNonConst(T& lis, int testNb)
+void	testReverseList(T& lis)
+{
+	std::string name(getTestName(getTestNumber(0), "reverse"));
+	std::cout << "\n---------------------";
+
+	T tmp = lis;
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
+
+	tmp.reverse();
+	
+	printTestName(name);	std::cout << "size after resize = " << tmp.size();
+	printContainer(name, tmp);
+}
+
+
+template <typename T>
+void	testNotConstList(T& lis, int testNb)
 {
 	std::cout << "\n\n--------------------------------\n";
 	std::cout << "------\tTESTING LIST " << testNb << " ------\n";
@@ -440,28 +432,28 @@ void	executeListNonConst(T& lis, int testNb)
 	
 	// Tests for non-const lists
 	testSizeList(lis);
+	testEmptyList(lis);
 	testIteratorsList(lis);
 	testReverseIteratorsList(lis);
 	testFrontList(lis);
 	testBackList(lis);
 	testPushBackList(lis);
 	testPopBackList(lis);
-	testSwapList(lis);
-	testEmptyList(lis);
 	testPushFrontList(lis);
 	testPopFrontList(lis);
 	testClearList(lis);
+	testSwapList(lis);
 	testResizeList(lis);
+	testAssignRangeList(lis);
+	testAssignNElemList(lis);
+	testInsert1ElemList(lis);
+	testInsertNElemList(lis);
+	testInsertRangeList(lis);
 	testReverseList(lis);
-	testAssign1List(lis);
-	testAssign2List(lis);
-	testInsert1List(lis);
-	testInsert2List(lis);
-	testInsert3List(lis);
 }
 
 template <typename T>
-void	executeListConst(T& lis, int testNb)
+void	testConstList(T& lis, int testNb)
 {
 	std::cout << "\n\n--------------------------------\n";
 	std::cout << "------\tTESTING CONST LIST " << testNb << " ------\n";
