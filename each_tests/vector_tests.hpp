@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_tests.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/27 15:59:09 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/27 18:35:20 by lucaslefran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -524,6 +524,22 @@ void	testEraseRangeVec(T& cont)
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 		printContainer(name, tmp);
 	}
+
+	// Erase only first elem
+	if (cont.size())
+	{
+		T tmp = cont;
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		typename T::iterator iter = tmp.erase(tmp.begin(), tmp.begin() + 1);
+		printContainer(name, tmp);
+
+		printTestName(name);
+		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
+			std::cout << *it << " | ";
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	}
 }
 
 template <typename T>
@@ -533,14 +549,16 @@ void	testErase1ElemVec(T& cont)
 	std::cout << "\n---------------------";
 
 	// Erase first elem
-	if (cont.size())
+	if (cont.size() > 1)
 	{
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
+		printContainer(name, tmp);
 		typename T::iterator iter = tmp.erase(tmp.begin());
 		if (tmp.size())
-			{ printTestName(name);	std::cout << "new elem after erase: " << *iter; }
+			{ printTestName(name);	std::cout << "return value: " << *iter; }
+		printContainer(name, tmp);
 
 		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
@@ -556,6 +574,7 @@ void	testErase1ElemVec(T& cont)
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.end() - 1);
+		printContainer(name, tmp);
 
 		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
@@ -571,6 +590,9 @@ void	testErase1ElemVec(T& cont)
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin() + 1);
+		if (tmp.size() > 2)
+			{ printTestName(name);	std::cout << "return value: " << *iter; }
+		printContainer(name, tmp);
 
 		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)

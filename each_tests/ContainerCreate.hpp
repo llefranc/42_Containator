@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ContainerCreate.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:42:21 by hherin            #+#    #+#             */
-/*   Updated: 2021/01/27 16:09:00 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/27 18:33:43 by lucaslefran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,16 @@ void ContainerConstruct(const T (&x)[20], Func execNonConst, FuncC execConst)
 {    
     int nb = 0;
     C c0;
-    for (int i = 0; i < 20; i++){
+    for (int i = 0; i < 2; i++){
+    // for (int i = 0; i < 20; i++){
         c0.push_back(x[i]);
         execNonConst(c0, ++nb);
         
-        if (i%3){
+        if (!i%3){
             C tmp(c0);
             execNonConst(tmp, ++nb);
         }
-        if (i%2){
+        if (!i%2){
             C tmp;
             tmp = c0;
             execNonConst(tmp, ++nb);
