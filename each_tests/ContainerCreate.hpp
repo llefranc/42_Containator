@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:42:21 by hherin            #+#    #+#             */
-/*   Updated: 2021/01/27 12:41:13 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/27 13:09:11 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 // }
 
 template <class T, class C, class Func, class FuncC>
-void ContainerConstruct(T (&x)[20], Func execNonConst, FuncC execConst)
+void ContainerConstruct(const T (&x)[20], Func execNonConst, FuncC execConst)
 {    
     int nb = 0;
     C c0;
