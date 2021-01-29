@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/29 14:36:24 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:30:52 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -901,6 +901,24 @@ void	testRemoveList(T& cont)
 }
 
 template <typename T>
+void	testRemoveIfList(T& cont)
+{
+	(void)cont;
+	std::string name(getTestName(getTestNumber(0), "remove if"));
+	std::cout << "\n---------------------";
+
+	T tmp = cont;
+
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
+
+	tmp.remove_if(predicateTest<typename T::value_type>);
+	
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
+}
+
+template <typename T>
 void	testReverseList(T& lis)
 {
 	std::string name(getTestName(getTestNumber(0), "reverse"));
@@ -952,6 +970,7 @@ void	testNotConstList(T& lis, int testNb)
 	testSpliceAllList(lis);
 	testSpliceRangeList(lis);
 	testRemoveList(lis);
+	testRemoveIfList(lis);
 	testReverseList(lis);
 }
 

@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:32:08 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/27 12:45:07 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 15:06:45 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,23 @@ inline void print_type<double*>() { std::cout << "double*\n"; }
 
 template <>
 inline void print_type<std::string>() { std::cout << "std::string\n"; }
+
+
+/**
+*	Calls the correct type's predicate (used in remove_if (list))
+*/
+template <typename T>
+inline bool predicateTest(const T&) {} // Inline keywork to avoid duplicate symbol error
+
+template <>
+inline bool predicateTest<int>(const int& value) { return value < 100; }
+
+template <>
+inline bool predicateTest<char>(const char& value) { return value < 'f'; }
+
+template <>
+inline bool predicateTest<std::string>(const std::string& value) { return value < "oooooo"; }
+
 
 template <typename T>
 inline void printContainer(const std::string& name, T& cont)
