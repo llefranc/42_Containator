@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/27 16:00:50 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 11:38:15 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -404,6 +404,164 @@ void	testInsertRangeList(T& cont)
 }
 
 template <typename T>
+void	testEraseRangeList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "erase iterator range"));
+	std::cout << "\n---------------------";
+
+	// Erase everything
+	{
+		T tmp = cont;
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		typename T::iterator iter = tmp.erase(tmp.begin(), tmp.end());
+		if (tmp.size())
+			{ printTestName(name);	std::cout << "new elem after erase: " << *iter; }
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+	}
+
+	// Erase nothing
+	{
+		T tmp = cont;
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		typename T::iterator iter = tmp.erase(tmp.end(), tmp.end());
+		
+		printTestName(name);
+		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
+			std::cout << *it << " | ";
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		iter = tmp.erase(tmp.begin(), tmp.begin());
+		if (tmp.size())
+			{ printTestName(name);	std::cout << "new elem after erase: " << *iter; }
+
+		printContainer(name, tmp);
+	}
+	
+	// Erase last elem
+	if (cont.size())
+	{
+		T tmp = cont;
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		typename T::iterator pos = tmp.end();
+		--pos;
+		typename T::iterator iter = tmp.erase(pos, tmp.end());
+
+		printTestName(name);
+		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
+			std::cout << *it << " | ";
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+	}
+
+	// Erase everything except first elem
+	if (cont.size())
+	{
+		T tmp = cont;
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		typename T::iterator pos = tmp.begin();
+		++pos;
+		typename T::iterator iter = tmp.erase(pos, tmp.end());
+
+		printTestName(name);
+		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
+			std::cout << *it << " | ";
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+	}
+
+	// Erase only first elem
+	if (cont.size())
+	{
+		T tmp = cont;
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		typename T::iterator pos = tmp.begin();
+		++pos;
+		typename T::iterator iter = tmp.erase(tmp.begin(), pos);
+
+		printTestName(name);
+		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
+			std::cout << *it << " | ";
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+	}
+}
+
+template <typename T>
+void	testErase1ElemList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "erase 1 elem"));
+	std::cout << "\n---------------------";
+
+	// Erase first elem
+	if (cont.size() > 1)
+	{
+		T tmp = cont;
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		printContainer(name, tmp);
+		typename T::iterator iter = tmp.erase(tmp.begin());
+		if (tmp.size())
+			{ printTestName(name);	std::cout << "return value: " << *iter; }
+		printContainer(name, tmp);
+
+		printTestName(name);
+		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
+			std::cout << *it << " | ";
+			
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	}
+
+	// Erase last elem
+	if (cont.size())
+	{
+		T tmp = cont;
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		typename T::iterator pos = tmp.end();
+		--pos;
+		typename T::iterator iter = tmp.erase(pos);
+		printContainer(name, tmp);
+
+		printTestName(name);
+		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
+			std::cout << *it << " | ";
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	}
+
+	// Erase one elem
+	if (cont.size() > 1)
+	{
+		T tmp = cont;
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+
+		typename T::iterator pos = tmp.begin();
+		++pos;
+		typename T::iterator iter = tmp.erase(pos);
+		if (tmp.size() > 2)
+			{ printTestName(name);	std::cout << "return value: " << *iter; }
+		printContainer(name, tmp);
+
+		printTestName(name);
+		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
+			std::cout << *it << " | ";
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	}
+}
+
+template <typename T>
 void	testReverseList(T& lis)
 {
 	std::string name(getTestName(getTestNumber(0), "reverse"));
@@ -449,6 +607,8 @@ void	testNotConstList(T& lis, int testNb)
 	testInsert1ElemList(lis);
 	testInsertNElemList(lis);
 	testInsertRangeList(lis);
+	testEraseRangeList(lis);
+	testErase1ElemList(lis);
 	testReverseList(lis);
 }
 

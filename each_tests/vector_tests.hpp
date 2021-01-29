@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_tests.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
+/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/27 18:35:20 by lucaslefran      ###   ########.fr       */
+/*   Updated: 2021/01/29 11:17:45 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -532,13 +532,13 @@ void	testEraseRangeVec(T& cont)
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin(), tmp.begin() + 1);
-		printContainer(name, tmp);
 
 		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
 
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
 	}
 }
 
