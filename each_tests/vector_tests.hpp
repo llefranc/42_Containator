@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/29 11:17:45 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 13:41:41 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -462,6 +462,8 @@ void	testEraseRangeVec(T& cont)
 
 	// Erase everything
 	{
+		printTestName(name);	std::cout << "----- erase nothing -----";
+
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -475,6 +477,8 @@ void	testEraseRangeVec(T& cont)
 
 	// Erase nothing
 	{
+		printTestName(name);	std::cout << "----- erase nothing -----";
+
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -496,6 +500,8 @@ void	testEraseRangeVec(T& cont)
 	// Erase last elem
 	if (cont.size())
 	{
+		printTestName(name);	std::cout << "----- erase last elem -----";
+		
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -512,6 +518,8 @@ void	testEraseRangeVec(T& cont)
 	// Erase everything except first elem
 	if (cont.size())
 	{
+		printTestName(name);	std::cout << "----- erase everything except first elem -----";
+
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -528,6 +536,8 @@ void	testEraseRangeVec(T& cont)
 	// Erase only first elem
 	if (cont.size())
 	{
+		printTestName(name);	std::cout << "----- erase only first elem -----";
+
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -551,6 +561,8 @@ void	testErase1ElemVec(T& cont)
 	// Erase first elem
 	if (cont.size() > 1)
 	{
+		printTestName(name);	std::cout << "----- erase first elem -----";
+		
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -570,6 +582,8 @@ void	testErase1ElemVec(T& cont)
 	// Erase last elem
 	if (cont.size())
 	{
+		printTestName(name);	std::cout << "----- erase last elem -----";
+		
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -586,6 +600,8 @@ void	testErase1ElemVec(T& cont)
 	// Erase one elem
 	if (cont.size() > 1)
 	{
+		printTestName(name);	std::cout << "----- erase second elem -----";
+
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 

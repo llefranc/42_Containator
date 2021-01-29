@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/29 11:38:15 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 14:36:24 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -359,14 +359,12 @@ void	testInsertNElemList(T& cont)
 	T tmp = cont;
 	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
-	// Allows to value initialize (case size is 0, we can't assign cont[0])
+	// Allows to value initialize (case size is 0, we can't assign cont.front())
 	typename T::value_type* x = new typename T::value_type ();
 	if (cont.size())
 	{
 		*x = cont.front();
-		typename T::iterator it = tmp.begin();
-		++it;
-		tmp.insert(it, 5, *x);
+		tmp.insert(++tmp.begin(), 5, *x);
 	}
 	tmp.insert(tmp.begin(), 5, *x);
 	tmp.insert(tmp.end(), 5, *x);
@@ -411,6 +409,8 @@ void	testEraseRangeList(T& cont)
 
 	// Erase everything
 	{
+		printTestName(name);	std::cout << "----- erase nothing -----";
+
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -424,6 +424,8 @@ void	testEraseRangeList(T& cont)
 
 	// Erase nothing
 	{
+		printTestName(name);	std::cout << "----- erase nothing -----";
+		
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -445,6 +447,8 @@ void	testEraseRangeList(T& cont)
 	// Erase last elem
 	if (cont.size())
 	{
+		printTestName(name);	std::cout << "----- erase last elem -----";
+		
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -463,6 +467,8 @@ void	testEraseRangeList(T& cont)
 	// Erase everything except first elem
 	if (cont.size())
 	{
+		printTestName(name);	std::cout << "----- erase everything except first elem -----";
+		
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -481,12 +487,12 @@ void	testEraseRangeList(T& cont)
 	// Erase only first elem
 	if (cont.size())
 	{
+		printTestName(name);	std::cout << "----- erase only first elem -----";
+
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
-		typename T::iterator pos = tmp.begin();
-		++pos;
-		typename T::iterator iter = tmp.erase(tmp.begin(), pos);
+		typename T::iterator iter = tmp.erase(tmp.begin(), ++tmp.begin());
 
 		printTestName(name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
@@ -506,6 +512,8 @@ void	testErase1ElemList(T& cont)
 	// Erase first elem
 	if (cont.size() > 1)
 	{
+		printTestName(name);	std::cout << "----- erase first elem -----";
+		
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
@@ -525,12 +533,12 @@ void	testErase1ElemList(T& cont)
 	// Erase last elem
 	if (cont.size())
 	{
+		printTestName(name);	std::cout << "----- erase last elem -----";
+
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
-		typename T::iterator pos = tmp.end();
-		--pos;
-		typename T::iterator iter = tmp.erase(pos);
+		typename T::iterator iter = tmp.erase(--tmp.end());
 		printContainer(name, tmp);
 
 		printTestName(name);
@@ -540,15 +548,15 @@ void	testErase1ElemList(T& cont)
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 	}
 
-	// Erase one elem
+	// Erase second elem
 	if (cont.size() > 1)
 	{
+		printTestName(name);	std::cout << "----- erase second elem -----";
+
 		T tmp = cont;
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 
-		typename T::iterator pos = tmp.begin();
-		++pos;
-		typename T::iterator iter = tmp.erase(pos);
+		typename T::iterator iter = tmp.erase(++tmp.begin());
 		if (tmp.size() > 2)
 			{ printTestName(name);	std::cout << "return value: " << *iter; }
 		printContainer(name, tmp);
@@ -559,6 +567,337 @@ void	testErase1ElemList(T& cont)
 
 		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 	}
+}
+
+template <typename T>
+void	testSplice1ElemList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "splice 1 elem"));
+	std::cout << "\n---------------------";
+
+	// Splice at beginning
+	{
+		printTestName(name);	std::cout << "----- splice at beginning -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(tmp.begin(), tmp2, tmp2.begin());
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+
+		delete x;
+	}
+
+	// Splice at end
+	{
+		printTestName(name);	std::cout << "----- splice at end -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(tmp.end(), tmp2, tmp2.begin());
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+
+		delete x;
+	}
+
+	// Splice at second elem
+	if (cont.size())
+	{
+		printTestName(name);	std::cout << "----- splice at second elem -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(++tmp.begin(), tmp2, tmp2.begin());
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+
+		delete x;
+	}
+}
+
+template <typename T>
+void	testSpliceAllList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "splice all list"));
+	std::cout << "\n---------------------";
+
+	// Splice at beginning
+	{
+		printTestName(name);	std::cout << "----- splice at beginning -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(tmp.begin(), tmp2);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+
+		delete x;
+	}
+
+	// Splice at end
+	{
+		printTestName(name);	std::cout << "----- splice at end -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(tmp.end(), tmp2);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+
+		delete x;
+	}
+
+	// Splice at second elem
+	if (cont.size())
+	{
+		printTestName(name);	std::cout << "----- splice at second elem -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(++tmp.begin(), tmp2);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+
+		delete x;
+	}
+}
+
+template <typename T>
+void	testSpliceRangeList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "splice range"));
+	std::cout << "\n---------------------";
+
+	// Splice at beginning
+	{
+		printTestName(name);	std::cout << "----- splice 1 elem at beginning -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(tmp.begin(), tmp2, tmp2.begin(), ++tmp2.begin());
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		delete x;
+	}
+
+	// Splice at end
+	{
+		printTestName(name);	std::cout << "----- splice all list at end -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(tmp.end(), tmp2, tmp2.begin(), tmp2.end());
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		delete x;
+	}
+
+	// Splice at second elem
+	if (cont.size())
+	{
+		printTestName(name);	std::cout << "----- splice everything except last elem at second elem -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(++tmp.begin(), tmp2, tmp2.begin(), --tmp2.end());
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		delete x;
+	}
+
+	// Splice nothing
+	if (cont.size())
+	{
+		printTestName(name);	std::cout << "----- splice nothing at second elem -----";
+
+		// Allows to value initialize (case size is 0, we can't assign cont.front())
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		T tmp = cont;
+		T tmp2 = cont;
+		tmp2.push_front(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+		
+		tmp.splice(++tmp.begin(), tmp2, tmp2.begin(), tmp2.begin());
+		tmp.splice(++tmp.begin(), tmp2, ++tmp2.begin(), ++tmp2.begin());
+		tmp.splice(++tmp.begin(), tmp2, tmp2.end(), tmp2.end());
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp);
+		printContainer(name, tmp2);
+
+		delete x;
+	}
+}
+
+template <typename T>
+void	testRemoveList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "remove"));
+	std::cout << "\n---------------------";
+
+	// Allows to value initialize (case size is 0, we can't assign cont.front())
+	typename T::value_type* x = new typename T::value_type ();
+	if (cont.size())
+		*x = cont.front();
+	
+	T tmp = cont;
+
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
+
+	tmp.remove(*x);
+	
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
+
+	delete x;
 }
 
 template <typename T>
@@ -609,6 +948,10 @@ void	testNotConstList(T& lis, int testNb)
 	testInsertRangeList(lis);
 	testEraseRangeList(lis);
 	testErase1ElemList(lis);
+	testSplice1ElemList(lis);
+	testSpliceAllList(lis);
+	testSpliceRangeList(lis);
+	testRemoveList(lis);
 	testReverseList(lis);
 }
 
