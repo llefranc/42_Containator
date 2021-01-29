@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/29 16:59:32 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 17:24:16 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -957,7 +957,10 @@ void	testMergeList(T& cont)
 	std::string name(getTestName(getTestNumber(0), "merge"));
 	std::cout << "\n---------------------";
 
+	// Merging 2 non empty list
 	{
+		printTestName(name);	std::cout << "----- merging two non empty list -----";
+		
 		T tmp = cont;
 		T tmp2 = cont;
 		typename T::value_type* x = new typename T::value_type ();
@@ -982,6 +985,73 @@ void	testMergeList(T& cont)
 		printContainer(name, tmp2);
 
 		delete x;
+	}
+
+	// Merging one empty list into non empty list
+	{
+		printTestName(name);	std::cout << "----- merging one empty list into non empty list -----";
+		
+		T tmp = cont;
+		T tmp2 = cont;
+		
+		tmp2.clear();
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp2);
+
+		tmp.merge(tmp2);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp2);
+	}
+
+	// Merging non empty list into empty list
+	{
+		printTestName(name);	std::cout << "----- merging non empty list into empty list -----";
+
+		T tmp = cont;
+		T tmp2 = cont;
+		
+		tmp.clear();
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp2);
+
+		tmp.merge(tmp2);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp2);
+	}
+
+	// Merging two empty list
+	{
+		printTestName(name);	std::cout << "----- merging two empty list -----";
+		
+		T tmp = cont;
+		T tmp2 = cont;
+		
+		tmp.clear();
+		tmp2.clear();
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp2);
+
+		tmp.merge(tmp2);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp2);
 	}
 }
 
