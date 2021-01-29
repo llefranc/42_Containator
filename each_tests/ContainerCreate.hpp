@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:42:21 by hherin            #+#    #+#             */
-/*   Updated: 2021/01/29 11:06:01 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 17:06:43 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void ContainerConstruct(const T (&x)[20], Func execNonConst, FuncC execConst)
 {    
     int nb = 0;
     C c0;
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < 5; i++){
     // for (int i = 0; i < 20; i++){
         c0.push_back(x[i]);
         execNonConst(c0, ++nb);
@@ -59,7 +59,7 @@ void ContainerConstruct(const T (&x)[20], Func execNonConst, FuncC execConst)
     C c7(12, x[10]);
     execNonConst(c7, ++nb);
 
-    C c8(c0); c8.front() = x[19]; c8.back() = x[15];
+    C c8(c0); c8.push_back(x[19]); c8.push_back(x[19]); c8.front() = x[15];
     execNonConst(c8, ++nb);
 
     const C c9(5, x[4]);

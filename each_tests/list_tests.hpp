@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/29 15:30:52 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:59:32 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -903,7 +903,6 @@ void	testRemoveList(T& cont)
 template <typename T>
 void	testRemoveIfList(T& cont)
 {
-	(void)cont;
 	std::string name(getTestName(getTestNumber(0), "remove if"));
 	std::cout << "\n---------------------";
 
@@ -917,6 +916,75 @@ void	testRemoveIfList(T& cont)
 	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
 	printContainer(name, tmp);
 }
+
+template <typename T>
+void	testUniqueList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "unique"));
+	std::cout << "\n---------------------";
+
+	T tmp = cont;
+
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
+
+	tmp.unique();
+	
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
+}
+
+template <typename T>
+void	testUniqueBinaryPredicateList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "unique binary predicate"));
+	std::cout << "\n---------------------";
+
+	T tmp = cont;
+
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
+
+	tmp.unique(binaryPredicateTest<typename T::value_type>);
+	
+	printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer(name, tmp);
+}
+
+template <typename T>
+void	testMergeList(T& cont)
+{
+	std::string name(getTestName(getTestNumber(0), "merge"));
+	std::cout << "\n---------------------";
+
+	{
+		T tmp = cont;
+		T tmp2 = cont;
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		for (int i = 0; i < 3; ++i)
+			tmp2.push_front(*x);
+		for (int i = 0; i < 3; ++i)
+			tmp2.push_back(*x);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp2);
+
+		tmp.merge(tmp2);
+
+		printTestName(name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer(name, tmp);
+		printTestName(name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer(name, tmp2);
+
+		delete x;
+	}
+}
+
 
 template <typename T>
 void	testReverseList(T& lis)
@@ -971,6 +1039,9 @@ void	testNotConstList(T& lis, int testNb)
 	testSpliceRangeList(lis);
 	testRemoveList(lis);
 	testRemoveIfList(lis);
+	testUniqueList(lis);
+	testUniqueBinaryPredicateList(lis);
+	testMergeList(lis);
 	testReverseList(lis);
 }
 

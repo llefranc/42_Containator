@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:37:35 by hherin            #+#    #+#             */
-/*   Updated: 2021/01/27 16:19:17 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 17:07:31 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ void	testList(const char (&arrChar)[20], const int (&arrInt)[20], const std::str
 
 int main(void)
 {
-	const char arrChar[20] =  {94, 96, 32, 33, 48,  36, 76, 117, 82, 56, 105, 72, 99, 111, 125, 122, 43, 50, 69, 88};
+	const char arrChar[20] =  {94, 96, 32, 33, 48,  36, 76, 117, 82, 56, 99, 99, 99, 111, 125, 122, 43, 50, 69, 88};
     const int arrInt[20] = {58966, 2147483647, 256, -2147483648, 0, -1, 2, 3, 4, 5, 6, 7, 7, 8, 54634152, 9, 10, 11, 56, 56465};
-    const std::string arrString[20] = {"hello coco", "j'arrive", "oui-oui", "kafeolait", "jul d'ananas", "42", "gnou", "jura", "saperlipopette", "anticonstitutionnellement", "Pneumonoultramicroscopicsilicovolcanoconiosis", "Blue", "Red", "Orange", "Yellow", "boulette de viande hache",
+    const std::string arrString[20] = {"hello coco", "j'arrive", "oui-oui", "kafeolait", "jul d'ananas", "jul d'ananas", "42", "jura", "saperlipopette", "anticonstitutionnellement", "Pneumonoultramicroscopicsilicovolcanoconiosis", "Blue", "Red", "Orange", "Yellow", "boulette de viande hache",
                                     "raviolis du nord est", "PNY", "street bangkok", "confifi"};
 
     

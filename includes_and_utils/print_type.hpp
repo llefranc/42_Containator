@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:32:08 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/29 15:06:45 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/01/29 16:03:37 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,22 @@ inline bool predicateTest<char>(const char& value) { return value < 'f'; }
 
 template <>
 inline bool predicateTest<std::string>(const std::string& value) { return value < "oooooo"; }
+
+
+/**
+*	Calls the correct type's binaryPredicate (used in unique predicate (list))
+*/
+template <typename T>
+inline bool binaryPredicateTest(const T&, const T&) {} // Inline keywork to avoid duplicate symbol error
+
+template <>
+inline bool binaryPredicateTest<int>(const int& a, const int& b) { return a < b; }
+
+template <>
+inline bool binaryPredicateTest<char>(const char& a,const char& b) { return a < b; }
+
+template <>
+inline bool binaryPredicateTest<std::string>(const std::string& a, const std::string& b) { return a < b; }
 
 
 template <typename T>
