@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/01 15:44:20 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:56:11 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 template <typename T>
 void	testOperatorBraceletVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "operator[]"));
+	std::string name("operator[]:");
 	std::cout << "\n---------------------";
 
 	printTestName("24", name);
@@ -29,7 +29,7 @@ void	testOperatorBraceletVec(T& cont)
 template <typename T>
 void	testSizeVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "size"));
+	std::string name("size:");
 	std::cout << "\n---------------------";
 	
 	printTestName("35", name);	std::cout << cont.size();
@@ -38,7 +38,7 @@ void	testSizeVec(T& cont)
 template <typename T>
 void	testEmptyVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "empty"));
+	std::string name("empty:");
 	std::cout << "\n---------------------";
 	
 	printTestName("44", name);	std::cout << cont.empty();
@@ -47,7 +47,7 @@ void	testEmptyVec(T& cont)
 template <typename T>
 void	testIteratorsVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "iterators"));
+	std::string name("iterators:");
 	std::cout << "\n---------------------";
 	
 	printTestName("53", name, "operator++");
@@ -95,7 +95,7 @@ void	testIteratorsVec(T& cont)
 template <typename T>
 void	testReverseIteratorsVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "reverse iterators"));
+	std::string name("reverse iterators:");
 	std::cout << "\n---------------------";
 	
 	printTestName("101", name, "++operator");
@@ -143,7 +143,7 @@ void	testReverseIteratorsVec(T& cont)
 template <typename T>
 void	testAtVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "at"));
+	std::string name("at:");
 	std::cout << "\n---------------------";
 	
 	printTestName("149", name);
@@ -174,7 +174,7 @@ void	testAtVec(T& cont)
 template <typename T>
 void	testFrontVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "front"));
+	std::string name("front:");
 	std::cout << "\n---------------------";
 	
 	printTestName("180", name);
@@ -185,7 +185,7 @@ void	testFrontVec(T& cont)
 template <typename T>
 void	testBackVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "back"));
+	std::string name("back:");
 	std::cout << "\n---------------------";
 
 	printTestName("191", name);
@@ -196,7 +196,7 @@ void	testBackVec(T& cont)
 template <typename T>
 void	testPushBackVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "push_back"));
+	std::string name("push_back:");
 	std::cout << "\n---------------------";
 	
 	printTestName("202", name);
@@ -217,7 +217,7 @@ void	testPushBackVec(T& cont)
 template <typename T>
 void	testPopBackVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "pop_back"));
+	std::string name("pop_back:");
 	std::cout << "\n---------------------";
 	
 	printTestName("223", name);
@@ -233,7 +233,7 @@ void	testPopBackVec(T& cont)
 template <typename T>
 void	testClearVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "clear"));
+	std::string name("clear:");
 	std::cout << "\n---------------------";
 	
 	T tmp = cont;
@@ -256,7 +256,7 @@ void	testClearVec(T& cont)
 template <typename T>
 void	testSwapVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "swap"));
+	std::string name("swap:");
 	std::cout << "\n---------------------";
 	
 	T tmp(cont);
@@ -285,7 +285,7 @@ void	testSwapVec(T& cont)
 template <typename T>
 void	testResizeVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "resize"));
+	std::string name("resize:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -311,7 +311,7 @@ void	testResizeVec(T& cont)
 template <typename T>
 void	testAssignRangeVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "assign iterator range"));
+	std::string name("assign iterator range:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -336,7 +336,7 @@ void	testAssignRangeVec(T& cont)
 template <typename T>
 void	testAssignNElemVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "assign n elems"));
+	std::string name("assign n elems:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -365,7 +365,7 @@ void	testAssignNElemVec(T& cont)
 template <typename T>
 void	testInsert1ElemVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "insert 1 elem"));
+	std::string name("insert 1 elem:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -395,7 +395,7 @@ void	testInsert1ElemVec(T& cont)
 template <typename T>
 void	testInsertNElemVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "insert n elem"));
+	std::string name("insert n elem:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -425,7 +425,7 @@ void	testInsertNElemVec(T& cont)
 template <typename T>
 void	testInsertRangeVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "insert iterator range"));
+	std::string name("insert iterator range:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -448,7 +448,7 @@ void	testInsertRangeVec(T& cont)
 template <typename T>
 void	testEraseRangeVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "erase iterator range"));
+	std::string name("erase iterator range:");
 	std::cout << "\n---------------------";
 
 	// Erase everything
@@ -546,7 +546,7 @@ void	testEraseRangeVec(T& cont)
 template <typename T>
 void	testErase1ElemVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "erase 1 elem"));
+	std::string name("erase 1 elem:");
 	std::cout << "\n---------------------";
 
 	// Erase first elem
@@ -612,7 +612,7 @@ void	testErase1ElemVec(T& cont)
 template <typename T>
 void	testOperatorEqualNotEqualVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "operator==/!="));
+	std::string name("operator==/!=:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -643,7 +643,7 @@ void	testOperatorEqualNotEqualVec(T& cont)
 template <typename T>
 void	testOperatorLessAndMoreVec(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "operator</>/<=/>="));
+	std::string name("operator</>/<=/>=:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;

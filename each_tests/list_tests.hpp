@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/01 15:44:07 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/01 16:09:25 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 template <typename T>
 void	testSizeList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "size"));
+	std::string name("size:");
 	std::cout << "\n---------------------";
 	
 	printTestName("24", name);	std::cout << cont.size();
@@ -27,7 +27,7 @@ void	testSizeList(T& cont)
 template <typename T>
 void	testEmptyList(T& lis)
 {
-	std::string name(getTestName(getTestNumber(0), "empty"));
+	std::string name("empty:");
 	std::cout << "\n---------------------";
 	
 	printTestName("33", name);	std::cout << lis.empty();
@@ -36,7 +36,7 @@ void	testEmptyList(T& lis)
 template <typename T>
 void	testIteratorsList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "iterators"));
+	std::string name("iterators:");
 	std::cout << "\n---------------------";
 	
 	printTestName("42", name, "operator++");
@@ -64,7 +64,7 @@ void	testIteratorsList(T& cont)
 template <typename T>
 void	testReverseIteratorsList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "reverse iterators"));
+	std::string name("reverse iterators:");
 	std::cout << "\n---------------------";
 	
 	printTestName("70", name, "++operator");
@@ -92,7 +92,7 @@ void	testReverseIteratorsList(T& cont)
 template <typename T>
 void	testFrontList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "front"));
+	std::string name("front:");
 	std::cout << "\n---------------------";
 	
 	printTestName("98", name);
@@ -103,7 +103,7 @@ void	testFrontList(T& cont)
 template <typename T>
 void	testBackList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "back"));
+	std::string name("back:");
 	std::cout << "\n---------------------";
 
 	printTestName("109", name);
@@ -114,7 +114,7 @@ void	testBackList(T& cont)
 template <typename T>
 void	testPushBackList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "push_back"));
+	std::string name("push_back:");
 	std::cout << "\n---------------------";
 	
 	printTestName("120", name);
@@ -135,7 +135,7 @@ void	testPushBackList(T& cont)
 template <typename T>
 void	testPopBackList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "pop_back"));
+	std::string name("pop_back:");
 	std::cout << "\n---------------------";
 	
 	printTestName("141", name);
@@ -151,7 +151,7 @@ void	testPopBackList(T& cont)
 template <typename T>
 void	testPushFrontList(T& lis)
 {
-	std::string name(getTestName(getTestNumber(0), "push_front"));
+	std::string name("push_front:");
 	std::cout << "\n---------------------";
 	
 	printTestName("157", name);
@@ -172,7 +172,7 @@ void	testPushFrontList(T& lis)
 template <typename T>
 void	testPopFrontList(T& lis)
 {
-	std::string name(getTestName(getTestNumber(0), "pop_front"));
+	std::string name("pop_front:");
 	std::cout << "\n---------------------";
 	
 	printTestName("178", name);
@@ -188,7 +188,7 @@ void	testPopFrontList(T& lis)
 template <typename T>
 void	testClearList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "clear"));
+	std::string name("clear:");
 	std::cout << "\n---------------------";
 	
 	T tmp = cont;
@@ -211,7 +211,7 @@ void	testClearList(T& cont)
 template <typename T>
 void	testSwapList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "swap"));
+	std::string name("swap:");
 	std::cout << "\n---------------------";
 	
 	T tmp(cont);
@@ -240,7 +240,7 @@ void	testSwapList(T& cont)
 template <typename T>
 void	testResizeList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "resize"));
+	std::string name("resize:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -266,7 +266,7 @@ void	testResizeList(T& cont)
 template <typename T>
 void	testAssignRangeList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "assign iterator range"));
+	std::string name("assign iterator range:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -294,7 +294,7 @@ void	testAssignRangeList(T& cont)
 template <typename T>
 void	testAssignNElemList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "assign n elems"));
+	std::string name("assign n elems:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -323,7 +323,7 @@ void	testAssignNElemList(T& cont)
 template <typename T>
 void	testInsert1ElemList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "insert 1 elem"));
+	std::string name("insert 1 elem:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -353,7 +353,7 @@ void	testInsert1ElemList(T& cont)
 template <typename T>
 void	testInsertNElemList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "insert n elem"));
+	std::string name("insert n elem:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -381,7 +381,7 @@ void	testInsertNElemList(T& cont)
 template <typename T>
 void	testInsertRangeList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "insert iterator range"));
+	std::string name("insert iterator range:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -404,7 +404,7 @@ void	testInsertRangeList(T& cont)
 template <typename T>
 void	testEraseRangeList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "erase iterator range"));
+	std::string name("erase iterator range:");
 	std::cout << "\n---------------------";
 
 	// Erase everything
@@ -506,7 +506,7 @@ void	testEraseRangeList(T& cont)
 template <typename T>
 void	testErase1ElemList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "erase 1 elem"));
+	std::string name("erase 1 elem:");
 	std::cout << "\n---------------------";
 
 	// Erase first elem
@@ -572,7 +572,7 @@ void	testErase1ElemList(T& cont)
 template <typename T>
 void	testSplice1ElemList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "splice 1 elem"));
+	std::string name("splice 1 elem:");
 	std::cout << "\n---------------------";
 
 	// Splice at beginning
@@ -664,7 +664,7 @@ void	testSplice1ElemList(T& cont)
 template <typename T>
 void	testSpliceAllList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "splice all list"));
+	std::string name("splice all list:");
 	std::cout << "\n---------------------";
 
 	// Splice at beginning
@@ -756,7 +756,7 @@ void	testSpliceAllList(T& cont)
 template <typename T>
 void	testSpliceRangeList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "splice range"));
+	std::string name("splice range:");
 	std::cout << "\n---------------------";
 
 	// Splice at beginning
@@ -879,7 +879,7 @@ void	testSpliceRangeList(T& cont)
 template <typename T>
 void	testRemoveList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "remove"));
+	std::string name("remove:");
 	std::cout << "\n---------------------";
 
 	// Allows to value initialize (case size is 0, we can't assign cont.front())
@@ -903,7 +903,7 @@ void	testRemoveList(T& cont)
 template <typename T>
 void	testRemoveIfList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "remove if"));
+	std::string name("remove if:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -920,7 +920,7 @@ void	testRemoveIfList(T& cont)
 template <typename T>
 void	testUniqueList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "unique"));
+	std::string name("unique:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -937,7 +937,7 @@ void	testUniqueList(T& cont)
 template <typename T>
 void	testUniqueBinaryPredicateList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "unique binary predicate"));
+	std::string name("unique binary predicate:");
 	std::cout << "\n---------------------";
 
 	T tmp = cont;
@@ -954,7 +954,7 @@ void	testUniqueBinaryPredicateList(T& cont)
 template <typename T>
 void	testMergeList(T& cont)
 {
-	std::string name(getTestName(getTestNumber(0), "merge"));
+	std::string name("merge:");
 	std::cout << "\n---------------------";
 
 	// Merging 2 non empty list
@@ -1055,11 +1055,115 @@ void	testMergeList(T& cont)
 	}
 }
 
+template <typename T>
+void	testMergePredicateList(T& cont)
+{
+	std::string name("merge predicate:");
+	std::cout << "\n---------------------";
+
+	// Merging 2 non empty list
+	{
+		printTestName("962", name);	std::cout << "----- merging two non empty list -----";
+		
+		T tmp = cont;
+		T tmp2 = cont;
+		typename T::value_type* x = new typename T::value_type ();
+		if (cont.size())
+			*x = cont.front();
+
+		for (int i = 0; i < 3; ++i)
+			tmp2.push_front(*x);
+		for (int i = 0; i < 3; ++i)
+			tmp2.push_back(*x);
+
+		printTestName("975", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("976", name, tmp);
+		printTestName("977", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("978", name, tmp2);
+
+		tmp.merge(tmp2, binaryPredicateTest<typename T::value_type>);
+
+		printTestName("982", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("983", name, tmp);
+		printTestName("984", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("985", name, tmp2);
+
+		delete x;
+	}
+
+	// Merging one empty list into non empty list
+	{
+		printTestName("992", name);	std::cout << "----- merging one empty list into non empty list -----";
+		
+		T tmp = cont;
+		T tmp2 = cont;
+		
+		tmp2.clear();
+
+		printTestName("999", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1000", name, tmp);
+		printTestName("1001", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1002", name, tmp2);
+
+		tmp.merge(tmp2, binaryPredicateTest<typename T::value_type>);
+
+		printTestName("1006", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1007", name, tmp);
+		printTestName("1008", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1009", name, tmp2);
+	}
+
+	// Merging non empty list into empty list
+	{
+		printTestName("1014", name);	std::cout << "----- merging non empty list into empty list -----";
+
+		T tmp = cont;
+		T tmp2 = cont;
+		
+		tmp.clear();
+
+		printTestName("1021", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1022", name, tmp);
+		printTestName("1023", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1024", name, tmp2);
+
+		tmp.merge(tmp2, binaryPredicateTest<typename T::value_type>);
+
+		printTestName("1028", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1029", name, tmp);
+		printTestName("1030", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1031", name, tmp2);
+	}
+
+	// Merging two empty list
+	{
+		printTestName("1036", name);	std::cout << "----- merging two empty list -----";
+		
+		T tmp = cont;
+		T tmp2 = cont;
+		
+		tmp.clear();
+		tmp2.clear();
+
+		printTestName("1044", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1045", name, tmp);
+		printTestName("1046", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1047", name, tmp2);
+
+		tmp.merge(tmp2, binaryPredicateTest<typename T::value_type>);
+
+		printTestName("1051", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1052", name, tmp);
+		printTestName("1053", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1054", name, tmp2);
+	}
+}
+
 
 template <typename T>
 void	testReverseList(T& lis)
 {
-	std::string name(getTestName(getTestNumber(0), "reverse"));
+	std::string name("reverse:");
 	std::cout << "\n---------------------";
 
 	T tmp = lis;
@@ -1112,6 +1216,7 @@ void	testNotConstList(T& lis, int testNb)
 	testUniqueList(lis);
 	testUniqueBinaryPredicateList(lis);
 	testMergeList(lis);
+	testMergePredicateList(lis);
 	testReverseList(lis);
 }
 
