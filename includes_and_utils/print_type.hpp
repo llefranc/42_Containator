@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:32:08 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/29 16:03:37 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:48:48 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ inline bool binaryPredicateTest<std::string>(const std::string& a, const std::st
 
 
 template <typename T>
-inline void printContainer(const std::string& name, T& cont)
+inline void printContainer(const std::string& nbLine, std::string name, T& cont)
 {
-	printTestName(name);
+	printTestName(nbLine, name);
 	for (typename T::const_iterator it = cont.begin(); it != cont.end(); ++it)
 		std::cout << *it << " | ";
 }

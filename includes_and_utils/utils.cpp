@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 12:38:11 by llefranc          #+#    #+#             */
-/*   Updated: 2021/01/29 15:06:08 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/01 15:50:37 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,14 @@ std::string toString(int i)
 
 const std::string getTestName(int testNb, std::string name)
 {
-	return std::string("\ntest " + toString(testNb) + ": " + name + ":");
+	(void)testNb;
+	return std::string(name + ":");
 }
 
-void printTestName(std::string name, const std::string& info)
+void printTestName(const std::string& nbLine, std::string name, const std::string& info)
 {
 	std::cout.width(45);
+	name = "\nline " + nbLine + ": " + name;
 	if (!info.empty())
 		name = name + " " + info + ":";
 	std::cout << std::left << name;
