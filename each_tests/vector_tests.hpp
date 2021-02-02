@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_tests.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/01 15:56:11 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/02 08:05:38 by lucaslefran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -622,7 +622,7 @@ void	testOperatorEqualNotEqualVec(T& cont)
 	
 	typename T::value_type* x = new typename T::value_type ();
 	if (cont.size())
-		*x = cont[0];
+		*x = cont.front();
 	
 	tmp.push_back(*x);
 	printTestName("628", name, "tmp == cont");	std::cout << (tmp == cont);
@@ -690,7 +690,7 @@ void	testOperatorLessAndMoreVec(T& cont)
 
 
 template <typename T>
-void	testNotConstVec(T& cont, int testNb)
+void	testNotConstVec(T& vec, int testNb)
 {
 	std::cout << "\n\n--------------------------------\n";
 	std::cout << "------\tTESTING VECTOR " << testNb << " ------\n";
@@ -700,32 +700,32 @@ void	testNotConstVec(T& cont, int testNb)
 	print_type<typename T::value_type>();
 	
 	// Tests for non-const vectors
-	testOperatorBraceletVec(cont);
-	testSizeVec(cont);
-	testEmptyVec(cont);
-	testIteratorsVec(cont);
-	testReverseIteratorsVec(cont);
-	testAtVec(cont);
-	testFrontVec(cont);
-	testBackVec(cont);
-	testPushBackVec(cont);
-	testPopBackVec(cont);
-	testClearVec(cont);
-	testSwapVec(cont);
-	testResizeVec(cont);
-	testAssignRangeVec(cont);
-	testAssignNElemVec(cont);
-	testInsert1ElemVec(cont);
-	testInsertNElemVec(cont);
-	testInsertRangeVec(cont);
-	testEraseRangeVec(cont);
-	testErase1ElemVec(cont);
-	testOperatorEqualNotEqualVec(cont);
-	testOperatorLessAndMoreVec(cont);
+	testOperatorBraceletVec(vec);
+	testSizeVec(vec);
+	testEmptyVec(vec);
+	testIteratorsVec(vec);
+	testReverseIteratorsVec(vec);
+	testAtVec(vec);
+	testFrontVec(vec);
+	testBackVec(vec);
+	testPushBackVec(vec);
+	testPopBackVec(vec);
+	testClearVec(vec);
+	testSwapVec(vec);
+	testResizeVec(vec);
+	testAssignRangeVec(vec);
+	testAssignNElemVec(vec);
+	testInsert1ElemVec(vec);
+	testInsertNElemVec(vec);
+	testInsertRangeVec(vec);
+	testEraseRangeVec(vec);
+	testErase1ElemVec(vec);
+	testOperatorEqualNotEqualVec(vec);
+	testOperatorLessAndMoreVec(vec);
 }
 
 template <typename T>
-void	testConstVec(T& cont, int testNb)
+void	testConstVec(T& vec, int testNb)
 {
 	std::cout << "\n\n--------------------------------\n";
 	std::cout << "------\tTESTING CONST VECTOR " << testNb << " ------\n";
@@ -735,15 +735,14 @@ void	testConstVec(T& cont, int testNb)
 	print_type<typename T::value_type>();
 	
 	// Tests for const vectors
-	testOperatorBraceletVec(cont);
-	testSizeVec(cont);
-	testEmptyVec(cont);
-	testIteratorsVec(cont);
-	testReverseIteratorsVec(cont);
-	testAtVec(cont);
-	testFrontVec(cont);
-	testBackVec(cont);
-
+	testOperatorBraceletVec(vec);
+	testSizeVec(vec);
+	testEmptyVec(vec);
+	testIteratorsVec(vec);
+	testReverseIteratorsVec(vec);
+	testAtVec(vec);
+	testFrontVec(vec);
+	testBackVec(vec);
 }
 
 #endif
