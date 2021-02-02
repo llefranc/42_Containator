@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # Replace all occurences of TOREPLACE word with the line number. Usefull for printTestName
-# and printContainer functions in each *container*_test.hpp files.
+# and printContainer functions in each_test/*_test.hpp files.
 
 NUMBERLINE=""
 
