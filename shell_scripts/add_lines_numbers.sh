@@ -11,3 +11,4 @@ while grep "TOREPLACE" ../each_tests/list_tests.hpp > /dev/null;
 	tr '\n' '~' < ../each_tests/list_tests.hpp | sed "s/TOREPLACE/$NUMBERLINE/1" | tr '~' '\n' > tmp.cpp
 	cat tmp.cpp > ../each_tests/list_tests.hpp
 	done
+rm tmp.cpp
