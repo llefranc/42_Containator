@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_tests.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
+/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/02 08:06:11 by lucaslefran      ###   ########.fr       */
+/*   Updated: 2021/02/02 14:04:57 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1053,6 +1053,21 @@ void	testMergeList(T& cont)
 		printTestName("1053", name);	std::cout << "size of tmp2 = " << tmp2.size();
 		printContainer("1054", name, tmp2);
 	}
+
+	// Merging the list with itself
+	{
+		printTestName("1059", name);	std::cout << "----- merging the list with itself -----";
+
+		T tmp = cont;
+		
+		printTestName("1063", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1064", name, tmp);
+
+		tmp.merge(tmp);
+
+		printTestName("1068", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1069", name, tmp);
+	}
 }
 
 template <typename T>
@@ -1063,7 +1078,7 @@ void	testMergePredicateList(T& cont)
 
 	// Merging 2 non empty list
 	{
-		printTestName("962", name);	std::cout << "----- merging two non empty list -----";
+		printTestName("1081", name);	std::cout << "----- merging two non empty list -----";
 		
 		T tmp = cont;
 		T tmp2 = cont;
@@ -1076,68 +1091,68 @@ void	testMergePredicateList(T& cont)
 		for (int i = 0; i < 3; ++i)
 			tmp2.push_back(*x);
 
-		printTestName("975", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("976", name, tmp);
-		printTestName("977", name);	std::cout << "size of tmp2 = " << tmp2.size();
-		printContainer("978", name, tmp2);
+		printTestName("1094", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1095", name, tmp);
+		printTestName("1096", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1097", name, tmp2);
 
 		tmp.merge(tmp2, binaryPredicateTest<typename T::value_type>);
 
-		printTestName("982", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("983", name, tmp);
-		printTestName("984", name);	std::cout << "size of tmp2 = " << tmp2.size();
-		printContainer("985", name, tmp2);
+		printTestName("1101", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1102", name, tmp);
+		printTestName("1103", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1104", name, tmp2);
 
 		delete x;
 	}
 
 	// Merging one empty list into non empty list
 	{
-		printTestName("992", name);	std::cout << "----- merging one empty list into non empty list -----";
+		printTestName("1111", name);	std::cout << "----- merging one empty list into non empty list -----";
 		
 		T tmp = cont;
 		T tmp2 = cont;
 		
 		tmp2.clear();
 
-		printTestName("999", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("1000", name, tmp);
-		printTestName("1001", name);	std::cout << "size of tmp2 = " << tmp2.size();
-		printContainer("1002", name, tmp2);
+		printTestName("1118", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1119", name, tmp);
+		printTestName("1120", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1121", name, tmp2);
 
 		tmp.merge(tmp2, binaryPredicateTest<typename T::value_type>);
 
-		printTestName("1006", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("1007", name, tmp);
-		printTestName("1008", name);	std::cout << "size of tmp2 = " << tmp2.size();
-		printContainer("1009", name, tmp2);
+		printTestName("1125", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1126", name, tmp);
+		printTestName("1127", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1128", name, tmp2);
 	}
 
 	// Merging non empty list into empty list
 	{
-		printTestName("1014", name);	std::cout << "----- merging non empty list into empty list -----";
+		printTestName("1133", name);	std::cout << "----- merging non empty list into empty list -----";
 
 		T tmp = cont;
 		T tmp2 = cont;
 		
 		tmp.clear();
 
-		printTestName("1021", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("1022", name, tmp);
-		printTestName("1023", name);	std::cout << "size of tmp2 = " << tmp2.size();
-		printContainer("1024", name, tmp2);
+		printTestName("1140", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1141", name, tmp);
+		printTestName("1142", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1143", name, tmp2);
 
 		tmp.merge(tmp2, binaryPredicateTest<typename T::value_type>);
 
-		printTestName("1028", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("1029", name, tmp);
-		printTestName("1030", name);	std::cout << "size of tmp2 = " << tmp2.size();
-		printContainer("1031", name, tmp2);
+		printTestName("1147", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1148", name, tmp);
+		printTestName("1149", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1150", name, tmp2);
 	}
 
 	// Merging two empty list
 	{
-		printTestName("1036", name);	std::cout << "----- merging two empty list -----";
+		printTestName("1155", name);	std::cout << "----- merging two empty list -----";
 		
 		T tmp = cont;
 		T tmp2 = cont;
@@ -1145,17 +1160,32 @@ void	testMergePredicateList(T& cont)
 		tmp.clear();
 		tmp2.clear();
 
-		printTestName("1044", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("1045", name, tmp);
-		printTestName("1046", name);	std::cout << "size of tmp2 = " << tmp2.size();
-		printContainer("1047", name, tmp2);
+		printTestName("1163", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1164", name, tmp);
+		printTestName("1165", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1166", name, tmp2);
 
 		tmp.merge(tmp2, binaryPredicateTest<typename T::value_type>);
 
-		printTestName("1051", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("1052", name, tmp);
-		printTestName("1053", name);	std::cout << "size of tmp2 = " << tmp2.size();
-		printContainer("1054", name, tmp2);
+		printTestName("1170", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1171", name, tmp);
+		printTestName("1172", name);	std::cout << "size of tmp2 = " << tmp2.size();
+		printContainer("1173", name, tmp2);
+	}
+
+	// Merging the list with itself
+	{
+		printTestName("1178", name);	std::cout << "----- merging the list with itself -----";
+		
+		T tmp = cont;
+		
+		printTestName("1182", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1183", name, tmp);
+
+		tmp.merge(tmp, binaryPredicateTest<typename T::value_type>);
+
+		printTestName("1187", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("1188", name, tmp);
 	}
 }
 
@@ -1166,13 +1196,13 @@ void	testSortList(T& lis)
 	std::cout << "\n---------------------";
 
 	T tmp = lis;
-	printTestName("1169", name);	std::cout << "size of tmp = " << tmp.size();
-	printContainer("1170", name, tmp);
+	printTestName("1199", name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer("1200", name, tmp);
 
 	tmp.sort();
 	
-	printTestName("1174", name);	std::cout << "size after resize = " << tmp.size();
-	printContainer("1175", name, tmp);
+	printTestName("1204", name);	std::cout << "size after resize = " << tmp.size();
+	printContainer("1205", name, tmp);
 }
 
 template <typename T>
@@ -1182,13 +1212,13 @@ void	testSortPredicateList(T& lis)
 	std::cout << "\n---------------------";
 
 	T tmp = lis;
-	printTestName("1185", name);	std::cout << "size of tmp = " << tmp.size();
-	printContainer("1186", name, tmp);
+	printTestName("1215", name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer("1216", name, tmp);
 
 	tmp.sort(binaryPredicateTest<typename T::value_type>);
 	
-	printTestName("1190", name);	std::cout << "size after resize = " << tmp.size();
-	printContainer("1191", name, tmp);
+	printTestName("1220", name);	std::cout << "size after resize = " << tmp.size();
+	printContainer("1221", name, tmp);
 }
 
 template <typename T>
@@ -1198,13 +1228,13 @@ void	testReverseList(T& lis)
 	std::cout << "\n---------------------";
 
 	T tmp = lis;
-	printTestName("1201", name);	std::cout << "size of tmp = " << tmp.size();
-	printContainer("1202", name, tmp);
+	printTestName("1231", name);	std::cout << "size of tmp = " << tmp.size();
+	printContainer("1232", name, tmp);
 
 	tmp.reverse();
 	
-	printTestName("1206", name);	std::cout << "size after resize = " << tmp.size();
-	printContainer("1207", name, tmp);
+	printTestName("1236", name);	std::cout << "size after resize = " << tmp.size();
+	printContainer("1237", name, tmp);
 }
 
 template <typename T>
@@ -1215,25 +1245,25 @@ void	testOperatorEqualNotEqualList(T& cont)
 
 	T tmp = cont;
 
-	printTestName("1218", name, "tmp == cont");	std::cout << (tmp == cont);
-	printTestName("1219", name, "tmp != cont");	std::cout << (tmp != cont);
+	printTestName("1248", name, "tmp == cont");	std::cout << (tmp == cont);
+	printTestName("1249", name, "tmp != cont");	std::cout << (tmp != cont);
 	
 	typename T::value_type* x = new typename T::value_type ();
 	if (cont.size())
 		*x = cont.front();
 	
 	tmp.push_back(*x);
-	printTestName("1226", name, "tmp == cont");	std::cout << (tmp == cont);
-	printTestName("1227", name, "tmp != cont");	std::cout << (tmp != cont);
+	printTestName("1256", name, "tmp == cont");	std::cout << (tmp == cont);
+	printTestName("1257", name, "tmp != cont");	std::cout << (tmp != cont);
 
 	T tmp2 = tmp;
 	tmp.clear();
-	printTestName("1231", name, "tmp == cont");	std::cout << (tmp2 == tmp);
-	printTestName("1232", name, "tmp != cont");	std::cout << (tmp2 != tmp);
+	printTestName("1261", name, "tmp == cont");	std::cout << (tmp2 == tmp);
+	printTestName("1262", name, "tmp != cont");	std::cout << (tmp2 != tmp);
 
 	tmp2.clear();
-	printTestName("1235", name, "tmp == cont");	std::cout << (tmp2 == tmp);
-	printTestName("1236", name, "tmp != cont");	std::cout << (tmp2 != tmp);
+	printTestName("1265", name, "tmp == cont");	std::cout << (tmp2 == tmp);
+	printTestName("1266", name, "tmp != cont");	std::cout << (tmp2 != tmp);
 
 	delete x;
 }
@@ -1247,41 +1277,41 @@ void	testOperatorLessAndMoreList(T& cont)
 	T tmp = cont;
 	typename T::value_type* x = new typename T::value_type ();
 
-	printTestName("1250", name, "tmp < cont");	std::cout << (tmp < cont);
-	printTestName("1251", name, "tmp > cont");	std::cout << (tmp > cont);
-	printTestName("1252", name, "tmp <= cont");	std::cout << (tmp <= cont);
-	printTestName("1253", name, "tmp >= cont");	std::cout << (tmp >= cont);
+	printTestName("1280", name, "tmp < cont");	std::cout << (tmp < cont);
+	printTestName("1281", name, "tmp > cont");	std::cout << (tmp > cont);
+	printTestName("1282", name, "tmp <= cont");	std::cout << (tmp <= cont);
+	printTestName("1283", name, "tmp >= cont");	std::cout << (tmp >= cont);
 	
 	if (cont.size())
 		*x = cont.front();
 	tmp.push_back(*x);
 	
-	printTestName("1259", name, "tmp < cont");	std::cout << (cont < tmp);
-	printTestName("1260", name, "tmp > cont");	std::cout << (cont > tmp);
-	printTestName("1261", name, "tmp <= cont");	std::cout << (cont <= tmp);
-	printTestName("1262", name, "tmp >= cont");	std::cout << (cont >= tmp);
+	printTestName("1289", name, "tmp < cont");	std::cout << (cont < tmp);
+	printTestName("1290", name, "tmp > cont");	std::cout << (cont > tmp);
+	printTestName("1291", name, "tmp <= cont");	std::cout << (cont <= tmp);
+	printTestName("1292", name, "tmp >= cont");	std::cout << (cont >= tmp);
 
 	T tmp2 = tmp;
 	if (cont.size())
 		*x = cont.back();
 	tmp2.push_back(*x);
 	
-	printTestName("1269", name, "tmp < cont");	std::cout << (tmp2 < tmp);
-	printTestName("1270", name, "tmp > cont");	std::cout << (tmp2 > tmp);
-	printTestName("1271", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
-	printTestName("1272", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
+	printTestName("1299", name, "tmp < cont");	std::cout << (tmp2 < tmp);
+	printTestName("1300", name, "tmp > cont");	std::cout << (tmp2 > tmp);
+	printTestName("1301", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
+	printTestName("1302", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
 
 	tmp.clear();
-	printTestName("1275", name, "tmp < cont");	std::cout << (tmp2 < tmp);
-	printTestName("1276", name, "tmp > cont");	std::cout << (tmp2 > tmp);
-	printTestName("1277", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
-	printTestName("1278", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
+	printTestName("1305", name, "tmp < cont");	std::cout << (tmp2 < tmp);
+	printTestName("1306", name, "tmp > cont");	std::cout << (tmp2 > tmp);
+	printTestName("1307", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
+	printTestName("1308", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
 
 	tmp2.clear();
-	printTestName("1281", name, "tmp < cont");	std::cout << (tmp2 < tmp);
-	printTestName("1282", name, "tmp > cont");	std::cout << (tmp2 > tmp);
-	printTestName("1283", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
-	printTestName("1284", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
+	printTestName("1311", name, "tmp < cont");	std::cout << (tmp2 < tmp);
+	printTestName("1312", name, "tmp > cont");	std::cout << (tmp2 > tmp);
+	printTestName("1313", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
+	printTestName("1314", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
 
 	delete x;
 }
@@ -1353,6 +1383,169 @@ void	testConstList(T& lis, int testNb)
 }
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
