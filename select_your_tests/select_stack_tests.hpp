@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:51:32 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/03 16:08:16 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:37:17 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	testNonConstStack(T& s, int testNb)
 {
 	printContainerInfo<T>("STACK", testNb);
 	
-	// Tests for non-const vectors
 	stackTest_Size(s);
 	stackTest_Empty(s);
 	stackTest_Top(s);

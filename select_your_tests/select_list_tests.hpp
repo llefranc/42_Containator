@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:51:32 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/03 16:04:37 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:48:13 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,18 @@ void	testNotConstList(T& l, int testNb)
 {
 	printContainerInfo<T>("LIST", testNb);
 	
-	// Tests for non-const lists
-	listTest_Size(l);
-	listTest_Empty(l);
-	listTest_Iterators(l);
-	listTest_ReverseIterators(l);
-	listTest_Front(l);
-	listTest_Back(l);
-	listTest_PushBack(l);
-	listTest_PopBack(l);
+	listTest_Size(l);						//	size
+	listTest_Empty(l);						//	empty
+	listTest_Iterators(l);					//	iterators / begin / end
+	listTest_ReverseIterators(l);			//	reverse iterators / rbegin / rend
+	listTest_Front(l);						//	front
+	listTest_Back(l);						//	back
+	listTest_PushBack(l);					//	push_back
+	listTest_PopBack(l);					//	pop_back
 	listTest_PushFront(l);
 	listTest_PopFront(l);
-	listTest_Clear(l);
-	listTest_Swap(l);
+	listTest_Clear(l);						//	clear
+	listTest_Swap(l);						//	swap
 	listTest_Resize(l);
 	listTest_AssignRange(l);
 	listTest_AssignNElem(l);
@@ -62,7 +61,6 @@ void	testConstList(T& l, int testNb)
 {
 	printContainerInfo<T>("CONST LIST", testNb);
 	
-	// Tests for const lists
 	listTest_Size(l);
 	listTest_Iterators(l);
 	listTest_ReverseIterators(l);

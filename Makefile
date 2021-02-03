@@ -6,7 +6,7 @@
 #    By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 11:24:58 by llefranc          #+#    #+#              #
-#    Updated: 2021/02/03 16:18:55 by llefranc         ###   ########.fr        #
+#    Updated: 2021/02/03 16:39:07 by llefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME		=	containers_test
 CC			=	clang++
 FLAGS		=	-g -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
-SRCS		=	main.cpp includes_and_utils/utils.cpp includes_and_utils/run_each_test.cpp
+SRCS		=	select_your_tests/_select_your_containers.cpp includes_and_utils/utils.cpp \
+				includes_and_utils/run_each_test.cpp
 
 HEADER_INC	=	print_type.hpp tester.hpp stl_like.hpp utils.hpp
 PATH_INC	=	includes_and_utils/

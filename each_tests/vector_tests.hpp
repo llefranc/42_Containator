@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_tests copy.hpp                              :+:      :+:    :+:   */
+/*   vector_tests.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/03 15:50:13 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:22:48 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,7 @@ void	vectorTest_At(T& cont)
 		}
 		catch (std::exception& e)
 		{
-			std::cout << e.what();
+			std::cout << "range exception";
 		}
 	}
 	
@@ -167,7 +167,7 @@ void	vectorTest_At(T& cont)
 	}
 	catch (std::exception& e)
 	{
-		std::cout << e.what();
+		std::cout << "range exception";
 	}
 }
 
@@ -451,96 +451,124 @@ void	vectorTest_EraseRange(T& cont)
 	std::string name("erase iterator range:");
 	std::cout << "\n---------------------";
 
+	typename T::value_type* x = new typename T::value_type ();
+
 	// Erase everything
 	{
-		printTestName("456", name);	std::cout << "----- erase nothing -----";
+		printTestName("458", name);	std::cout << "----- erase nothing -----";
 
 		T tmp = cont;
-		printTestName("459", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("461", name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin(), tmp.end());
 		if (tmp.size())
-			{ printTestName("463", name);	std::cout << "new elem after erase: " << *iter; }
+			{ printTestName("465", name);	std::cout << "new elem after erase: " << *iter; }
 
-		printTestName("465", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("466", name, tmp);
+		printTestName("467", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("468", name, tmp);
+
+		// checking if everything was correcty destroyed
+		for (int i = 0; i < 20; ++i)
+			tmp.push_back(*x);
 	}
 
 	// Erase nothing
 	{
-		printTestName("471", name);	std::cout << "----- erase nothing -----";
+		printTestName("477", name);	std::cout << "----- erase nothing -----";
 
 		T tmp = cont;
-		printTestName("474", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("480", name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.end(), tmp.end());
 		
-		printTestName("478", name);
+		printTestName("484", name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
 
-		printTestName("482", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("488", name);	std::cout << "size of tmp = " << tmp.size();
 
 		iter = tmp.erase(tmp.begin(), tmp.begin());
 		if (tmp.size())
-			{ printTestName("486", name);	std::cout << "new elem after erase: " << *iter; }
+			{ printTestName("492", name);	std::cout << "new elem after erase: " << *iter; }
 
-		printContainer("488", name, tmp);
+		printContainer("494", name, tmp);
+
+		// checking if everything was correcty destroyed and if we can push_back on erased values
+		for (int i = 0; i < 20; ++i)
+			tmp.push_back(*x);
+		printContainer("499", name, tmp);
 	}
 	
 	// Erase last elem
 	if (cont.size())
 	{
-		printTestName("494", name);	std::cout << "----- erase last elem -----";
+		printTestName("505", name);	std::cout << "----- erase last elem -----";
 		
 		T tmp = cont;
-		printTestName("497", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("508", name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.end() - 1, tmp.end());
 
-		printTestName("501", name);
+		printTestName("512", name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
 
-		printTestName("505", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("506", name, tmp);
+		printTestName("516", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("517", name, tmp);
+
+		// checking if everything was correcty destroyed and if we can push_back on erased values
+		for (int i = 0; i < 20; ++i)
+			tmp.push_back(*x);
+		printContainer("522", name, tmp);
 	}
 
 	// Erase everything except first elem
 	if (cont.size())
 	{
-		printTestName("512", name);	std::cout << "----- erase everything except first elem -----";
+		printTestName("528", name);	std::cout << "----- erase everything except first elem -----";
 
 		T tmp = cont;
-		printTestName("515", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("531", name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin() + 1, tmp.end());
 
-		printTestName("519", name);
+		printTestName("535", name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
 
-		printTestName("523", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("524", name, tmp);
+		printTestName("539", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("540", name, tmp);
+		
+		// checking if everything was correcty destroyed and if we can push_back on erased values
+		for (int i = 0; i < 20; ++i)
+			tmp.push_back(*x);
+		printContainer("545", name, tmp);
 	}
 
 	// Erase only first elem
 	if (cont.size())
 	{
-		printTestName("530", name);	std::cout << "----- erase only first elem -----";
+		printTestName("551", name);	std::cout << "----- erase only first elem -----";
 
 		T tmp = cont;
-		printTestName("533", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("554", name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin(), tmp.begin() + 1);
 
-		printTestName("537", name);
+		printTestName("558", name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
 
-		printTestName("541", name);	std::cout << "size of tmp = " << tmp.size();
-		printContainer("542", name, tmp);
+		printTestName("562", name);	std::cout << "size of tmp = " << tmp.size();
+		printContainer("563", name, tmp);
+		
+		// checking if everything was correcty destroyed and if we can push_back on erased values
+		for (int i = 0; i < 20; ++i)
+			tmp.push_back(*x);
+		printContainer("568", name, tmp);
 	}
+
+	delete x;
 }
 
 template <typename T>
@@ -549,64 +577,83 @@ void	vectorTest_Erase1Elem(T& cont)
 	std::string name("erase 1 elem:");
 	std::cout << "\n---------------------";
 
+	typename T::value_type* x = new typename T::value_type ();
+
 	// Erase first elem
 	if (cont.size() > 1)
 	{
-		printTestName("555", name);	std::cout << "----- erase first elem -----";
+		printTestName("585", name);	std::cout << "----- erase first elem -----";
 		
 		T tmp = cont;
-		printTestName("558", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("588", name);	std::cout << "size of tmp = " << tmp.size();
 
-		printContainer("560", name, tmp);
+		printContainer("590", name, tmp);
 		typename T::iterator iter = tmp.erase(tmp.begin());
 		if (tmp.size())
-			{ printTestName("563", name);	std::cout << "return value: " << *iter; }
-		printContainer("564", name, tmp);
+			{ printTestName("593", name);	std::cout << "return value: " << *iter; }
+		printContainer("594", name, tmp);
 
-		printTestName("566", name);
+		printTestName("596", name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
 			
-		printTestName("570", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("600", name);	std::cout << "size of tmp = " << tmp.size();
+
+		// checking if everything was correcty destroyed and if we can push_back on erased values
+		for (int i = 0; i < 20; ++i)
+			tmp.push_back(*x);
+		printContainer("605", name, tmp);
 	}
 
 	// Erase last elem
 	if (cont.size())
 	{
-		printTestName("576", name);	std::cout << "----- erase last elem -----";
+		printTestName("611", name);	std::cout << "----- erase last elem -----";
 		
 		T tmp = cont;
-		printTestName("579", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("614", name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.end() - 1);
-		printContainer("582", name, tmp);
+		printContainer("617", name, tmp);
 
-		printTestName("584", name);
+		printTestName("619", name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
 
-		printTestName("588", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("623", name);	std::cout << "size of tmp = " << tmp.size();
+
+		// checking if everything was correcty destroyed and if we can push_back on erased values
+		for (int i = 0; i < 20; ++i)
+			tmp.push_back(*x);
+		printContainer("628", name, tmp);
 	}
 
 	// Erase one elem
 	if (cont.size() > 1)
 	{
-		printTestName("594", name);	std::cout << "----- erase second elem -----";
+		printTestName("634", name);	std::cout << "----- erase second elem -----";
 
 		T tmp = cont;
-		printTestName("597", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("637", name);	std::cout << "size of tmp = " << tmp.size();
 
 		typename T::iterator iter = tmp.erase(tmp.begin() + 1);
 		if (tmp.size() > 2)
-			{ printTestName("601", name);	std::cout << "return value: " << *iter; }
-		printContainer("602", name, tmp);
+			{ printTestName("641", name);	std::cout << "return value: " << *iter; }
+		printContainer("642", name, tmp);
 
-		printTestName("604", name);
+		printTestName("644", name);
 		for (typename T::iterator it = tmp.begin(); it != iter; ++it)
 			std::cout << *it << " | ";
 
-		printTestName("608", name);	std::cout << "size of tmp = " << tmp.size();
+		printTestName("648", name);	std::cout << "size of tmp = " << tmp.size();
+
+		// checking if everything was correcty destroyed and if we can push_back on erased values
+		for (int i = 0; i < 20; ++i)
+			tmp.push_back(*x);
+		printContainer("653", name, tmp);
 	}
+
+	delete x;
 }
 
 template <typename T>
@@ -617,25 +664,25 @@ void	vectorTest_OperatorEqualNotEqual(T& cont)
 
 	T tmp = cont;
 
-	printTestName("620", name, "tmp == cont");	std::cout << (tmp == cont);
-	printTestName("621", name, "tmp != cont");	std::cout << (tmp != cont);
+	printTestName("667", name, "tmp == cont");	std::cout << (tmp == cont);
+	printTestName("668", name, "tmp != cont");	std::cout << (tmp != cont);
 	
 	typename T::value_type* x = new typename T::value_type ();
 	if (cont.size())
 		*x = cont.front();
 	
 	tmp.push_back(*x);
-	printTestName("628", name, "tmp == cont");	std::cout << (tmp == cont);
-	printTestName("629", name, "tmp != cont");	std::cout << (tmp != cont);
+	printTestName("675", name, "tmp == cont");	std::cout << (tmp == cont);
+	printTestName("676", name, "tmp != cont");	std::cout << (tmp != cont);
 
 	T tmp2 = tmp;
 	tmp.clear();
-	printTestName("633", name, "tmp == cont");	std::cout << (tmp2 == tmp);
-	printTestName("634", name, "tmp != cont");	std::cout << (tmp2 != tmp);
+	printTestName("680", name, "tmp == cont");	std::cout << (tmp2 == tmp);
+	printTestName("681", name, "tmp != cont");	std::cout << (tmp2 != tmp);
 
 	tmp2.clear();
-	printTestName("637", name, "tmp == cont");	std::cout << (tmp2 == tmp);
-	printTestName("638", name, "tmp != cont");	std::cout << (tmp2 != tmp);
+	printTestName("684", name, "tmp == cont");	std::cout << (tmp2 == tmp);
+	printTestName("685", name, "tmp != cont");	std::cout << (tmp2 != tmp);
 
 	delete x;
 }
@@ -649,100 +696,43 @@ void	vectorTest_OperatorLessAndMore(T& cont)
 	T tmp = cont;
 	typename T::value_type* x = new typename T::value_type ();
 
-	printTestName("652", name, "tmp < cont");	std::cout << (tmp < cont);
-	printTestName("653", name, "tmp > cont");	std::cout << (tmp > cont);
-	printTestName("654", name, "tmp <= cont");	std::cout << (tmp <= cont);
-	printTestName("655", name, "tmp >= cont");	std::cout << (tmp >= cont);
+	printTestName("699", name, "tmp < cont");	std::cout << (tmp < cont);
+	printTestName("700", name, "tmp > cont");	std::cout << (tmp > cont);
+	printTestName("701", name, "tmp <= cont");	std::cout << (tmp <= cont);
+	printTestName("702", name, "tmp >= cont");	std::cout << (tmp >= cont);
 	
 	if (cont.size())
 		*x = cont.front();
 	tmp.push_back(*x);
 	
-	printTestName("661", name, "tmp < cont");	std::cout << (cont < tmp);
-	printTestName("662", name, "tmp > cont");	std::cout << (cont > tmp);
-	printTestName("663", name, "tmp <= cont");	std::cout << (cont <= tmp);
-	printTestName("664", name, "tmp >= cont");	std::cout << (cont >= tmp);
+	printTestName("708", name, "tmp < cont");	std::cout << (cont < tmp);
+	printTestName("709", name, "tmp > cont");	std::cout << (cont > tmp);
+	printTestName("710", name, "tmp <= cont");	std::cout << (cont <= tmp);
+	printTestName("711", name, "tmp >= cont");	std::cout << (cont >= tmp);
 
 	T tmp2 = tmp;
 	if (cont.size())
 		*x = cont.back();
 	tmp2.push_back(*x);
 	
-	printTestName("671", name, "tmp < cont");	std::cout << (tmp2 < tmp);
-	printTestName("672", name, "tmp > cont");	std::cout << (tmp2 > tmp);
-	printTestName("673", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
-	printTestName("674", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
+	printTestName("718", name, "tmp < cont");	std::cout << (tmp2 < tmp);
+	printTestName("719", name, "tmp > cont");	std::cout << (tmp2 > tmp);
+	printTestName("720", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
+	printTestName("721", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
 
 	tmp.clear();
-	printTestName("677", name, "tmp < cont");	std::cout << (tmp2 < tmp);
-	printTestName("678", name, "tmp > cont");	std::cout << (tmp2 > tmp);
-	printTestName("679", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
-	printTestName("680", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
+	printTestName("724", name, "tmp < cont");	std::cout << (tmp2 < tmp);
+	printTestName("725", name, "tmp > cont");	std::cout << (tmp2 > tmp);
+	printTestName("726", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
+	printTestName("727", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
 
 	tmp2.clear();
-	printTestName("683", name, "tmp < cont");	std::cout << (tmp2 < tmp);
-	printTestName("684", name, "tmp > cont");	std::cout << (tmp2 > tmp);
-	printTestName("685", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
-	printTestName("686", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
+	printTestName("730", name, "tmp < cont");	std::cout << (tmp2 < tmp);
+	printTestName("731", name, "tmp > cont");	std::cout << (tmp2 > tmp);
+	printTestName("732", name, "tmp <= cont");	std::cout << (tmp2 <= tmp);
+	printTestName("733", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
 
 	delete x;
 }
-
-
-// template <typename T>
-// void	testNotConstVec(T& v, int testNb)
-// {
-// 	std::cout << "\n\n--------------------------------\n";
-// 	std::cout << "------\tTESTING VECTOR " << testNb << " ------\n";
-// 	std::cout << "--------------------------------\n";
-	
-// 	std::cout << "\t\tVECTOR TYPE: ";
-// 	print_type<typename T::value_type>();
-	
-// 	// Tests for non-const vectors
-// 	vectorTest_OperatorBracelet(v);
-// 	vectorTest_Size(v);
-// 	vectorTest_Empty(v);
-// 	vectorTest_Iterators(v);
-// 	vectorTest_ReverseIterators(v);
-// 	vectorTest_At(v);
-// 	vectorTest_Front(v);
-// 	vectorTest_Back(v);
-// 	vectorTest_PushBack(v);
-// 	vectorTest_PopBack(v);
-// 	vectorTest_Clear(v);
-// 	vectorTest_Swap(v);
-// 	vectorTest_Resize(v);
-// 	vectorTest_AssignRange(v);
-// 	vectorTest_AssignNElem(v);
-// 	vectorTest_Insert1Elem(v);
-// 	vectorTest_InsertNElem(v);
-// 	vectorTest_InsertRange(v);
-// 	vectorTest_EraseRange(v);
-// 	vectorTest_Erase1Elem(v);
-// 	vectorTest_OperatorEqualNotEqual(v);
-// 	vectorTest_OperatorLessAndMore(v);
-// }
-
-// template <typename T>
-// void	testConstVec(T& v, int testNb)
-// {
-// 	std::cout << "\n\n--------------------------------\n";
-// 	std::cout << "------\tTESTING CONST VECTOR " << testNb << " ------\n";
-// 	std::cout << "--------------------------------\n";
-	
-// 	std::cout << "\t\tVECTOR TYPE: ";
-// 	print_type<typename T::value_type>();
-	
-// 	// Tests for const vectors
-// 	vectorTest_OperatorBracelet(v);
-// 	vectorTest_Size(v);
-// 	vectorTest_Empty(v);
-// 	vectorTest_Iterators(v);
-// 	vectorTest_ReverseIterators(v);
-// 	vectorTest_At(v);
-// 	vectorTest_Front(v);
-// 	vectorTest_Back(v);
-// }
 
 #endif

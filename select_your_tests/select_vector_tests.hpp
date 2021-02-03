@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:51:32 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/03 16:03:14 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:46:28 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,28 @@ void	testNotConstVec(T& v, int testNb)
 {
 	printContainerInfo<T>("VECTOR", testNb);
 	
-	// Tests for non-const vectors
-	vectorTest_OperatorBracelet(v);
-	vectorTest_Size(v);
-	vectorTest_Empty(v);
-	vectorTest_Iterators(v);
-	vectorTest_ReverseIterators(v);
-	vectorTest_At(v);
-	vectorTest_Front(v);
-	vectorTest_Back(v);
-	vectorTest_PushBack(v);
-	vectorTest_PopBack(v);
-	vectorTest_Clear(v);
-	vectorTest_Swap(v);
-	vectorTest_Resize(v);
-	vectorTest_AssignRange(v);
-	vectorTest_AssignNElem(v);
-	vectorTest_Insert1Elem(v);
-	vectorTest_InsertNElem(v);
-	vectorTest_InsertRange(v);
-	vectorTest_EraseRange(v);
-	vectorTest_Erase1Elem(v);
-	vectorTest_OperatorEqualNotEqual(v);
-	vectorTest_OperatorLessAndMore(v);
+	vectorTest_OperatorBracelet(v);			//	operator[]
+	vectorTest_Size(v);						//	size
+	vectorTest_Empty(v);					//	empty
+	vectorTest_Iterators(v);				//	iterators / begin / end
+	vectorTest_ReverseIterators(v);			//	reverse iterators / rbegin / rend
+	vectorTest_At(v);						//	at
+	vectorTest_Front(v);					//	front
+	vectorTest_Back(v);						//	back
+	vectorTest_PushBack(v);					//	push_back
+	vectorTest_PopBack(v);					//	pop_back
+	vectorTest_Clear(v);					//	clear
+	vectorTest_Swap(v);						//	swap
+	vectorTest_Resize(v);					//	resize
+	vectorTest_AssignRange(v);				//	assign an iterator range
+	vectorTest_AssignNElem(v);				//	assign n elements
+	vectorTest_Insert1Elem(v);				//	assign one element
+	vectorTest_InsertRange(v);				//	insert an iterator range
+	vectorTest_InsertNElem(v);				//	insert n elements
+	vectorTest_EraseRange(v);				//	erase an iterator range
+	vectorTest_Erase1Elem(v);				//	erase one elemenet
+	vectorTest_OperatorEqualNotEqual(v);	//	== / !=
+	vectorTest_OperatorLessAndMore(v);		//	< / <= / > / >=
 }
 
 template <typename T>
@@ -50,15 +49,14 @@ void	testConstVec(T& v, int testNb)
 {
 	printContainerInfo<T>("CONST VECTOR", testNb);
 	
-	// Tests for const vectors
-	vectorTest_OperatorBracelet(v);
-	vectorTest_Size(v);
-	vectorTest_Empty(v);
-	vectorTest_Iterators(v);
-	vectorTest_ReverseIterators(v);
-	vectorTest_At(v);
-	vectorTest_Front(v);
-	vectorTest_Back(v);
+	vectorTest_OperatorBracelet(v);			//	operator[]
+	vectorTest_Size(v);						//	size
+	vectorTest_Empty(v);					//	empty
+	vectorTest_Iterators(v);				//	iterators / begin / end
+	vectorTest_ReverseIterators(v);			//	reverse iterators / rbegin / rend
+	vectorTest_At(v);						//	at
+	vectorTest_Front(v);					//	front
+	vectorTest_Back(v);						//	back
 }
 
 #endif
