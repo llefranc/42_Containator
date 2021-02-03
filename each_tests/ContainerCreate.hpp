@@ -6,7 +6,7 @@
 /*   By: hherin <hherin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:42:21 by hherin            #+#    #+#             */
-/*   Updated: 2021/02/03 10:29:25 by hherin           ###   ########.fr       */
+/*   Updated: 2021/02/03 11:01:05 by hherin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,31 +84,25 @@ void StaQueuConstruct(const T (&x)[20], Func execNonConst)
     C c0;
     for (int i = 0; i < 5; i++){
         c0.push_back(x[i]);
-        {
-            S st0(c0);
-            execNonConst(st0, ++nb);
-        }
+        S st0(c0);
+        execNonConst(st0, ++nb);
         
         if (!i%3){
-            C tmp(c0);
-            S stmp(tmp);
+            S stmp(c0);
             execNonConst(stmp, ++nb);
         }
         if (!i%2){
-            C tmp;
-            tmp = c0;
-            S stmp(tmp);
+            S stmp = st0;
             execNonConst(stmp, ++nb);
         }
     }
 
-    C c1(c0);
-    S st1(c1);
+    S st1(c0);
     execNonConst(st1, ++nb);
     
     
     C c2; c2 = c0;
-    S st2(c2);
+    S st2; st2 = st1;
     execNonConst(st2, ++nb);
 
 	typename C::iterator beg = c0.begin(); ++beg;
