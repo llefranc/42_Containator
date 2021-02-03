@@ -23,5 +23,13 @@ else
     echo "${BLUE}Try again${NC}";
 fi
 
+echo "~ Test diff output from std::stack and your work ~";
+if diff results/stack_ft.txt results/stack_std.txt > /dev/null;then
+    echo "${BLUE}No differences${NC}";
+else 
+	diff results/stack_ft.txt results/stack_std.txt > results/stack_diff.txt
+    echo "${BLUE}Try again${NC}";
+fi
+
 echo "";
 make fclean

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hherin <hherin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:37:35 by hherin            #+#    #+#             */
-/*   Updated: 2021/02/01 13:51:02 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 10:39:11 by hherin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "each_tests/ContainerCreate.hpp"
 #include "each_tests/list_tests.hpp"
 #include "each_tests/vector_tests.hpp"
+#include "each_tests/stack_test.hpp"
 
 void	testVector(const char (&arrChar)[20], const int (&arrInt)[20], const std::string (&arrString)[20])
 {
@@ -69,6 +70,30 @@ void	testList(const char (&arrChar)[20], const int (&arrInt)[20], const std::str
     std::cout.rdbuf(coutbuf); //reset to standard output again
 }
 
+void    testStack(const int (&arrInt)[20], const std::string (&arrString)[20])
+{
+    std::streambuf *coutbuf = std::cout.rdbuf(); //save old buf
+	std::ofstream stdFile("results/stack_std.txt");
+    std::ofstream ftFile("results/stack_ft.txt");
+	    
+	int nb = 0;
+	getTestNumber(&nb);
+	
+    std::cout.rdbuf(stdFile.rdbuf()); //redirect std::cout to std::stack_result.txt
+    StaQueuConstruct<int, std::stack<int, std::list<int> >, std::list<int> >(arrInt, testStack<std::stack<int, std::list<int> > >);
+    StaQueuConstruct<std::string, std::stack<std::string, std::list<std::string> >, std::list<std::string> > (arrString, testStack<std::stack<std::string, std::list<std::string> > >);
+    
+	nb = 0;
+	getTestNumber(&nb);
+
+	std::cout.rdbuf(ftFile.rdbuf()); //redirect std::cout to ft::stack_result.txt
+    StaQueuConstruct<int, ft::stack<int, std::list<int> >, std::list<int> >(arrInt, testStack<ft::stack<int, std::list<int> > >);
+    StaQueuConstruct<std::string, ft::stack<std::string, ft::list<std::string> >, ft::list<std::string> >(arrString, testStack<ft::stack<std::string, ft::list<std::string> > >);
+
+    std::cout.rdbuf(coutbuf); //reset to standard output again
+}
+
+
 int main(void)
 {
 	const char arrChar[20] =  {94, 96, 32, 33, 48,  36, 76, 117, 82, 56, 99, 99, 99, 111, 125, 122, 43, 50, 69, 88};
@@ -79,4 +104,5 @@ int main(void)
     
 	testVector(arrChar, arrInt, arrString);
 	testList(arrChar, arrInt, arrString);
+    testStack(arrInt, arrString);
 }
