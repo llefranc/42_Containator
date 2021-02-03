@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 09:10:49 by hherin            #+#    #+#             */
-/*   Updated: 2021/02/03 13:09:44 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:06:41 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,25 +168,6 @@ void	stackTest_OperatorLessAndMore(T& cont)
 	printTestName("168", name, "tmp >= cont");	std::cout << (tmp2 >= tmp);
 
 	delete x;
-}
-
-template <typename T>
-void	testNonConstStack(T& s, int testNb)
-{
-	std::cout << "\n\n--------------------------------\n";
-	std::cout << "------\tTESTING STACK " << testNb << " -----\n";
-	std::cout << "--------------------------------\n";
-	
-	std::cout << "\t\tSTACK CONTAINER TYPE: ";
-	print_type<typename T::value_type>();
-	
-	stackTest_Size(s);
-	stackTest_Empty(s);
-	stackTest_Top(s);
-	stackTest_Pop(s);
-	stackTest_Push(s);
-    stackTest_OperatorEqualNotEqual(s);
-    stackTest_OperatorLessAndMore(s);
 }
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:32:08 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/01 15:48:48 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:58:24 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,21 @@ inline void print_type<double*>() { std::cout << "double*\n"; }
 
 template <>
 inline void print_type<std::string>() { std::cout << "std::string\n"; }
+
+
+/**
+*	Prints a header of informations for the tested container.
+*/
+template <typename T>
+inline void printContainerInfo(const std::string& info, int testNb)
+{
+	std::cout << "\n\n--------------------------------\n";
+	std::cout << "------\tTESTING " << info << " " << testNb << " ------\n";
+	std::cout << "--------------------------------\n";
+	
+	std::cout << "\t\t" << info << " TYPE: ";
+	print_type<typename T::value_type>();
+}
 
 
 /**

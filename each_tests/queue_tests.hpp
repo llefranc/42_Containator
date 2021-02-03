@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 09:10:49 by hherin            #+#    #+#             */
-/*   Updated: 2021/02/03 13:00:23 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 16:08:47 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,52 +184,5 @@ void	queueTest_OperatorLessAndMore(T& cont)
 	delete x;
 }
 
-template <typename T>
-void	testNonConstQueue(T& q, int testNb)
-{
-	std::cout << "\n\n--------------------------------\n";
-	std::cout << "------\tTESTING QUEUE " << testNb << " -----\n";
-	std::cout << "--------------------------------\n";
-	
-	std::cout << "\t\tQUEUE CONTAINER TYPE: ";
-	print_type<typename T::value_type>();
-	
-	queueTest_Size(q);
-	queueTest_Empty(q);
-	queueTest_Front(q);
-	queueTest_Back(q);
-	queueTest_Pop(q);
-	queueTest_Push(q);
-    queueTest_OperatorEqualNotEqual(q);
-    queueTest_OperatorLessAndMore(q);
-}
-
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

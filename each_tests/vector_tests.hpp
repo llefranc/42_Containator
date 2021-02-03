@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_tests.hpp                                   :+:      :+:    :+:   */
+/*   vector_tests copy.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/03 13:11:46 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 15:50:13 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VECTOR_TESTS_HPP
-#define VECTOR_TESTS_HPP
+#ifndef VECTODR_TESTS_HPP
+#define VECTODR_TESTS_HPP
 
 #include "../includes_and_utils/tester.hpp"
 
@@ -689,60 +689,60 @@ void	vectorTest_OperatorLessAndMore(T& cont)
 }
 
 
-template <typename T>
-void	testNotConstVec(T& v, int testNb)
-{
-	std::cout << "\n\n--------------------------------\n";
-	std::cout << "------\tTESTING VECTOR " << testNb << " ------\n";
-	std::cout << "--------------------------------\n";
+// template <typename T>
+// void	testNotConstVec(T& v, int testNb)
+// {
+// 	std::cout << "\n\n--------------------------------\n";
+// 	std::cout << "------\tTESTING VECTOR " << testNb << " ------\n";
+// 	std::cout << "--------------------------------\n";
 	
-	std::cout << "\t\tVECTOR TYPE: ";
-	print_type<typename T::value_type>();
+// 	std::cout << "\t\tVECTOR TYPE: ";
+// 	print_type<typename T::value_type>();
 	
-	// Tests for non-const vectors
-	vectorTest_OperatorBracelet(v);
-	vectorTest_Size(v);
-	vectorTest_Empty(v);
-	vectorTest_Iterators(v);
-	vectorTest_ReverseIterators(v);
-	vectorTest_At(v);
-	vectorTest_Front(v);
-	vectorTest_Back(v);
-	vectorTest_PushBack(v);
-	vectorTest_PopBack(v);
-	vectorTest_Clear(v);
-	vectorTest_Swap(v);
-	vectorTest_Resize(v);
-	vectorTest_AssignRange(v);
-	vectorTest_AssignNElem(v);
-	vectorTest_Insert1Elem(v);
-	vectorTest_InsertNElem(v);
-	vectorTest_InsertRange(v);
-	vectorTest_EraseRange(v);
-	vectorTest_Erase1Elem(v);
-	vectorTest_OperatorEqualNotEqual(v);
-	vectorTest_OperatorLessAndMore(v);
-}
+// 	// Tests for non-const vectors
+// 	vectorTest_OperatorBracelet(v);
+// 	vectorTest_Size(v);
+// 	vectorTest_Empty(v);
+// 	vectorTest_Iterators(v);
+// 	vectorTest_ReverseIterators(v);
+// 	vectorTest_At(v);
+// 	vectorTest_Front(v);
+// 	vectorTest_Back(v);
+// 	vectorTest_PushBack(v);
+// 	vectorTest_PopBack(v);
+// 	vectorTest_Clear(v);
+// 	vectorTest_Swap(v);
+// 	vectorTest_Resize(v);
+// 	vectorTest_AssignRange(v);
+// 	vectorTest_AssignNElem(v);
+// 	vectorTest_Insert1Elem(v);
+// 	vectorTest_InsertNElem(v);
+// 	vectorTest_InsertRange(v);
+// 	vectorTest_EraseRange(v);
+// 	vectorTest_Erase1Elem(v);
+// 	vectorTest_OperatorEqualNotEqual(v);
+// 	vectorTest_OperatorLessAndMore(v);
+// }
 
-template <typename T>
-void	testConstVec(T& v, int testNb)
-{
-	std::cout << "\n\n--------------------------------\n";
-	std::cout << "------\tTESTING CONST VECTOR " << testNb << " ------\n";
-	std::cout << "--------------------------------\n";
+// template <typename T>
+// void	testConstVec(T& v, int testNb)
+// {
+// 	std::cout << "\n\n--------------------------------\n";
+// 	std::cout << "------\tTESTING CONST VECTOR " << testNb << " ------\n";
+// 	std::cout << "--------------------------------\n";
 	
-	std::cout << "\t\tVECTOR TYPE: ";
-	print_type<typename T::value_type>();
+// 	std::cout << "\t\tVECTOR TYPE: ";
+// 	print_type<typename T::value_type>();
 	
-	// Tests for const vectors
-	vectorTest_OperatorBracelet(v);
-	vectorTest_Size(v);
-	vectorTest_Empty(v);
-	vectorTest_Iterators(v);
-	vectorTest_ReverseIterators(v);
-	vectorTest_At(v);
-	vectorTest_Front(v);
-	vectorTest_Back(v);
-}
+// 	// Tests for const vectors
+// 	vectorTest_OperatorBracelet(v);
+// 	vectorTest_Size(v);
+// 	vectorTest_Empty(v);
+// 	vectorTest_Iterators(v);
+// 	vectorTest_ReverseIterators(v);
+// 	vectorTest_At(v);
+// 	vectorTest_Front(v);
+// 	vectorTest_Back(v);
+// }
 
 #endif

@@ -6,7 +6,7 @@
 #    By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 11:24:58 by llefranc          #+#    #+#              #
-#    Updated: 2021/01/27 12:40:01 by llefranc         ###   ########.fr        #
+#    Updated: 2021/02/03 16:18:55 by llefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,14 +14,19 @@ NAME		=	containers_test
 CC			=	clang++
 FLAGS		=	-g -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
-SRCS		=	main.cpp includes_and_utils/utils.cpp
+SRCS		=	main.cpp includes_and_utils/utils.cpp includes_and_utils/run_each_test.cpp
 
-HEADER_INC	=	Bob_test.hpp print_type.hpp tester.hpp stl_like.hpp
+HEADER_INC	=	print_type.hpp tester.hpp stl_like.hpp utils.hpp
 PATH_INC	=	includes_and_utils/
 
-HEADER_TEST	=	ContainerCreate.hpp vector_tests.hpp list_tests.hpp
+HEADER_TEST	=	create_containers.hpp vector_tests.hpp list_tests.hpp stack_tests.hpp \
+				queue_tests.hpp
 PATH_TEST	=	each_tests/
-				
+
+HEADER_SELE	=	select_list_tests.hpp select_vector_tests.hpp select_stack_tests.hpp \
+				select_queue_tests.hpp
+PATH_SELE	=	select_your_tests/
+
 OBJS		=	$(SRCS:.cpp=.o)
 
 all		: 	$(NAME)
