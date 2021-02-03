@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ContainerCreate.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hherin <hherin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:42:21 by hherin            #+#    #+#             */
-/*   Updated: 2021/02/03 11:01:05 by hherin           ###   ########.fr       */
+/*   Updated: 2021/02/03 12:27:31 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 
 #include <iostream>
 
+/**
+*	Constructs the following containers for testing : vector, list.
+*/
 template <class T, class C, class Func, class FuncC>
 void ContainerConstruct(const T (&x)[20], Func execNonConst, FuncC execConst)
 {    
     int nb = 0;
     C c0;
-    for (int i = 0; i < 5; i++){
+    for (int i = 0; i < 10; i++){
         c0.push_back(x[i]);
         execNonConst(c0, ++nb);
         
@@ -49,19 +52,19 @@ void ContainerConstruct(const T (&x)[20], Func execNonConst, FuncC execConst)
     C c4(c0.begin(), c0.begin());
     execNonConst(c4, ++nb);
     
-    C c5(10, x[5]);
+    C c5(10, x[11]);
     execNonConst(c5, ++nb);
     
-    C c6(0, x[6]);
+    C c6(0, x[12]);
     execNonConst(c6, ++nb);
 
-    C c7(12, x[10]);
+    C c7(12, x[13]);
     execNonConst(c7, ++nb);
 
-    C c8(c0); c8.push_back(x[19]); c8.push_back(x[19]); c8.front() = x[15];
+    C c8(c0); c8.push_back(x[19]); c8.push_back(x[19]); c8.front() = x[14];
     execNonConst(c8, ++nb);
 
-    const C c9(5, x[12]);
+    const C c9(5, x[15]);
     execConst(c9, ++nb);
     
 	const C c10;
@@ -73,16 +76,20 @@ void ContainerConstruct(const T (&x)[20], Func execNonConst, FuncC execConst)
 	const C c12(c9);
     execConst(c12, ++nb);
 
-	const C c13(3, x[11]);
+	const C c13(3, x[16]);
     execConst(c13, ++nb);
 }
 
+/**
+*	Constructs the following containers for testing : queue, stack.
+*/
 template <class T, class S, class C, class Func>
 void StaQueuConstruct(const T (&x)[20], Func execNonConst)
 {    
     int nb = 0;
     C c0;
-    for (int i = 0; i < 5; i++){
+
+    for (int i = 0; i < 10; i++){
         c0.push_back(x[i]);
         S st0(c0);
         execNonConst(st0, ++nb);
@@ -100,13 +107,13 @@ void StaQueuConstruct(const T (&x)[20], Func execNonConst)
     S st1(c0);
     execNonConst(st1, ++nb);
     
-    
     C c2; c2 = c0;
     S st2; st2 = st1;
     execNonConst(st2, ++nb);
 
 	typename C::iterator beg = c0.begin(); ++beg;
 	typename C::iterator end = c0.end(); --end;
+
     C c3(beg, end);
     S st3(c3);
     execNonConst(st3, ++nb);

@@ -31,5 +31,13 @@ else
     echo "${BLUE}Try again${NC}";
 fi
 
+echo "~ Test diff output from std::queue and your work ~";
+if diff results/queue_ft.txt results/queue_std.txt > /dev/null;then
+    echo "${BLUE}No differences${NC}";
+else 
+	diff results/queue_ft.txt results/queue_std.txt > results/queue_diff.txt
+    echo "${BLUE}Try again${NC}";
+fi
+
 echo "";
 make fclean

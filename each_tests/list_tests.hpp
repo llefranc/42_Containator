@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/02 14:04:57 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 13:16:35 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "../includes_and_utils/tester.hpp"
 
 template <typename T>
-void	testSizeList(T& cont)
+void	listTest_Size(T& cont)
 {
 	std::string name("size:");
 	std::cout << "\n---------------------";
@@ -25,16 +25,16 @@ void	testSizeList(T& cont)
 }
 
 template <typename T>
-void	testEmptyList(T& lis)
+void	listTest_Empty(T& cont)
 {
 	std::string name("empty:");
 	std::cout << "\n---------------------";
 	
-	printTestName("33", name);	std::cout << lis.empty();
+	printTestName("33", name);	std::cout << cont.empty();
 }
 
 template <typename T>
-void	testIteratorsList(T& cont)
+void	listTest_Iterators(T& cont)
 {
 	std::string name("iterators:");
 	std::cout << "\n---------------------";
@@ -62,7 +62,7 @@ void	testIteratorsList(T& cont)
 }
 
 template <typename T>
-void	testReverseIteratorsList(T& cont)
+void	listTest_ReverseIterators(T& cont)
 {
 	std::string name("reverse iterators:");
 	std::cout << "\n---------------------";
@@ -90,7 +90,7 @@ void	testReverseIteratorsList(T& cont)
 }
 
 template <typename T>
-void	testFrontList(T& cont)
+void	listTest_Front(T& cont)
 {
 	std::string name("front:");
 	std::cout << "\n---------------------";
@@ -101,7 +101,7 @@ void	testFrontList(T& cont)
 }
 
 template <typename T>
-void	testBackList(T& cont)
+void	listTest_Back(T& cont)
 {
 	std::string name("back:");
 	std::cout << "\n---------------------";
@@ -112,7 +112,7 @@ void	testBackList(T& cont)
 }
 
 template <typename T>
-void	testPushBackList(T& cont)
+void	listTest_PushBack(T& cont)
 {
 	std::string name("push_back:");
 	std::cout << "\n---------------------";
@@ -133,7 +133,7 @@ void	testPushBackList(T& cont)
 }
 
 template <typename T>
-void	testPopBackList(T& cont)
+void	listTest_PopBack(T& cont)
 {
 	std::string name("pop_back:");
 	std::cout << "\n---------------------";
@@ -149,19 +149,19 @@ void	testPopBackList(T& cont)
 }
 
 template <typename T>
-void	testPushFrontList(T& lis)
+void	listTest_PushFront(T& cont)
 {
 	std::string name("push_front:");
 	std::cout << "\n---------------------";
 	
 	printTestName("157", name);
 	
-	// Allows to value initialize (case size is 0, we can't assign lis.front())
+	// Allows to value initialize (case size is 0, we can't assign cont.front())
 	typename T::value_type* x = new typename T::value_type ();
-	if (lis.size())
-		*x = lis.front();
+	if (cont.size())
+		*x = cont.front();
 
-	T tmp = lis;
+	T tmp = cont;
 	tmp.push_front(*x);
 
 	printContainer("167", name, tmp);
@@ -170,23 +170,23 @@ void	testPushFrontList(T& lis)
 }
 
 template <typename T>
-void	testPopFrontList(T& lis)
+void	listTest_PopFront(T& cont)
 {
 	std::string name("pop_front:");
 	std::cout << "\n---------------------";
 	
 	printTestName("178", name);
 	
-	if (lis.size())
+	if (cont.size())
 	{
-		T tmp = lis;
+		T tmp = cont;
 		tmp.pop_front();
 		printContainer("184", name, tmp);
 	}
 }
 
 template <typename T>
-void	testClearList(T& cont)
+void	listTest_Clear(T& cont)
 {
 	std::string name("clear:");
 	std::cout << "\n---------------------";
@@ -209,7 +209,7 @@ void	testClearList(T& cont)
 }
 
 template <typename T>
-void	testSwapList(T& cont)
+void	listTest_Swap(T& cont)
 {
 	std::string name("swap:");
 	std::cout << "\n---------------------";
@@ -238,7 +238,7 @@ void	testSwapList(T& cont)
 }
 
 template <typename T>
-void	testResizeList(T& cont)
+void	listTest_Resize(T& cont)
 {
 	std::string name("resize:");
 	std::cout << "\n---------------------";
@@ -264,7 +264,7 @@ void	testResizeList(T& cont)
 *	Test assign with iterators' range.
 */
 template <typename T>
-void	testAssignRangeList(T& cont)
+void	listTest_AssignRange(T& cont)
 {
 	std::string name("assign iterator range:");
 	std::cout << "\n---------------------";
@@ -292,7 +292,7 @@ void	testAssignRangeList(T& cont)
 *	Inserts n elements.
 */
 template <typename T>
-void	testAssignNElemList(T& cont)
+void	listTest_AssignNElem(T& cont)
 {
 	std::string name("assign n elems:");
 	std::cout << "\n---------------------";
@@ -321,7 +321,7 @@ void	testAssignNElemList(T& cont)
 *	Inserts one element.
 */
 template <typename T>
-void	testInsert1ElemList(T& cont)
+void	listTest_Insert1Elem(T& cont)
 {
 	std::string name("insert 1 elem:");
 	std::cout << "\n---------------------";
@@ -351,7 +351,7 @@ void	testInsert1ElemList(T& cont)
 *	Inserts n elements.
 */
 template <typename T>
-void	testInsertNElemList(T& cont)
+void	listTest_InsertNElem(T& cont)
 {
 	std::string name("insert n elem:");
 	std::cout << "\n---------------------";
@@ -379,7 +379,7 @@ void	testInsertNElemList(T& cont)
 *	Inserts an iterators' range of elements.
 */
 template <typename T>
-void	testInsertRangeList(T& cont)
+void	listTest_InsertRange(T& cont)
 {
 	std::string name("insert iterator range:");
 	std::cout << "\n---------------------";
@@ -402,7 +402,7 @@ void	testInsertRangeList(T& cont)
 }
 
 template <typename T>
-void	testEraseRangeList(T& cont)
+void	listTest_EraseRange(T& cont)
 {
 	std::string name("erase iterator range:");
 	std::cout << "\n---------------------";
@@ -504,7 +504,7 @@ void	testEraseRangeList(T& cont)
 }
 
 template <typename T>
-void	testErase1ElemList(T& cont)
+void	listTest_Erase1Elem(T& cont)
 {
 	std::string name("erase 1 elem:");
 	std::cout << "\n---------------------";
@@ -570,7 +570,7 @@ void	testErase1ElemList(T& cont)
 }
 
 template <typename T>
-void	testSplice1ElemList(T& cont)
+void	listTest_Splice1Elem(T& cont)
 {
 	std::string name("splice 1 elem:");
 	std::cout << "\n---------------------";
@@ -662,7 +662,7 @@ void	testSplice1ElemList(T& cont)
 }
 
 template <typename T>
-void	testSpliceAllList(T& cont)
+void	listTest_SpliceAll(T& cont)
 {
 	std::string name("splice all list:");
 	std::cout << "\n---------------------";
@@ -754,7 +754,7 @@ void	testSpliceAllList(T& cont)
 }
 
 template <typename T>
-void	testSpliceRangeList(T& cont)
+void	listTest_SpliceRange(T& cont)
 {
 	std::string name("splice range:");
 	std::cout << "\n---------------------";
@@ -877,7 +877,7 @@ void	testSpliceRangeList(T& cont)
 }
 
 template <typename T>
-void	testRemoveList(T& cont)
+void	listTest_Remove(T& cont)
 {
 	std::string name("remove:");
 	std::cout << "\n---------------------";
@@ -901,7 +901,7 @@ void	testRemoveList(T& cont)
 }
 
 template <typename T>
-void	testRemoveIfList(T& cont)
+void	listTest_RemoveIf(T& cont)
 {
 	std::string name("remove if:");
 	std::cout << "\n---------------------";
@@ -918,7 +918,7 @@ void	testRemoveIfList(T& cont)
 }
 
 template <typename T>
-void	testUniqueList(T& cont)
+void	listTest_Unique(T& cont)
 {
 	std::string name("unique:");
 	std::cout << "\n---------------------";
@@ -935,7 +935,7 @@ void	testUniqueList(T& cont)
 }
 
 template <typename T>
-void	testUniqueBinaryPredicateList(T& cont)
+void	listTest_UniqueBinaryPredicate(T& cont)
 {
 	std::string name("unique binary predicate:");
 	std::cout << "\n---------------------";
@@ -952,7 +952,7 @@ void	testUniqueBinaryPredicateList(T& cont)
 }
 
 template <typename T>
-void	testMergeList(T& cont)
+void	listTest_Merge(T& cont)
 {
 	std::string name("merge:");
 	std::cout << "\n---------------------";
@@ -1071,7 +1071,7 @@ void	testMergeList(T& cont)
 }
 
 template <typename T>
-void	testMergePredicateList(T& cont)
+void	listTest_MergePredicate(T& cont)
 {
 	std::string name("merge predicate:");
 	std::cout << "\n---------------------";
@@ -1190,12 +1190,12 @@ void	testMergePredicateList(T& cont)
 }
 
 template <typename T>
-void	testSortList(T& lis)
+void	listTest_Sort(T& cont)
 {
 	std::string name("sort:");
 	std::cout << "\n---------------------";
 
-	T tmp = lis;
+	T tmp = cont;
 	printTestName("1199", name);	std::cout << "size of tmp = " << tmp.size();
 	printContainer("1200", name, tmp);
 
@@ -1206,12 +1206,12 @@ void	testSortList(T& lis)
 }
 
 template <typename T>
-void	testSortPredicateList(T& lis)
+void	listTest_SortPredicate(T& cont)
 {
 	std::string name("sort predicate:");
 	std::cout << "\n---------------------";
 
-	T tmp = lis;
+	T tmp = cont;
 	printTestName("1215", name);	std::cout << "size of tmp = " << tmp.size();
 	printContainer("1216", name, tmp);
 
@@ -1222,12 +1222,12 @@ void	testSortPredicateList(T& lis)
 }
 
 template <typename T>
-void	testReverseList(T& lis)
+void	listTest_Reverse(T& cont)
 {
 	std::string name("reverse:");
 	std::cout << "\n---------------------";
 
-	T tmp = lis;
+	T tmp = cont;
 	printTestName("1231", name);	std::cout << "size of tmp = " << tmp.size();
 	printContainer("1232", name, tmp);
 
@@ -1238,7 +1238,7 @@ void	testReverseList(T& lis)
 }
 
 template <typename T>
-void	testOperatorEqualNotEqualList(T& cont)
+void	listTest_OperatorEqualNotEqual(T& cont)
 {
 	std::string name("operator==/!=:");
 	std::cout << "\n---------------------";
@@ -1269,7 +1269,7 @@ void	testOperatorEqualNotEqualList(T& cont)
 }
 
 template <typename T>
-void	testOperatorLessAndMoreList(T& cont)
+void	listTest_OperatorLessAndMore(T& cont)
 {
 	std::string name("operator</>/<=/>=:");
 	std::cout << "\n---------------------";
@@ -1317,7 +1317,7 @@ void	testOperatorLessAndMoreList(T& cont)
 }
 
 template <typename T>
-void	testNotConstList(T& lis, int testNb)
+void	testNotConstList(T& l, int testNb)
 {
 	std::cout << "\n\n--------------------------------\n";
 	std::cout << "------\tTESTING LIST " << testNb << " ------\n";
@@ -1327,44 +1327,44 @@ void	testNotConstList(T& lis, int testNb)
 	print_type<typename T::value_type>();
 	
 	// Tests for non-const lists
-	testSizeList(lis);
-	testEmptyList(lis);
-	testIteratorsList(lis);
-	testReverseIteratorsList(lis);
-	testFrontList(lis);
-	testBackList(lis);
-	testPushBackList(lis);
-	testPopBackList(lis);
-	testPushFrontList(lis);
-	testPopFrontList(lis);
-	testClearList(lis);
-	testSwapList(lis);
-	testResizeList(lis);
-	testAssignRangeList(lis);
-	testAssignNElemList(lis);
-	testInsert1ElemList(lis);
-	testInsertNElemList(lis);
-	testInsertRangeList(lis);
-	testEraseRangeList(lis);
-	testErase1ElemList(lis);
-	testSplice1ElemList(lis);
-	testSpliceAllList(lis);
-	testSpliceRangeList(lis);
-	testRemoveList(lis);
-	testRemoveIfList(lis);
-	testUniqueList(lis);
-	testUniqueBinaryPredicateList(lis);
-	testMergeList(lis);
-	testMergePredicateList(lis);
-	testSortList(lis);
-	testSortPredicateList(lis);
-	testReverseList(lis);
-	testOperatorEqualNotEqualList(lis);
-	testOperatorLessAndMoreList(lis);
+	listTest_Size(l);
+	listTest_Empty(l);
+	listTest_Iterators(l);
+	listTest_ReverseIterators(l);
+	listTest_Front(l);
+	listTest_Back(l);
+	listTest_PushBack(l);
+	listTest_PopBack(l);
+	listTest_PushFront(l);
+	listTest_PopFront(l);
+	listTest_Clear(l);
+	listTest_Swap(l);
+	listTest_Resize(l);
+	listTest_AssignRange(l);
+	listTest_AssignNElem(l);
+	listTest_Insert1Elem(l);
+	listTest_InsertNElem(l);
+	listTest_InsertRange(l);
+	listTest_EraseRange(l);
+	listTest_Erase1Elem(l);
+	listTest_Splice1Elem(l);
+	listTest_SpliceAll(l);
+	listTest_SpliceRange(l);
+	listTest_Remove(l);
+	listTest_RemoveIf(l);
+	listTest_Unique(l);
+	listTest_UniqueBinaryPredicate(l);
+	listTest_Merge(l);
+	listTest_MergePredicate(l);
+	listTest_Sort(l);
+	listTest_SortPredicate(l);
+	listTest_Reverse(l);
+	listTest_OperatorEqualNotEqual(l);
+	listTest_OperatorLessAndMore(l);
 }
 
 template <typename T>
-void	testConstList(T& lis, int testNb)
+void	testConstList(T& l, int testNb)
 {
 	std::cout << "\n\n--------------------------------\n";
 	std::cout << "------\tTESTING CONST LIST " << testNb << " ------\n";
@@ -1374,222 +1374,13 @@ void	testConstList(T& lis, int testNb)
 	print_type<typename T::value_type>();
 	
 	// Tests for const lists
-	testSizeList(lis);
-	testIteratorsList(lis);
-	testReverseIteratorsList(lis);
-	testFrontList(lis);
-	testBackList(lis);
-	testEmptyList(lis);
+	listTest_Size(l);
+	listTest_Iterators(l);
+	listTest_ReverseIterators(l);
+	listTest_Front(l);
+	listTest_Back(l);
+	listTest_Empty(l);
 }
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

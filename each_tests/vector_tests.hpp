@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_tests.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
+/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/02 08:05:38 by lucaslefran      ###   ########.fr       */
+/*   Updated: 2021/02/03 13:11:46 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "../includes_and_utils/tester.hpp"
 
 template <typename T>
-void	testOperatorBraceletVec(T& cont)
+void	vectorTest_OperatorBracelet(T& cont)
 {
 	std::string name("operator[]:");
 	std::cout << "\n---------------------";
@@ -27,7 +27,7 @@ void	testOperatorBraceletVec(T& cont)
 }
 
 template <typename T>
-void	testSizeVec(T& cont)
+void	vectorTest_Size(T& cont)
 {
 	std::string name("size:");
 	std::cout << "\n---------------------";
@@ -36,7 +36,7 @@ void	testSizeVec(T& cont)
 }
 
 template <typename T>
-void	testEmptyVec(T& cont)
+void	vectorTest_Empty(T& cont)
 {
 	std::string name("empty:");
 	std::cout << "\n---------------------";
@@ -45,7 +45,7 @@ void	testEmptyVec(T& cont)
 }
 
 template <typename T>
-void	testIteratorsVec(T& cont)
+void	vectorTest_Iterators(T& cont)
 {
 	std::string name("iterators:");
 	std::cout << "\n---------------------";
@@ -93,7 +93,7 @@ void	testIteratorsVec(T& cont)
 }
 
 template <typename T>
-void	testReverseIteratorsVec(T& cont)
+void	vectorTest_ReverseIterators(T& cont)
 {
 	std::string name("reverse iterators:");
 	std::cout << "\n---------------------";
@@ -141,7 +141,7 @@ void	testReverseIteratorsVec(T& cont)
 }
 
 template <typename T>
-void	testAtVec(T& cont)
+void	vectorTest_At(T& cont)
 {
 	std::string name("at:");
 	std::cout << "\n---------------------";
@@ -172,7 +172,7 @@ void	testAtVec(T& cont)
 }
 
 template <typename T>
-void	testFrontVec(T& cont)
+void	vectorTest_Front(T& cont)
 {
 	std::string name("front:");
 	std::cout << "\n---------------------";
@@ -183,7 +183,7 @@ void	testFrontVec(T& cont)
 }
 
 template <typename T>
-void	testBackVec(T& cont)
+void	vectorTest_Back(T& cont)
 {
 	std::string name("back:");
 	std::cout << "\n---------------------";
@@ -194,7 +194,7 @@ void	testBackVec(T& cont)
 }
 
 template <typename T>
-void	testPushBackVec(T& cont)
+void	vectorTest_PushBack(T& cont)
 {
 	std::string name("push_back:");
 	std::cout << "\n---------------------";
@@ -215,7 +215,7 @@ void	testPushBackVec(T& cont)
 }
 
 template <typename T>
-void	testPopBackVec(T& cont)
+void	vectorTest_PopBack(T& cont)
 {
 	std::string name("pop_back:");
 	std::cout << "\n---------------------";
@@ -231,7 +231,7 @@ void	testPopBackVec(T& cont)
 }
 
 template <typename T>
-void	testClearVec(T& cont)
+void	vectorTest_Clear(T& cont)
 {
 	std::string name("clear:");
 	std::cout << "\n---------------------";
@@ -254,7 +254,7 @@ void	testClearVec(T& cont)
 }
 
 template <typename T>
-void	testSwapVec(T& cont)
+void	vectorTest_Swap(T& cont)
 {
 	std::string name("swap:");
 	std::cout << "\n---------------------";
@@ -283,7 +283,7 @@ void	testSwapVec(T& cont)
 }
 
 template <typename T>
-void	testResizeVec(T& cont)
+void	vectorTest_Resize(T& cont)
 {
 	std::string name("resize:");
 	std::cout << "\n---------------------";
@@ -309,7 +309,7 @@ void	testResizeVec(T& cont)
 *	Test assign with iterators' range.
 */
 template <typename T>
-void	testAssignRangeVec(T& cont)
+void	vectorTest_AssignRange(T& cont)
 {
 	std::string name("assign iterator range:");
 	std::cout << "\n---------------------";
@@ -334,7 +334,7 @@ void	testAssignRangeVec(T& cont)
 }
 
 template <typename T>
-void	testAssignNElemVec(T& cont)
+void	vectorTest_AssignNElem(T& cont)
 {
 	std::string name("assign n elems:");
 	std::cout << "\n---------------------";
@@ -363,7 +363,7 @@ void	testAssignNElemVec(T& cont)
 *	Inserts one element.
 */
 template <typename T>
-void	testInsert1ElemVec(T& cont)
+void	vectorTest_Insert1Elem(T& cont)
 {
 	std::string name("insert 1 elem:");
 	std::cout << "\n---------------------";
@@ -393,7 +393,7 @@ void	testInsert1ElemVec(T& cont)
 *	Inserts n elements.
 */
 template <typename T>
-void	testInsertNElemVec(T& cont)
+void	vectorTest_InsertNElem(T& cont)
 {
 	std::string name("insert n elem:");
 	std::cout << "\n---------------------";
@@ -423,7 +423,7 @@ void	testInsertNElemVec(T& cont)
 *	Inserts an iterators' range of elements.
 */
 template <typename T>
-void	testInsertRangeVec(T& cont)
+void	vectorTest_InsertRange(T& cont)
 {
 	std::string name("insert iterator range:");
 	std::cout << "\n---------------------";
@@ -446,7 +446,7 @@ void	testInsertRangeVec(T& cont)
 }
 
 template <typename T>
-void	testEraseRangeVec(T& cont)
+void	vectorTest_EraseRange(T& cont)
 {
 	std::string name("erase iterator range:");
 	std::cout << "\n---------------------";
@@ -544,7 +544,7 @@ void	testEraseRangeVec(T& cont)
 }
 
 template <typename T>
-void	testErase1ElemVec(T& cont)
+void	vectorTest_Erase1Elem(T& cont)
 {
 	std::string name("erase 1 elem:");
 	std::cout << "\n---------------------";
@@ -610,7 +610,7 @@ void	testErase1ElemVec(T& cont)
 }
 
 template <typename T>
-void	testOperatorEqualNotEqualVec(T& cont)
+void	vectorTest_OperatorEqualNotEqual(T& cont)
 {
 	std::string name("operator==/!=:");
 	std::cout << "\n---------------------";
@@ -641,7 +641,7 @@ void	testOperatorEqualNotEqualVec(T& cont)
 }
 
 template <typename T>
-void	testOperatorLessAndMoreVec(T& cont)
+void	vectorTest_OperatorLessAndMore(T& cont)
 {
 	std::string name("operator</>/<=/>=:");
 	std::cout << "\n---------------------";
@@ -690,7 +690,7 @@ void	testOperatorLessAndMoreVec(T& cont)
 
 
 template <typename T>
-void	testNotConstVec(T& vec, int testNb)
+void	testNotConstVec(T& v, int testNb)
 {
 	std::cout << "\n\n--------------------------------\n";
 	std::cout << "------\tTESTING VECTOR " << testNb << " ------\n";
@@ -700,32 +700,32 @@ void	testNotConstVec(T& vec, int testNb)
 	print_type<typename T::value_type>();
 	
 	// Tests for non-const vectors
-	testOperatorBraceletVec(vec);
-	testSizeVec(vec);
-	testEmptyVec(vec);
-	testIteratorsVec(vec);
-	testReverseIteratorsVec(vec);
-	testAtVec(vec);
-	testFrontVec(vec);
-	testBackVec(vec);
-	testPushBackVec(vec);
-	testPopBackVec(vec);
-	testClearVec(vec);
-	testSwapVec(vec);
-	testResizeVec(vec);
-	testAssignRangeVec(vec);
-	testAssignNElemVec(vec);
-	testInsert1ElemVec(vec);
-	testInsertNElemVec(vec);
-	testInsertRangeVec(vec);
-	testEraseRangeVec(vec);
-	testErase1ElemVec(vec);
-	testOperatorEqualNotEqualVec(vec);
-	testOperatorLessAndMoreVec(vec);
+	vectorTest_OperatorBracelet(v);
+	vectorTest_Size(v);
+	vectorTest_Empty(v);
+	vectorTest_Iterators(v);
+	vectorTest_ReverseIterators(v);
+	vectorTest_At(v);
+	vectorTest_Front(v);
+	vectorTest_Back(v);
+	vectorTest_PushBack(v);
+	vectorTest_PopBack(v);
+	vectorTest_Clear(v);
+	vectorTest_Swap(v);
+	vectorTest_Resize(v);
+	vectorTest_AssignRange(v);
+	vectorTest_AssignNElem(v);
+	vectorTest_Insert1Elem(v);
+	vectorTest_InsertNElem(v);
+	vectorTest_InsertRange(v);
+	vectorTest_EraseRange(v);
+	vectorTest_Erase1Elem(v);
+	vectorTest_OperatorEqualNotEqual(v);
+	vectorTest_OperatorLessAndMore(v);
 }
 
 template <typename T>
-void	testConstVec(T& vec, int testNb)
+void	testConstVec(T& v, int testNb)
 {
 	std::cout << "\n\n--------------------------------\n";
 	std::cout << "------\tTESTING CONST VECTOR " << testNb << " ------\n";
@@ -735,145 +735,14 @@ void	testConstVec(T& vec, int testNb)
 	print_type<typename T::value_type>();
 	
 	// Tests for const vectors
-	testOperatorBraceletVec(vec);
-	testSizeVec(vec);
-	testEmptyVec(vec);
-	testIteratorsVec(vec);
-	testReverseIteratorsVec(vec);
-	testAtVec(vec);
-	testFrontVec(vec);
-	testBackVec(vec);
+	vectorTest_OperatorBracelet(v);
+	vectorTest_Size(v);
+	vectorTest_Empty(v);
+	vectorTest_Iterators(v);
+	vectorTest_ReverseIterators(v);
+	vectorTest_At(v);
+	vectorTest_Front(v);
+	vectorTest_Back(v);
 }
 
 #endif
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
