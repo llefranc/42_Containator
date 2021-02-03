@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:51:32 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/03 16:48:13 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:28:36 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,32 +28,32 @@ void	testNotConstList(T& l, int testNb)
 	listTest_Back(l);						//	back
 	listTest_PushBack(l);					//	push_back
 	listTest_PopBack(l);					//	pop_back
-	listTest_PushFront(l);
-	listTest_PopFront(l);
+	listTest_PushFront(l);					//	push_front
+	listTest_PopFront(l);					//	pop_front
 	listTest_Clear(l);						//	clear
 	listTest_Swap(l);						//	swap
-	listTest_Resize(l);
-	listTest_AssignRange(l);
-	listTest_AssignNElem(l);
-	listTest_Insert1Elem(l);
-	listTest_InsertNElem(l);
-	listTest_InsertRange(l);
-	listTest_EraseRange(l);
-	listTest_Erase1Elem(l);
-	listTest_Splice1Elem(l);
-	listTest_SpliceAll(l);
-	listTest_SpliceRange(l);
-	listTest_Remove(l);
-	listTest_RemoveIf(l);
-	listTest_Unique(l);
-	listTest_UniqueBinaryPredicate(l);
-	listTest_Merge(l);
-	listTest_MergePredicate(l);
-	listTest_Sort(l);
-	listTest_SortPredicate(l);
-	listTest_Reverse(l);
-	listTest_OperatorEqualNotEqual(l);
-	listTest_OperatorLessAndMore(l);
+	listTest_Resize(l);						//	resize
+	listTest_AssignRange(l);				//	assign an iterator range
+	listTest_AssignNElem(l);				//	assign n elements
+	listTest_InsertRange(l);				//	insert an iterator range
+	listTest_InsertNElem(l);				//	insert n elements
+	listTest_Insert1Elem(l);				//	insert one element
+	listTest_EraseRange(l);					//	erase an iterator range
+	listTest_Erase1Elem(l);					//	erase one element
+	listTest_SpliceRange(l);				//	splice an iterator range
+	listTest_SpliceAll(l);					//	splice an entire list
+	listTest_Splice1Elem(l);				//	splice one element
+	listTest_Remove(l);						//	remove
+	listTest_RemoveIf(l);					//	remove if (using an unary predicate)
+	listTest_Unique(l);						//	unique
+	listTest_UniqueBinaryPredicate(l);		//	unique (using a binary predicate)
+	listTest_Merge(l);						//	merge
+	listTest_MergePredicate(l);				//	merge (using a binary predicate)
+	listTest_Sort(l);						//	sort
+	listTest_SortPredicate(l);				//	sort (using a binary predicate)
+	listTest_Reverse(l);					//	reverse
+	listTest_OperatorEqualNotEqual(l);		//	== / !=
+	listTest_OperatorLessAndMore(l);		//	< / <= / > / >=
 }
 
 template <typename T>
@@ -61,12 +61,12 @@ void	testConstList(T& l, int testNb)
 {
 	printContainerInfo<T>("CONST LIST", testNb);
 	
-	listTest_Size(l);
-	listTest_Iterators(l);
-	listTest_ReverseIterators(l);
-	listTest_Front(l);
-	listTest_Back(l);
-	listTest_Empty(l);
+	listTest_Size(l);						//	size
+	listTest_Empty(l);						//	empty
+	listTest_Iterators(l);					//	iterators / begin / end
+	listTest_ReverseIterators(l);			//	reverse iterators / rbegin / rend
+	listTest_Front(l);						//	front
+	listTest_Back(l);						//	back
 }
 
 #endif

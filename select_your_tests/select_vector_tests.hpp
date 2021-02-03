@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:51:32 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/03 16:46:28 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/03 17:24:40 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ void	testNotConstVec(T& v, int testNb)
 	vectorTest_Resize(v);					//	resize
 	vectorTest_AssignRange(v);				//	assign an iterator range
 	vectorTest_AssignNElem(v);				//	assign n elements
-	vectorTest_Insert1Elem(v);				//	assign one element
 	vectorTest_InsertRange(v);				//	insert an iterator range
 	vectorTest_InsertNElem(v);				//	insert n elements
+	vectorTest_Insert1Elem(v);				//	insert one element
 	vectorTest_EraseRange(v);				//	erase an iterator range
-	vectorTest_Erase1Elem(v);				//	erase one elemenet
+	vectorTest_Erase1Elem(v);				//	erase one element
 	vectorTest_OperatorEqualNotEqual(v);	//	== / !=
 	vectorTest_OperatorLessAndMore(v);		//	< / <= / > / >=
 }
