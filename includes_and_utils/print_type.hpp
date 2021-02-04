@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:32:08 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/03 15:58:24 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/04 10:42:40 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ inline void printContainerInfo(const std::string& info, int testNb)
 *	Calls the correct type's predicate (used in remove_if (list))
 */
 template <typename T>
-inline bool predicateTest(const T&) {} // Inline keywork to avoid duplicate symbol error
+inline bool predicateTest(const T& a) { return true; } // Inline keywork to avoid duplicate symbol error
 
 template <>
 inline bool predicateTest<int>(const int& value) { return value < 100; }
@@ -74,7 +74,7 @@ inline bool predicateTest<std::string>(const std::string& value) { return value 
 *	Calls the correct type's binaryPredicate (used in unique predicate (list))
 */
 template <typename T>
-inline bool binaryPredicateTest(const T&, const T&) {} // Inline keywork to avoid duplicate symbol error
+inline bool binaryPredicateTest(const T& a, const T& b) { return a < b; } // Inline keywork to avoid duplicate symbol error
 
 template <>
 inline bool binaryPredicateTest<int>(const int& a, const int& b) { return a < b; }
