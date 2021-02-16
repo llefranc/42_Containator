@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:32:08 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/09 15:29:22 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/16 10:08:41 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define PRINT_TYPE
 
 #include "utils.hpp"
-
-class Bob;
 
 /**
 *	Prints the type of the template parameter.
@@ -30,13 +28,22 @@ template <>
 inline void print_type<char>() { std::cout << "char\n"; }
 
 template <>
-inline void print_type<Bob>() { std::cout << "Class test\n"; }
-
-template <>
 inline void print_type<double*>() { std::cout << "double*\n"; }
 
 template <>
 inline void print_type<std::string>() { std::cout << "std::string\n"; }
+
+template <>
+inline void print_type<std::pair<const int, std::string> >() { std::cout << "pair(const int, std::string)\n"; }
+
+template <>
+inline void print_type<ft::pair<const int, std::string> >() { std::cout << "pair(const int, std::string)\n"; }
+
+template <>
+inline void print_type<std::pair<const std::string, int> >() { std::cout << "pair(const std::string, int)\n"; }
+
+template <>
+inline void print_type<ft::pair<const std::string, int> >() { std::cout << "pair(const std::string, int)\n"; }
 
 
 /**
@@ -94,5 +101,12 @@ inline void printContainer(const std::string& nbLine, std::string name, T& cont)
 		std::cout << *it << " | ";
 }
 
+template <typename T>
+inline void printMapContainer(const std::string& nbLine, std::string name, T& cont)
+{
+	printTestName(nbLine, name);
+	for (typename T::const_iterator it = cont.begin(); it != cont.end(); ++it)
+		std::cout << "[" << it->first << "][" << it->second << "] | ";
+}
 
 #endif

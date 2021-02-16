@@ -39,5 +39,13 @@ else
     echo "${BLUE}Try again${NC}";
 fi
 
+echo "~ Test diff output from std::map and your work ~";
+if diff results/map_ft.txt results/map_std.txt > /dev/null;then
+    echo "${BLUE}No differences${NC}";
+else 
+	diff results/map_ft.txt results/map_std.txt > results/map_diff.txt
+    echo "${BLUE}Try again${NC}";
+fi
+
 echo "";
 make fclean

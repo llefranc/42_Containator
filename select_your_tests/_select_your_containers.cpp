@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:37:35 by hherin            #+#    #+#             */
-/*   Updated: 2021/02/04 10:38:04 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/15 15:02:54 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ int main(void)
 	testList(arrInt, arrString);
     testStack(arrInt, arrString);
 	testQueue(arrInt, arrString);
+	testMap(arrInt, arrString);
 }
