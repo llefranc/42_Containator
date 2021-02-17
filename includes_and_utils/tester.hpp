@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 17:27:13 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/15 15:06:43 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/17 10:51:52 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@
 #include "utils.hpp"
 #include "print_type.hpp"
 
-void	testVector(const int (&arrInt)[20], const std::string (&arrString)[20]);
-void	testList(const int (&arrInt)[20], const std::string (&arrString)[20]);
-void	testStack(const int (&arrInt)[20], const std::string (&arrString)[20]);
-void	testQueue(const int (&arrInt)[20], const std::string (&arrString)[20]);
-void	testMap(const int (&arrInt)[20], const std::string (&arrString)[20]);
+void    testVector(const int (&arrInt)[20], const std::string (&arrString)[20]);
+void    testList(const int (&arrInt)[20], const std::string (&arrString)[20]);
+void    testStack(const int (&arrInt)[20], const std::string (&arrString)[20]);
+void    testQueue(const int (&arrInt)[20], const std::string (&arrString)[20]);
+void    testMap(const int (&arrInt)[20], const std::string (&arrString)[20]);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:51:32 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/16 15:46:34 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/17 10:33:32 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ void	testNotConstMap(T& l, int testNb)
 	mapTest_InsertRange(l);				//	insert an iterator range
 	mapTest_InsertToAPosition(l);				//	insert n elements
 	mapTest_Insert1Elem(l);				//	insert one element
-	// mapTest_EraseRange(l);					//	erase an iterator range
-	// mapTest_Erase1Elem(l);					//	erase one element
+	mapTest_EraseRange(l);					//	erase an iterator range
+	mapTest_EraseToAPosition(l);					//	erase one element
+	mapTest_EraseASpecificKey(l);					//	erase one element
 	// mapTest_SpliceRange(l);				//	splice an iterator range
 	// mapTest_SpliceAll(l);					//	splice an entire list
 	// mapTest_Splice1Elem(l);				//	splice one element

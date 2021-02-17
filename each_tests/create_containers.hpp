@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   create_containers.hpp                              :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/26 14:42:21 by hherin            #+#    #+#             */
-/*   Updated: 2021/02/16 15:55:36 by llefranc         ###   ########.fr       */
-/*                                                                            */
+/*                                      */
+/*                            :::     ::::::::   */
+/*   create_containers.hpp                :+:   :+:    :+:   */
+/*                          +:+ +:+       +:+    */
+/*   By: llefranc <llefranc@student.42.fr>      +#+  +:+       +#+    */
+/*                        +#+#+#+#+#+   +#+     */
+/*   Created: 2021/01/26 14:42:21 by hherin   #+#  #+#          */
+/*   Updated: 2021/02/17 09:58:00 by llefranc       ###   ########.fr    */
+/*                                      */
 /* ************************************************************************** */
 
 #ifndef CONTAINERCREATE_HPP
@@ -20,7 +20,7 @@
 */
 template <class T, class Cont, class Func, class FuncC>
 void constructVectorList(const T (&x)[20], Func execNonConst, FuncC execConst)
-{    
+{   
     int nb = 0;
     Cont c0;
     for (int i = 0; i < 10; i++){
@@ -40,7 +40,7 @@ void constructVectorList(const T (&x)[20], Func execNonConst, FuncC execConst)
 
     Cont c1(c0);
     execNonConst(c1, ++nb);
-    
+        
     Cont c2; c2 = c0;
     execNonConst(c2, ++nb);
 
@@ -51,10 +51,10 @@ void constructVectorList(const T (&x)[20], Func execNonConst, FuncC execConst)
 
     Cont c4(c0.begin(), c0.begin());
     execNonConst(c4, ++nb);
-    
+        
     Cont c5(10, x[11]);
     execNonConst(c5, ++nb);
-    
+        
     Cont c6(0, x[12]);
     execNonConst(c6, ++nb);
 
@@ -66,13 +66,13 @@ void constructVectorList(const T (&x)[20], Func execNonConst, FuncC execConst)
 
     const Cont c9(5, x[15]);
     execConst(c9, ++nb);
-    
+        
 	const Cont c10;
 	execConst(c10, ++nb);
     		
 	const Cont c11(c1);
     execConst(c11, ++nb);
-    
+        
 	const Cont c12(c9);
     execConst(c12, ++nb);
 
@@ -85,7 +85,7 @@ void constructVectorList(const T (&x)[20], Func execNonConst, FuncC execConst)
 */
 template <class T, class StaQue, class Cont, class Func>
 void constructStackQueue(const T (&x)[20], Func execNonConst)
-{    
+{   
     int nb = 0;
     Cont c0;
 
@@ -106,7 +106,7 @@ void constructStackQueue(const T (&x)[20], Func execNonConst)
 
     StaQue st1(c0);
     execNonConst(st1, ++nb);
-    
+        
     Cont c2; c2 = c0;
     StaQue st2; st2 = st1;
     execNonConst(st2, ++nb);
@@ -121,11 +121,11 @@ void constructStackQueue(const T (&x)[20], Func execNonConst)
     Cont c4(c0.begin(), c0.begin());
     StaQue st4(c4);
     execNonConst(st4, ++nb);
-    
+        
     Cont c5(10, x[5]);
     StaQue st5(c5);
     execNonConst(st5, ++nb);
-    
+        
     Cont c6(0, x[6]);
     StaQue st6(c6);
     execNonConst(st6, ++nb);
@@ -145,10 +145,12 @@ void constructStackQueue(const T (&x)[20], Func execNonConst)
 */
 template <class T1, class T2, class Cont, class P, class Func, class FuncC>
 void constructMap(const T1 (&x)[20], const T2 (&y)[20], Func execNonConst, FuncC execConst)
-{    
+{   
+	(void)execConst;
+	
     int nb = 0;
     Cont c0;
-    for (int i = 0; i < 2; i++){
+    for (int i = 0; i < 10; i++){
 		P pair(x[i], y[i]);
         c0.insert(pair);
         execNonConst(c0, ++nb);
@@ -165,7 +167,7 @@ void constructMap(const T1 (&x)[20], const T2 (&y)[20], Func execNonConst, FuncC
     }
     Cont c1(c0);
     execNonConst(c1, ++nb);
-    
+        
     Cont c2; c2 = c0;
     execNonConst(c2, ++nb);
 
@@ -176,10 +178,10 @@ void constructMap(const T1 (&x)[20], const T2 (&y)[20], Func execNonConst, FuncC
 
     Cont c4(c0.begin(), c0.begin());
     execNonConst(c4, ++nb);
-    
+        
     // Cont c5(10, x[11]);
     // execNonConst(c5, ++nb);
-    
+        
     // Cont c6(0, x[12]);
     // execNonConst(c6, ++nb);
 
@@ -193,13 +195,13 @@ void constructMap(const T1 (&x)[20], const T2 (&y)[20], Func execNonConst, FuncC
 
     // const Cont c9(5, x[15]);
     // execConst(c9, ++nb);
-    
+        
 	const Cont c10;
 	execConst(c10, ++nb);
     		
 	const Cont c11(c1);
     execConst(c11, ++nb);
-    
+        
 	// const Cont c12(c9);
     // execConst(c12, ++nb);
 

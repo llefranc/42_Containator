@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 14:32:08 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/16 10:08:41 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/17 10:52:12 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "utils.hpp"
 
 /**
-*	Prints the type of the template parameter.
+*   Prints the type of the template parameter.
 */
 template <typename T>
 inline void print_type() {} // Inline keywork to avoid duplicate symbol error
@@ -47,22 +47,22 @@ inline void print_type<ft::pair<const std::string, int> >() { std::cout << "pair
 
 
 /**
-*	Prints a header of informations for the tested container.
+*   Prints a header of informations for the tested container.
 */
 template <typename T>
 inline void printContainerInfo(const std::string& info, int testNb)
 {
-	std::cout << "\n\n--------------------------------\n";
-	std::cout << "------\tTESTING " << info << " " << testNb << " ------\n";
-	std::cout << "--------------------------------\n";
-	
-	std::cout << "\t\t" << info << " TYPE: ";
-	print_type<typename T::value_type>();
+    std::cout << "\n\n--------------------------------\n";
+    std::cout << "------\tTESTING " << info << " " << testNb << " ------\n";
+    std::cout << "--------------------------------\n";
+        
+    std::cout << "\t\t" << info << " TYPE: ";
+    print_type<typename T::value_type>();
 }
 
 
 /**
-*	Calls the correct type's predicate (used in remove_if (list))
+*   Calls the correct type's predicate (used in remove_if (list))
 */
 template <typename T>
 inline bool predicateTest(const T&) { return true; } // Inline keywork to avoid duplicate symbol error
@@ -78,7 +78,7 @@ inline bool predicateTest<std::string>(const std::string& value) { return value 
 
 
 /**
-*	Calls the correct type's binaryPredicate (used in unique predicate (list))
+*   Calls the correct type's binaryPredicate (used in unique predicate (list))
 */
 template <typename T>
 inline bool binaryPredicateTest(const T& a, const T& b) { return a < b; } // Inline keywork to avoid duplicate symbol error
@@ -96,17 +96,17 @@ inline bool binaryPredicateTest<std::string>(const std::string& a, const std::st
 template <typename T>
 inline void printContainer(const std::string& nbLine, std::string name, T& cont)
 {
-	printTestName(nbLine, name);
-	for (typename T::const_iterator it = cont.begin(); it != cont.end(); ++it)
-		std::cout << *it << " | ";
+    printTestName(nbLine, name);
+    for (typename T::const_iterator it = cont.begin(); it != cont.end(); ++it)
+        std::cout << *it << " | ";
 }
 
 template <typename T>
 inline void printMapContainer(const std::string& nbLine, std::string name, T& cont)
 {
-	printTestName(nbLine, name);
-	for (typename T::const_iterator it = cont.begin(); it != cont.end(); ++it)
-		std::cout << "[" << it->first << "][" << it->second << "] | ";
+    printTestName(nbLine, name);
+    for (typename T::const_iterator it = cont.begin(); it != cont.end(); ++it)
+        std::cout << "[" << it->first << "][" << it->second << "] | ";
 }
 
 #endif

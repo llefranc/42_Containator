@@ -6,9 +6,9 @@
 NUMBERLINE=""
 
 while grep "TOREPLACE" ../each_tests/vector_tests.hpp > /dev/null;
-	do
-	NUMBERLINE=$(grep -n "TOREPLACE" ../each_tests/vector_tests.hpp | head -1 | cut -d ':' -f1)
-	tr '\n' '~' < ../each_tests/vector_tests.hpp | sed "s/TOREPLACE/$NUMBERLINE/1" | tr '~' '\n' > tmp.cpp
-	cat tmp.cpp > ../each_tests/vector_tests.hpp
-	done
+    do
+    NUMBERLINE=$(grep -n "TOREPLACE" ../each_tests/vector_tests.hpp | head -1 | cut -d ':' -f1)
+    tr '\n' '~' < ../each_tests/vector_tests.hpp | sed "s/TOREPLACE/$NUMBERLINE/1" | tr '~' '\n' > tmp.cpp
+    cat tmp.cpp > ../each_tests/vector_tests.hpp
+    done
 rm tmp.cpp
