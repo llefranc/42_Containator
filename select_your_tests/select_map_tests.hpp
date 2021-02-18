@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:51:32 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/17 15:03:09 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/02/18 09:09:31 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void    testNotConstMap(T& l, int testNb)
 	mapTest_count(l);						// count key's occurence
 	mapTest_lowerBound(l);					// iterator just before a specific key
 	mapTest_upperBound(l);					// iterator just after a specific key
-	mapTest_equalRange(l);					// range of iterator with a specific key
+	mapTest_equalRange(l);					// iterator's range with a specific key
 }
 
 template <typename T>
@@ -53,7 +53,7 @@ void    testConstMap(T& l, int testNb)
 	mapTest_count(l);						// count key's occurence
 	mapTest_lowerBound(l);					// iterator just before a specific key
 	mapTest_upperBound(l);					// iterator just after a specific key
-	mapTest_equalRange(l);					// range of iterator with a specific key
+	mapTest_equalRange(l);					// iterator's range with a specific key
 }
 
 #endif
