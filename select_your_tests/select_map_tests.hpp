@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 15:51:32 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/18 09:09:31 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:29:45 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,17 @@ void    testNotConstMap(T& l, int testNb)
     mapTest_operatorBracelet(l);            //  operator[]
     mapTest_Clear(l);                       //  clear
     mapTest_Swap(l);                        //  swap
-    mapTest_InsertRange(l);     			//  insert an iterator range
-    mapTest_InsertToAPosition(l);      	    //  insert n elements
-    mapTest_Insert1Elem(l);           		//  insert one element
+    mapTest_InsertRange(l);                 //  insert an iterator range
+    mapTest_InsertToAPosition(l);           //  insert n elements
+    mapTest_Insert1Elem(l);                 //  insert one element
     mapTest_EraseRange(l);                  //  erase an iterator range
-    mapTest_EraseToAPosition(l);   	        //  erase one element
+    mapTest_EraseToAPosition(l);            //  erase one element
     mapTest_EraseASpecificKey(l);           //  erase one element
-    mapTest_find(l);       					// find one element
-	mapTest_count(l);						// count key's occurence
-	mapTest_lowerBound(l);					// iterator just before a specific key
-	mapTest_upperBound(l);					// iterator just after a specific key
-	mapTest_equalRange(l);					// iterator's range with a specific key
+    mapTest_find(l);                        // find one element
+    mapTest_count(l);                       // count key's occurence
+    mapTest_lowerBound(l);                  // iterator just before a specific key
+    mapTest_upperBound(l);                  // iterator just after a specific key
+    mapTest_equalRange(l);                  // iterator's range with a specific key
 }
 
 template <typename T>
@@ -49,11 +49,11 @@ void    testConstMap(T& l, int testNb)
     mapTest_Empty(l);                       //  empty
     mapTest_Iterators(l);                   //  iterators / begin / end
     mapTest_ReverseIterators(l);            //  reverse iterators / rbegin / rend
-    mapTest_find(l);        		        // find one element
-	mapTest_count(l);						// count key's occurence
-	mapTest_lowerBound(l);					// iterator just before a specific key
-	mapTest_upperBound(l);					// iterator just after a specific key
-	mapTest_equalRange(l);					// iterator's range with a specific key
+    mapTest_find(l);                        // find one element
+    mapTest_count(l);                       // count key's occurence
+    mapTest_lowerBound(l);                  // iterator just before a specific key
+    mapTest_upperBound(l);                  // iterator just after a specific key
+    mapTest_equalRange(l);                  // iterator's range with a specific key
 }
 
 #endif

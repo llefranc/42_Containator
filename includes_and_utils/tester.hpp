@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/15 17:27:13 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/17 10:51:52 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:24:30 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,7 @@
 #include <queue>
 #include <map>
 
-// Include the containers to test
-#include "../../42_ft_containers/containers/vector.hpp"
-#include "../../42_ft_containers/containers/list.hpp"
-# include "../../42_ft_containers/containers/stack.hpp"
-# include "../../42_ft_containers/containers/queue.hpp"
-# include "../../42_ft_containers/containers/map.hpp"
+#include "../include_your_files.hpp"
 
 // Needed for testing
 #include "stl_like.hpp"

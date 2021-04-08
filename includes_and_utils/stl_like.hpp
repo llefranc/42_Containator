@@ -6,19 +6,19 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 15:20:29 by llefranc          #+#    #+#             */
-/*   Updated: 2021/02/18 15:01:57 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/04/08 11:27:07 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STL_LIKE_HPP
-#define STL_LIKE_HPP
+#ifndef PAIR_TEST_HPP
+#define PAIR_TEST_HPP
 
 
-namespace ft
+namespace test
 {
     /**
     * ------------------------------------------------------------- *
-    * ------------------------- FT::PAIR -------------------------- *
+    * ------------------------ TEST::PAIR ------------------------- *
     *
     * Coplien form:
     * (constructor):        Construct pair
@@ -84,6 +84,6 @@ namespace ft
             T2 second;
     };
 
-} // namespace ft
+} // namespace test
 
 #endif
