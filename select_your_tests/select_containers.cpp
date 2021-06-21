@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   _select_your_containers.cpp                        :+:      :+:    :+:   */
+/*   select_containers.cpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/26 14:37:35 by hherin            #+#    #+#             */
-/*   Updated: 2021/02/17 10:51:29 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/06/13 20:13:07 by lucaslefran      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int main(void)
                                         "raviolis du nord est", "PNY", "street bangkok", "confifi"};
 
     
+	// Comments the containers you don't wanna test
+	
     testVector(arrInt, arrString);
     testList(arrInt, arrString);
     testStack(arrInt, arrString);

@@ -23,6 +23,8 @@ void constructVectorList(const T (&x)[20], Func execNonConst, FuncC execConst)
 {   
     int nb = 0;
     Cont c0;
+	execNonConst(c0, ++nb);
+
     for (int i = 0; i < 10; i++){
         c0.push_back(x[i]);
         execNonConst(c0, ++nb);
@@ -64,20 +66,23 @@ void constructVectorList(const T (&x)[20], Func execNonConst, FuncC execConst)
     Cont c8(c0); c8.push_back(x[19]); c8.push_back(x[19]); c8.front() = x[14];
     execNonConst(c8, ++nb);
 
-    const Cont c9(5, x[15]);
-    execConst(c9, ++nb);
-        
-	const Cont c10;
-	execConst(c10, ++nb);
-    		
-	const Cont c11(c1);
-    execConst(c11, ++nb);
-        
-	const Cont c12(c9);
-    execConst(c12, ++nb);
+	const Cont c9;
+	execConst(c9, ++nb);
 
-	const Cont c13(3, x[16]);
+    const Cont c10(5, x[15]);
+    execConst(c10, ++nb);
+        
+	const Cont c11;
+	execConst(c11, ++nb);
+    		
+	const Cont c12(c1);
+    execConst(c12, ++nb);
+        
+	const Cont c13(c9);
     execConst(c13, ++nb);
+
+	const Cont c14(3, x[16]);
+    execConst(c14, ++nb);
 }
 
 /**
@@ -88,6 +93,8 @@ void constructStackQueue(const T (&x)[20], Func execNonConst)
 {   
     int nb = 0;
     Cont c0;
+	StaQue stEmpty(c0);
+	execNonConst(stEmpty, ++nb);
 
     for (int i = 0; i < 10; i++){
         c0.push_back(x[i]);
@@ -165,6 +172,7 @@ void constructMap(const T1 (&x)[20], const T2 (&y)[20], Func execNonConst, FuncC
             execNonConst(tmp, ++nb);
         }
     }
+	
     Cont c1(c0);
     execNonConst(c1, ++nb);
         
@@ -179,34 +187,16 @@ void constructMap(const T1 (&x)[20], const T2 (&y)[20], Func execNonConst, FuncC
     Cont c4(c0.begin(), c0.begin());
     execNonConst(c4, ++nb);
         
-    // Cont c5(10, x[11]);
-    // execNonConst(c5, ++nb);
-        
-    // Cont c6(0, x[12]);
-    // execNonConst(c6, ++nb);
-
-    // Cont c7(12, x[13]);
-    // execNonConst(c7, ++nb);
-
 	P pair19(x[19], y[19]);
 	P pair14(x[14], y[14]);
     Cont c8(c0); c8.insert(pair19); c8.insert(pair14);
     execNonConst(c8, ++nb);
 
-    // const Cont c9(5, x[15]);
-    // execConst(c9, ++nb);
-        
 	const Cont c10;
 	execConst(c10, ++nb);
     		
 	const Cont c11(c1);
     execConst(c11, ++nb);
-        
-	// const Cont c12(c9);
-    // execConst(c12, ++nb);
-
-	// const Cont c13(3, x[16]);
-    // execConst(c13, ++nb);
 }
 
 

@@ -4,7 +4,7 @@ NC=$'\e[0m'
 
 echo "~ Makefile is compiling ~\n";
 make re
-rm -rf results/*_diff.txt
+rm -rf results/*.txt
 ./containers_test
 
 echo "~ Test diff output from std::vector and your work ~";
