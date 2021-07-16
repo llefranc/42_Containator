@@ -6,7 +6,7 @@
 /*   By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 16:31:55 by llefranc          #+#    #+#             */
-/*   Updated: 2021/04/08 11:28:08 by llefranc         ###   ########.fr       */
+/*   Updated: 2021/07/16 15:55:40 by llefranc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void    vectorTest_Iterators(T& cont)
         std::cout << *it << " | ";
 
     printTestName("90", name, "operator[]");
-    for (test::pair<size_t, typename T::const_iterator> i(0, cont.begin()); i.first < cont.size(); ++i.first)
+    for (std::pair<size_t, typename T::const_iterator> i(0, cont.begin()); i.first < cont.size(); ++i.first)
         std::cout << i.second[i.first] << " | ";
 }
 
@@ -136,7 +136,7 @@ void    vectorTest_ReverseIterators(T& cont)
         std::cout << *it << " | ";
 
     printTestName("138", name, "operator[]");
-    for (test::pair<size_t, typename T::const_reverse_iterator> i(0, cont.rbegin()); i.first < cont.size(); ++i.first)
+    for (std::pair<size_t, typename T::const_reverse_iterator> i(0, cont.rbegin()); i.first < cont.size(); ++i.first)
         std::cout << i.second[i.first] << " | ";
 }
 

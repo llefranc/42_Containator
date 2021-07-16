@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lucaslefrancq <lucaslefrancq@student.42    +#+  +:+       +#+         #
+#    By: llefranc <llefranc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 11:24:58 by llefranc          #+#    #+#              #
-#    Updated: 2021/06/13 18:27:05 by lucaslefran      ###   ########.fr        #
+#    Updated: 2021/07/16 16:29:55 by llefranc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,9 @@ NAME		=	containers_test
 CC			=	clang++
 FLAGS		=	-g -fsanitize=address -Wall -Wextra -Werror -std=c++98
 
-SRCS		=	select_your_tests/select_containers.cpp includes_and_utils/utils.cpp \
-				each_tests/exec_each_test.cpp
+SRCS		=	select_your_tests/select_containers.cpp includes_and_utils/utils.cpp
 
-HEADER_INC	=	print_type.hpp tester.hpp stl_like.hpp utils.hpp
+HEADER_INC	=	print_type.hpp tester.hpp my_ft_pair.hpp utils.hpp
 PATH_INC	=	includes_and_utils/
 
 HEADER_TEST	=	create_containers.hpp vector_tests.hpp list_tests.hpp stack_tests.hpp \
