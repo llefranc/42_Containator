@@ -93,5 +93,7 @@ You then just have to open `each_tests/list_tests.hpp` and jump to the `line 42`
 
 :sos: We know that it can be a little bit tricky to make the tester compile the first time. :sos:  
   
-It's using a lot of templates functions, and if you have something wrong in your code a lot of compilation error messages will appear. Don't be scared and take the time to look the error messages and **find which method isn't compiling**. Try to do more testing by yourself on the errored method to find the problem, **fix it and run the tester again**.
+It's using a lot of templates functions, and if you have something wrong in your code a lot of compilation error messages will appear. Don't be scared and take the time to look the error messages and **find which method isn't compiling**.  
+Try to do more testing by yourself on the errored method to find the problem, **fix it and run the tester again**.  
+  
 If you're thinking that there is an error inside the tester, you can check that nothing is wrong by opening `each_tests/exec_each_test.cpp` file, and commenting all the calls to the FT test functions, and then run again the tester. You will see that with the STL, the tester is compiling normally, so you have something to fix in your code.
