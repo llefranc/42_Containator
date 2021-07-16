@@ -1,11 +1,11 @@
 # Containator
 
 Containator is a personnal project that I did with Hélène Herin (@hherin). It’s a tester for ft_containers, a 42 school project, where you have to reimplement some containers from the C++ STL. It will test the 5 following containers :
-- :arrow_right: **Vector:** a dynamic array that allows insertion at the end of the container. Elements can be easily access thanks with the corresponding index, but it's not the most optimal container if a lot of insertion / deletion are needed.
-- :arrow_right: **List:** a circular linked list (with a neutral node linking beginning and end of the list). Better than vector for inserting or deleting elements.
-- :arrow_right: **Stack:** a container adaptator (LIFO, last in first out).
-- :arrow_right: **Queue:** a container adaptator (FIFO, first in first out).
-- :arrow_right: **Map:** a sorted container using an AVL binary tree (auto-equilibrates itself to optimize the time to find a value in the tree), in order to store the datas like in a dictionnary (a key associated to its value).
+- :arrow_right: **Vector:**
+- :arrow_right: **List:**
+- :arrow_right: **Stack:**
+- :arrow_right: **Queue:**
+- :arrow_right: **Map:**
   
 You can choose which containers and which  methods you want to test. It’s running **several hundreads of tests for each of your containers**, then doing the same with the real STL containers and making **a diff of the two outputs**.   
 **Each test on the output has a line number** indicating where the test is situated in the test file. That way, you can easily find which test isn't working if an error occured.
