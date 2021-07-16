@@ -1,6 +1,6 @@
 # Containator
 
-![Alt text](https://github.com/llefranc/42_Containtor/blob/main/cartoon_containator.png)
+![Alt text](https://github.com/llefranc/42_Containator/blob/main/cartoon_containator.jpg)
 
 Containator is a personnal project that I did with Hélène Herin (@hherin). It’s a tester for ft_containers, a 42 school project, where you have to reimplement some containers from the C++ STL. It will test the 5 following containers :
 - :arrow_right: **Vector**
