@@ -76,17 +76,18 @@ You can choose which containers and which  methods you want to test. It’s runn
 
 ## I got some differences with STL containers, how to check my errors more precisely ?
 
-In the files created in 'results' directory, line numbers of each test are indicated (+ the name of the method tested). You just have to open the diff file and look for the line number of the failed test, and then looks directly to the test in the 'each_tests' directory.
-
+In the files created in `results/` directory, **line numbers of each test are indicated** (+ the name of the method tested). You just have to open the `xxx_diff.txt` file and look for the line number of the failed test, and then looks directly to the test in the `each_tests/` directory.  
 For example, if you have failed iterators test for list container, diff file will look like this:
-(the first result line if FT file, the other STL file)
 
+```shell
+# the first result line is FT file, the other STL file
 13c13
 < line 42: iterators: operator++:             589667777 | << YOUR FT FILE
 ---
-> line 42: iterators: operator++:             58966 |     << STL FILE (correct result)
+> line 42: iterators: operator++:             58966     | << STL FILE (correct result)
+```
 
-You then just have to open 'each_tests/list_tests.hpp' and jump to the line 42 to see the code that created a bug, and then use this piece of code to test it by yourself in order to solve the problem.
+You then just have to open `each_tests/list_tests.hpp` and jump to the `line 42` to see the code that created a bug, and then use this piece of code to test it by yourself in order to solve the problem.
 
 ## Some tips to help you to solve more easily the bugs
 
