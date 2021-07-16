@@ -82,9 +82,9 @@ For example, if you have failed iterators test for list container, diff file wil
 ```shell
 # the first result line is FT file, the other STL file
 13c13
-< line 42: iterators: operator++:             589667777 | << YOUR FT FILE
+< line 42: iterators: operator++:             589667777 | # << YOUR FT FILE
 ---
-> line 42: iterators: operator++:             58966     | << STL FILE (correct result)
+> line 42: iterators: operator++:             58966     | # << STL FILE (correct result)
 ```
 
 You then just have to open `each_tests/list_tests.hpp` and jump to the `line 42` to see the code that created a bug, and then use this piece of code to test it by yourself in order to solve the problem.
