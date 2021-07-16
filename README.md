@@ -1,24 +1,80 @@
 # Containator
 
-Containator is a personnal project that I did with Hélène Herin. It’s a tester for ft_containers, a 42 school project, where you have to reimplement some containers from the C++ STL.
-
-It will test the 5 following containers : vector, list, queue, stack and map. You can choose which containers and which  methods you want to test.
-
-It’s running several hundreads of tests for each of your containers, then doing the same with the real STL containers and making a diff of the two outputs. 
-
-It will first generate anEach test on the output has a line number indicating to indicate where the test is situated in the test file. That way, you can easily find which test isn't working if an error occured.
+Containator is a personnal project that I did with Hélène Herin (@hherin). It’s a tester for ft_containers, a 42 school project, where you have to reimplement some containers from the C++ STL.  
+It will test the 5 following containers :
+- vector
+- list
+- queue
+- stack
+- map  
+  
+You can choose which containers and which  methods you want to test.  
+It’s running several hundreads of tests for each of your containers, then doing the same with the real STL containers and making a diff of the two outputs.   
+Each test on the output has a line number indicating where the test is situated in the test file. That way, you can easily find which test isn't working if an error occured.
 
 ## How to run it
 
-Git clone the project into your ft_containers repository.
+1. Git clone the project into your ft_containers repository.
+    ```shell
+    git clone https://github.com/llefranc/42_Containator.git
+    ```
 
-Open 'include_your_files.hpp' and includes your containers files. It's not a problem if you haven't done all containers, you can later choose which container you want to test.
+2. Open `include_your_files.hpp` at the root directory and includes your containers files. It's not a problem if you haven't done all containers, you can later choose which container you want to test. Just comment the container's includes you're missing. You have to include aswell your ft_pair. If you didn't implemented it, you can use my own version (`includes_and_utils/my_ft_pair.hpp`).
+    ```c++
+    #include "../42_ft_containers/pair.hpp"
 
-In the directory select_your_tests, you can choose:
-	- With the file 'select_containers.cpp', which containers you want to test by commenting the calls to the containers' test functions.
-	- With all the other files, you can choose for each containers with methods you want to test by commenting the calls to the methods' test functions.
+    #include "../42_ft_containers/vector.hpp"   // Comment if you don't want to test VECTOR   
+    // #include "../42_ft_containers/list.hpp"     // Comment if you don't want to test LIST
+    #include "../42_ft_containers/stack.hpp"    // Comment if you don't want to test STACK
+    // #include "../42_ft_containers/queue.hpp"    // Comment if you don't want to test QUEUE
+    #include "../42_ft_containers/map.hpp"      // Comment if you don't want to test MAP
+    ```
 
-Run then the shell script to launch the tester. Result outputs of the STL containers and yours will be created in 'results' directory. If your output for a container differs from STL container, a diff file will be also created.
+3. In the file `select_your_tests/select_containers.cpp`, you can choose which containers you want to test by commenting the calls to the containers' test functions, and commenting also the code of the test function.
+    ```c++
+    // ---------------------------------------------------------------------------
+    // CHOOSE HERE WHICH CONTAINERS YOU WANT TO TEST. YOU HAVE ALSO TO COMMENT
+    // THE WHOLE FUNCTION BELOW.
+      
+    testVector(arrInt, arrString);  // Comment if you don't want to test VECTOR   
+    // testList(arrInt, arrString);    // Comment if you don't want to test LIST   
+    testStack(arrInt, arrString);   // Comment if you don't want to test STACK 
+    // .... 
+
+    // And then commenting the function below
+    // ---------------------------------------------------------------------------
+    // COMMENT THE WHOLE FUNCTION IF YOU DON'T WANT TO TEST LIST.
+    // ---------------------------------------------------------------------------
+    // void    testList(const int (&arrInt)[20], const std::string (&arrString)[20])
+    // {
+    //
+    //     std::streambuf *coutbuf = std::cout.rdbuf();
+    //     std::ofstream stdFile("results/list_std.txt");
+    // ....
+    ```
+3. In the five others files (`select_your_tests/select_xxx_tests.hpp`), you can choose for each containers with methods you want to test by commenting the calls to the methods' test functions.
+    ```c++
+    // In the file selecs_list_tests.hpp, not testing method empty.
+    template <typename T>
+    void    testNotConstList(T& l, int testNb)
+    {
+        printContainerInfo<T>("LIST", testNb);
+        
+        listTest_Size(l);                       //  size
+        // listTest_Empty(l);                      //  empty
+        listTest_Iterators(l);                  //  iterators / begin / end
+        // ....
+        ```
+
+4. Run then the shell script to launch the tester.
+    ```shell
+    ./testContainers.sh
+    ```
+
+5. Result outputs of the STL containers and yours will be created in `results/` directory. If your output for a container differs from STL container, a diff file will be also created.
+    ```shell
+    cat results/list_diff.txt
+    ```
 
 ## I got some differences with STL containers, how to check my errors more precisely ?
 
