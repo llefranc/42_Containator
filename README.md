@@ -1,11 +1,11 @@
 # Containator
 
 Containator is a personnal project that I did with Hélène Herin (@hherin). It’s a tester for ft_containers, a 42 school project, where you have to reimplement some containers from the C++ STL. It will test the 5 following containers :
-- :arrow_right: **Vector:**
-- :arrow_right: **List:**
-- :arrow_right: **Stack:**
-- :arrow_right: **Queue:**
-- :arrow_right: **Map:**
+- :arrow_right: **Vector**
+- :arrow_right: **List**
+- :arrow_right: **Stack**
+- :arrow_right: **Queue**
+- :arrow_right: **Map**
   
 You can choose which containers and which  methods you want to test. It’s running **several hundreads of tests for each of your containers**, then doing the same with the real STL containers and making **a diff of the two outputs**.   
 **Each test on the output has a line number** indicating where the test is situated in the test file. That way, you can easily find which test isn't working if an error occured.
