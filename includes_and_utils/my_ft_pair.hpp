@@ -58,6 +58,14 @@ namespace ft
             */
             pair(const pair& copy) : first(copy.first), second(copy.second) {};
             
+            /**
+            *   Copy constructor, creates a pair with the same member variables.
+            *
+            *   @param copy     The pair that will be copied.
+            */
+            template <typename U, typename V>
+            pair(const pair<U, V>& copy) : first(copy.first), second(copy.second) {};
+
             ~pair() {};
         
             /**
